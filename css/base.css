@@ -1,0 +1,59 @@
+/* CSS Reset */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: #b38b59;   /* gold */
+  --color-dark: #1a1a1a;
+  --color-light: #ffffff;
+  --color-muted: #777777;
+
+  /* Backgrounds */
+  --bg-dark: #0f0f0f;
+  --bg-light: #ffffff;
+
+  /* Typography */
+  --font-primary: "Poppins", sans-serif;
+
+  /* Spacing */
+  --container-width: 1200px;
+  --section-padding: 4rem;
+}
+
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}

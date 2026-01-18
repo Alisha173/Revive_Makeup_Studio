@@ -1,0 +1,87 @@
+/* Brand Logo */
+.brand-logo {
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Brand Text */
+.brand-text h1 {
+  font-size: 1.00rem;
+  font-weight: 600;
+}
+
+.brand-text p {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+/* Navigation Links */
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+/* Buttons */
+.btn {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Booking Button */
+.book-btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    margin-left: auto;
+  }
+
+  .navbar .btn {
+    display: none;
+  }
+
+  .brand {
+    gap: 0.5rem;
+  }
+
+  .brand-text h1 {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  .brand-text p {
+    font-size: 0.65rem;
+  }
+
+  .nav-links {
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 9999;
+  }
+
+}
