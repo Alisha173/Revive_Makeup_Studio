@@ -1,0 +1,54 @@
+[
+  {
+    "src": "assets/images/gallery/bridal/img3.jpg",
+    "category": "bridal",
+    "alt": "Traditional Kerala bridal makeup look",
+    "featured": true
+  },
+  {
+    "src": "assets/images/gallery/professional/img2.jpg",
+    "category": "professional",
+    "alt": "Professional studio makeup look",
+    "featured": false
+  },
+  {
+    "src": "assets/images/gallery/bridal/img6.jpg",
+    "category": "bridal",
+    "alt": "Elegant bridal makeup styling"
+  },
+  {
+    "src": "assets/images/gallery/professional/img1.jpg",
+    "category": "professional",
+    "alt": "Photoshoot makeup artistry"
+  },
+  {
+    "src": "assets/images/gallery/bridal/img1.jpg",
+    "category": "bridal",
+    "alt": "Classic bridal makeup look"
+  },
+  {
+    "src": "assets/images/gallery/bridal/img5.jpg",
+    "category": "bridal",
+    "alt": "South Indian bridal makeup"
+  },
+  {
+    "src": "assets/images/gallery/professional/img3.jpg",
+    "category": "professional",
+    "alt": "High fashion professional makeup"
+  },
+  {
+    "src": "assets/images/gallery/bridal/img7.jpg",
+    "category": "bridal",
+    "alt": "Minimal bridal makeup look"
+  },
+  {
+    "src": "assets/images/gallery/bridal/img2.jpg",
+    "category": "bridal",
+    "alt": "Traditional wedding bridal makeup"
+  },
+  {
+    "src": "assets/images/gallery/bridal/img4.jpg",
+    "category": "bridal",
+    "alt": "Modern bridal makeup look"
+  }
+]
