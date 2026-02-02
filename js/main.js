@@ -40,19 +40,22 @@ export function initHero() {
     slideEl.className = `hero-slide ${index === 0 ? "active" : ""}`;
 
     slideEl.innerHTML = `
-      <img src="${slide.image}" alt="">
-      <div class="hero-content">
-        <span class="hero-badge">${slide.badge}</span>
-        <h2>${slide.title}</h2>
-        <p>${slide.description}</p>
-        <div class="hero-actions">
-          <a href="#booking" class="btn btn-book">Book Free Trial</a>
-          <a href="#contact" class="btn">Contact Us</a>
-        </div>
-      </div>
-    `;
+            <img src="${slide.image}" alt="">
+            <div class="container">
+            
+                <div class="hero-content">
+                    <span class="hero-badge">${slide.badge}</span>
+                    <h2>${slide.title}</h2>
+                    <p>${slide.description}</p>
+                    <div class="hero-actions">
+                        <a href="#booking" class="btn btn-book">Book Free Trial</a>
+                        <a href="#contact" class="btn">Contact Us</a>
+                    </div>
+                </div>
 
-    carousel.appendChild(slideEl);
+            </div>
+        `;
+        carousel.appendChild(slideEl);
   });
 
   let currentIndex = 0;
