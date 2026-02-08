@@ -1,6 +1,8 @@
 import loadSection from "./spaLoader.js";
 import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
+import loadTestimonials from "./testimonial.js";
+
 
 function handleRoute() {
   const hash = location.hash || "#home";
@@ -15,7 +17,7 @@ function handleRoute() {
       break;
 
     case "#testimonials":
-      loadSection("pages/testimonial.html");
+      loadSection("pages/testimonial.html", loadTestimonials);
       break;
 
     default:
