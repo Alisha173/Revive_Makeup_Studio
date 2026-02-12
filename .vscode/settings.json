@@ -1,0 +1,9 @@
+{
+    "chat.extensionUnification.enabled": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.chat.useResponsesApi": false,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "github.copilot.chat.copilotDebugCommand.enabled": false
+}

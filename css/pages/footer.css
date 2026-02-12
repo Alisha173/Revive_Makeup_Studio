@@ -1,0 +1,6 @@
+.footer-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 3rem;
+    padding: 4rem 6rem;
+}
