@@ -1,15 +1,16 @@
 /* Hero Section */
 
 .hero {
-  min-height: 80vh;
+  min-height: fit-content;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: start;
   max-width: none;
   overflow: hidden;
 }
 
 .hero-carousel {
+  height: 60vh;
   width: 100%;
   position: relative;
   max-width: none;
@@ -21,6 +22,7 @@
   min-height: 80vh;
   display: none;
   align-items: center;
+  width: 100%;
 }
 
 .hero-slide .container{

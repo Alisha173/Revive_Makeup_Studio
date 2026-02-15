@@ -26,6 +26,7 @@
   /* Spacing */
   --container-width: 1200px;
   --section-padding: 4rem;
+  --accent-color:linear-gradient(to right,#D4AF73 70%,#bb9a66 90%);
 }
 
 
@@ -37,7 +38,10 @@ html {
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 body {
