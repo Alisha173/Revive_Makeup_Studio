@@ -17,13 +17,13 @@ function initNav() {
 export function initHero() {
   const heroSlides = [
     {
-      image: "assets/images/bride1.jpg",
+      image: "assets/images/hero/pic1.png",
       badge: "Royal Bridal Excellence",
       title: "Where every bride shines",
       description: "Serving all the brides of Kerala"
     },
     {
-      image: "assets/images/bride1.jpg",
+      image: "assets/images/hero/test.png",
       badge: "Luxury Makeup",
       title: "Elegance for your special day",
       description: "Premium bridal artistry"
@@ -63,7 +63,13 @@ export function initHero() {
   if (!slides.length) return;
 
   setInterval(() => {
+    const idx=currentIndex;
+    slides[currentIndex].classList.add("exit");
     slides[currentIndex].classList.remove("active");
+    setTimeout(() => {
+    slides[idx].classList.remove("exit");
+  }, 1000);
+
     currentIndex = (currentIndex + 1) % slides.length;
     slides[currentIndex].classList.add("active");
   }, 5000);
