@@ -58,12 +58,15 @@ const starIcon = `
 
 
 function renderTestimonials(grid, data) {
+  // 1. Define your limits here
+  const MAX_CHARS_WITH_IMG = 200; // Less text allowed if image is present
+  const MAX_CHARS_NO_IMG = 350;   // More text allowed if no image
+
   grid.innerHTML = data
     .map(item => {
-      // Build stars from rating
+      // --- Existing Star Logic ---
       const maxRating = 5;
       const rating = item.rating || 0;
-
       const stars = Array.from({ length: maxRating }, (_, i) => {
         return `
           <span class="star ${i < rating ? "filled" : "empty"}">
@@ -72,23 +75,35 @@ function renderTestimonials(grid, data) {
         `;
       }).join("");
 
-
-      // Optional image block
+      // --- Existing Image Logic ---
       const imageHTML = item.image
         ? `<img 
-             src="${item.image}" 
-             alt="${item.name}" 
-             class="testimonial-image"
-             loading="lazy"
-           />`
+              src="${item.image}" 
+              alt="${item.name}" 
+              class="testimonial-image"
+              loading="lazy"
+            />`
         : "";
+
+      // --- NEW: Truncation Logic ---
+      // Determine which limit to use
+      const charLimit = item.image ? MAX_CHARS_WITH_IMG : MAX_CHARS_NO_IMG;
+      
+      // Create a temporary variable for the text
+      let displayedText = item.text;
+
+      // Check length and truncate if necessary
+      if (displayedText.length > charLimit) {
+        // Cut at the limit, then back up to the last space found
+        displayedText = displayedText.substring(0, charLimit);
+        displayedText = displayedText.substring(0, displayedText.lastIndexOf(" ")) + "...";
+      }
 
       return `
         <article class="testimonial-card">
           ${imageHTML}
 
-          
-        <div class = testimonial-text>
+          <div class="testimonial-text">
           
             ${quoteIcon}
 
@@ -97,7 +112,7 @@ function renderTestimonials(grid, data) {
             </div>
 
             <blockquote>
-              “${item.text}”
+              “${displayedText}”
             </blockquote>
 
             <footer>
@@ -107,12 +122,11 @@ function renderTestimonials(grid, data) {
                 <span class="meta-item">${item.location}</span>
                 <span class="meta-item">${item.date}</span>
               </div>
-
             </footer>
           
           </div>
 
-          </article>
+        </article>
       `;
     })
     .join("");
