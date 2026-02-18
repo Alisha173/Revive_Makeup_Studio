@@ -198,19 +198,6 @@
    Responsive
 ============================== */
 
-@media (max-width: 768px) {
-  .testimonial-section {
-    padding: 60px 0;
-  }
-
-  .testimonial-section h2 {
-    font-size: 2.2rem;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr; /* single column on mobile */
-  }
-}
 
 .testimonial-star{
   height: 1rem;
@@ -226,7 +213,7 @@
   text-align: center;
   border-radius: 12px;
   border: solid 2.5px var(--color-testimonials-border);
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,7 +223,7 @@
 
 .testimonial-share h3{
   margin: 0;
-
+  
   font-family: var(--font-footer-heading);
   font-size: 1.7rem;
   font-weight: 250;
@@ -244,15 +231,133 @@
 
 .testimonial-share p{
   margin: 0;
-
+  
   font-size: .9rem;
 }
 
 .testimonial-share a{
   margin: 0;
-
+  
   margin-top: .75rem;
   text-decoration: none;
   font-family: var(--font-primary);
   color: var(--color-primary);
+}
+@media (max-width: 768px) {
+  /* .testimonial-section {
+    padding: 60px 0;
+  } */
+
+  .testimonial-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+    /* 1. Adjust Section Spacing */
+    .testimonial-section {
+        padding: 20px 0 60px 0; /* Reduced top gap specifically for mobile */
+    }
+
+    /* 2. Professional Viewport Gutter (Padding vs Margin) */
+    .testimonial-section .container {
+        padding: 0 24px; /* Professional standard for mobile side-spacing */
+        width: 100%;
+    }
+
+    /* 3. Header & Separator adjustments */
+    .divider-testimonials {
+        margin-top: 0.5rem; /* Pulls closer to the navbar */
+        margin-bottom: 1.5rem;
+        max-width: 3.5rem; /* Slightly smaller for mobile scale */
+    }
+
+    .testimonial-section h2 {
+        font-size: 32px; /* Scales down from 60px */
+        line-height: 1.2;
+    }
+
+    /* 4. Multi-line Stats & Divider Removal */
+    .testimonial-stats {
+        flex-direction: column; /* Breaks into separate lines */
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .testimonial-stats span[style*="opacity: 50%"] {
+        display: none; /* Removes the '|' characters */
+    }
+
+    /* 5. Vertically Compact Cards */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        row-gap: 20px; /* Tighter gap between cards */
+    }
+
+    .testimonial-card .testimonial-image {
+        height: 160px; /* Significantly shorter image */
+    }
+
+    .testimonial-text {
+        padding: 1.25rem; /* Tighter internal padding */
+    }
+
+    .testimonial-quote-icon {
+        max-width: 1.8rem;
+        margin-top: 0.5rem;
+    }
+
+    .testimonial-card blockquote {
+        font-size: 13px; /* Smaller font for vertical space */
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    /* 6. Smaller Client Details */
+    .testimonial-card footer {
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+
+    .testimonial-card .client-name {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card .client-meta {
+        font-size: 0.75rem; /* Appropriately smaller meta text */
+    }
+
+    /* Shrink the share section for mobile */
+    .testimonial-share {
+        padding: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .testimonial-share {
+        padding: 2rem 1.5rem; /* More compact padding */
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .testimonial-share h3 {
+        font-size: 1.4rem; /* Scaled down from 1.7rem */
+        line-height: 1.3;
+    }
+
+    .testimonial-share p {
+        font-size: 0.85rem; /* Slightly smaller for better readability */
+        line-height: 1.5;
+        color: #555;
+    }
+
+    .testimonial-share a {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        font-weight: 500;
+    }
+
 }
