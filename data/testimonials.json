@@ -31,5 +31,40 @@
     "text": "My dream bridal look came to life! The artists were so patient during the trial sessions and understood exactly what traditional Kerala Hindu bridal makeup should look like. The final result was beyond perfect - I felt like a queen! The makeup lasted the entire day through all the ceremonies. Thank you Revive!",
     "image": "assets/images/gallery/bridal/img2.jpg",
     "featured": false
+  },
+ 
+  {
+    "id": "t1",
+    "name": "Sarah Thomas",
+    "subtitle": "Christian Wedding",
+    "location": "Ernakulam",
+    "date": "January 2025",
+    "rating": 5,
+    "text": "Professional, punctual, and absolutely talented! They traveled to our venue early in the morning and made me and my six bridesmaids look stunning. The makeup was elegant and perfect for our church wedding - not too heavy but absolutely camera-ready. Worth every penny!",
+    "image": "assets/images/gallery/bridal/img1.jpg",
+    "featured": true
+  },
+  {
+    "id": "t2",
+    "name": "Ayesha Rahman",
+    "subtitle": "Muslim Wedding",
+    "location": "Kochi",
+    "date": "December 2024",
+    "rating": 5,
+    "text": "The team at Revive understood exactly what I wanted for my nikah. They respected my hijab style and created a stunning look that honored my faith while making me feel absolutely beautiful. The makeup was flawless and lasted throughout the entire ceremony and reception. Highly recommended for Muslim brides!",
+    "image": null,
+    "featured": false
+  },
+  {
+    "id": "t3",
+    "name": "Priya Menon",
+    "subtitle": "Hindu Wedding",
+    "location": "Thrissur",
+    "date": "November 2024",
+    "rating": 5,
+    "text": "My dream bridal look came to life! The artists were so patient during the trial sessions and understood exactly what traditional Kerala Hindu bridal makeup should look like. The final result was beyond perfect - I felt like a queen! The makeup lasted the entire day through all the ceremonies. Thank you Revive!",
+    "image": "assets/images/gallery/bridal/img2.jpg",
+    "featured": false
   }
 ]
+
