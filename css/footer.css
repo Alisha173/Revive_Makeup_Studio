@@ -3,8 +3,6 @@
     background-color: #1c1816;
 }
 
-
-
 .footer-grid{
     display: grid;
     grid-template-columns: 2fr 1fr 1.2fr;
@@ -57,7 +55,7 @@
 }
 
 
-.divider {
+.divider-footer {
   border: none;
   height: 1px;
   background-color: var(--color-primary);
@@ -85,7 +83,7 @@
 }
 
 .footer-logo-and-header{
-    font-family: var(--font-heading);
+    font-family: var(--font-footer-heading);
     display: flex;
     gap: 12px;
     align-items: center;
