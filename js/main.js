@@ -11,6 +11,15 @@ function initNav() {
   navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
+
+  navLinks.addEventListener('click',(e)=>{
+    if(e.target.tagName!=="A")return;
+    e.currentTarget.classList.remove("active");
+  })
+  document.addEventListener('click',(e)=>{
+    if(!navLinks.contains(e.target) && !navToggle.contains(e.target))
+      navLinks.classList.remove("active");
+  })
 }
 
 

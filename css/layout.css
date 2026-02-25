@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: 60px;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
 }
 
 .brand {
@@ -26,8 +26,9 @@
 .nav-links {
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  margin-left: -80px;
 }
 
 /* Navbar Responsive */
@@ -42,11 +43,11 @@
 #app{
   margin-top: 5%;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .nav-links {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 84px;
     left: 0;
     width: 100%;
     background: var(--bg-light);
