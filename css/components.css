@@ -1,23 +1,28 @@
 /* Brand Logo */
 .brand-logo {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border: 2px solid var(--color-primary);
   border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-primary);
+}
+.brand-logo img{
+  object-fit: cover;
+  width: 95%;
+  height: 95%;
+  padding: 5px;
 }
 
 /* Brand Text */
 .brand-text h1 {
   font-size: 1.00rem;
   font-weight: 600;
+  background: linear-gradient(#eac991,#CEAA6C);
+  background-clip:text;
+  color: transparent;
 }
 
 .brand-text p {
@@ -25,12 +30,29 @@
   color: var(--color-muted);
 }
 
+#navContainer{
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 /* Navigation Links */
-.nav-links a {
+.nav-links a:not(.btn-book) {
+  display: inline-block;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-dark);
+ 
+}
+
+.nav-links a:not(.btn-book):active{
+  color: #a88d5d;
+}
+
+.btnEffect{
+  transition: all 0.1s ease-in;
 }
 
 /* Buttons */
@@ -43,12 +65,16 @@
 }
 
 /* Booking Button */
-.book-btn-primary {
-  background-color: var(--color-primary);
+.btn-book{
+  background:linear-gradient(90deg,#eec784,#CEAA6C);
   color: var(--color-light);
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 960px) {
   .nav-toggle {
     margin-left: auto;
   }
@@ -83,5 +109,22 @@
     position: relative;
     z-index: 9999;
   }
-
+}
+ @media(hover: hover) {
+    .btnEffect:hover{
+      transform: translateY(-2px);
+    }
+    .btn-book:hover{
+      background:linear-gradient(90deg,#dcb36c,#c9a664);
+    }
+    .nav-links a:not(.btn-book):hover{
+      color: #CEAA6C; 
+    }
+}
+.btn-book:active{
+  background:linear-gradient(90deg,#9f8353,#886c39);
+}
+.btnEffect:active{
+   transform: scale(0.98);
+   transform: translateY(2px);
 }
