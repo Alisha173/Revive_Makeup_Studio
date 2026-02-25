@@ -14,19 +14,27 @@
   --color-dark: #1a1a1a;
   --color-light: #ffffff;
   --color-muted: #777777;
-
+  
   /* Backgrounds */
   --bg-dark: #0f0f0f;
   --bg-light: #ffffff;
-
+  
   /* Typography */
   --font-primary: "Poppins", sans-serif;
-  --font-heading: 'Playfair Display', serif;
-
+  
   /* Spacing */
-  --container-width: 1200px;
+  --container-width: 1280px;
   --section-padding: 4rem;
   --accent-color:linear-gradient(to right,#D4AF73 70%,#bb9a66 90%);
+  
+  /* Optional colors and fonts? */
+  
+  --font-footer-heading: 'Libre Baskerville', serif;
+  --font-heading: 'Playfair Display', serif;
+  --color-background-2: #f8eddb;
+  --color-background-testimonials: #fefdfa;
+  --color-testimonials-border: #eedfc7;
+
 }
 
 
@@ -62,3 +70,5 @@ img {
   font-weight: 500;
   cursor: pointer;
 }
+
+

@@ -3,8 +3,6 @@
     background-color: #1c1816;
 }
 
-
-
 .footer-grid{
     display: grid;
     grid-template-columns: 2fr 1fr 1.2fr;
@@ -57,7 +55,7 @@
 }
 
 
-.divider {
+.divider-footer {
   border: none;
   height: 1px;
   background-color: var(--color-primary);
@@ -85,7 +83,7 @@
 }
 
 .footer-logo-and-header{
-    font-family: var(--font-heading);
+    font-family: var(--font-footer-heading);
     display: flex;
     gap: 12px;
     align-items: center;
@@ -94,4 +92,76 @@
 .footer-logo-revive{
     height: 3.5rem;
     width: 3.5rem;
+}
+
+
+/* =========================================
+   Responsive Media Queries for Footer
+   ========================================= */
+
+/* Tablet Optimization (Screens under 992px) */
+@media (max-width: 992px) {
+    .footer-container {
+        padding: 3rem 2rem;
+    }
+
+    .footer-grid {
+        /* Change from 3 columns to 2 columns */
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .footer-col.desc {
+        /* Make the brand description span across both columns */
+        grid-column: 1 / -1;
+        max-width: 80%; /* Keeps the text readable without stretching too far */
+    }
+}
+
+/* Mobile Optimization (Screens under 768px) */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .footer-grid {
+        /* Stack all columns vertically */
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-col.desc {
+        max-width: 100%;
+    }
+
+    .footer-list {
+        /* Increase gap for better touch targets on mobile */
+        gap: 1rem;
+    }
+
+    .footer-bottom {
+        /* Stack the copyright and 'Made with' text */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-bottom .footer-link {
+        /* Center the contents of the 'Made with' flex container */
+        justify-content: center;
+        flex-wrap: wrap; /* Allows text to wrap neatly on very small screens */
+    }
+}
+
+/* Small Mobile Adjustments (Screens under 480px) */
+@media (max-width: 480px) {
+    .footer-logo-and-header h3 {
+        font-size: 1.25rem; /* Slightly scale down header if needed */
+    }
+    
+    .footer-logo-revive {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
 }
