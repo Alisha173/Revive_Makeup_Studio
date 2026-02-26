@@ -1,5 +1,3 @@
-let galleryData = [];
-
 export default async function loadGallery() {
   const galleryGrid = document.getElementById("galleryGrid");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -17,7 +15,7 @@ export default async function loadGallery() {
       throw new Error("Failed to load gallery data");
     }
 
-    galleryData = await res.json();
+    const galleryData = await res.json();
     renderGallery(galleryGrid, galleryData);
     initFilters(filterButtons, galleryGrid);
     intersectionFunction();
@@ -94,16 +92,17 @@ const intersectionFunction = () => {
 };
 
 function renderGallery(galleryGrid, data) {
-  galleryGrid.innerHTML = data.map(item => `
-    <div class="gallery-item ${item.category}" style="--after-text:'${item.alt}'">
-      <img
-        src="${item.src}"
-        alt="${item.alt}"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-  `).join("");
+  const template=document.querySelector("#card-template");
+  data.forEach(item=>{
+    const clone=template.content.cloneNode(true);
+    const div=clone.querySelector(".gallery-item");
+    const img=clone.querySelector("img");
+    div.classList.add(`${item.category}`);
+    div.style.setProperty('--after-text',`"${item.alt}"`);
+    img.setAttribute('src',`${item.src}`);
+    img.setAttribute('alt',`${item.alt}`);
+    galleryGrid.appendChild(clone);
+  })
 }
 
 function initFilters(filterButtons, galleryGrid) {
