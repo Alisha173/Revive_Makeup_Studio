@@ -2,6 +2,7 @@ import loadSection from "./spaLoader.js";
 import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
+// import loadPackages from "./packages.js";
 
 
 function handleRoute() {
@@ -19,6 +20,9 @@ function handleRoute() {
     case "#testimonials":
       loadSection("pages/testimonial.html", loadTestimonials);
       break;
+
+    case "#packages":
+      // loadSection("pages/packages.html", loadPackages);
 
     default:
       loadSection("pages/home.html", initHero);

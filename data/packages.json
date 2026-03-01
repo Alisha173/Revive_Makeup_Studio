@@ -1,0 +1,133 @@
+{
+  "categories": [
+    {
+      "category_name": "Bridal",
+      "packages": [
+        {
+          "id": "bridal-basic",
+          "name": "Bridal Basic",
+          "description": "Perfect for intimate weddings",
+          "current_price": 9999,
+          "original_price": 13999,
+          "has_offer": true,
+          "featured": true,
+          "is_popular": false,
+          "features": [
+            "Bridal makeup & hair",
+            "One free trial",
+            "Touch-up kit",
+            "4-hour duration"
+          ]
+        },
+        {
+          "id": "bridal-premium",
+          "name": "Bridal Premium",
+          "description": "Most popular package",
+          "current_price": 9999,
+          "original_price": 13999,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": true,
+          "features": [
+            "HD makeup & advanced hair",
+            "Two free trials",
+            "Draping assistance",
+            "6-hour duration",
+            "Family makeup (2 members)"
+          ]
+        },
+        {
+          "id": "bridal-luxury",
+          "name": "Bridal Luxury",
+          "description": "Complete royal experience",
+          "current_price": 9999,
+          "original_price": 13999,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": false,
+          "features": [
+            "Premium HD makeup",
+            "Three free trials",
+            "Pre-bridal consultation",
+            "Full day coverage (8+ hrs)",
+            "Family makeup (5 members)"
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Party",
+      "packages": [
+        {
+          "id": "party-glam",
+          "name": "Evening Glam",
+          "description": "Perfect for receptions and parties",
+          "current_price": 4500,
+          "original_price": 6000,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": false,
+          "features": [
+            "Party makeup & hairstyling",
+            "Lashes included",
+            "Standard draping",
+            "2-hour duration"
+          ]
+        },
+        {
+          "id": "party-group",
+          "name": "Squad Package",
+          "description": "Best for bridesmaids and family",
+          "current_price": 12000,
+          "original_price": 15000,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": true,
+          "features": [
+            "Makeup for 3 persons",
+            "Basic hairstyling",
+            "Group draping assistance",
+            "4-hour duration"
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Professional",
+      "packages": [
+        {
+          "id": "prof-editorial",
+          "name": "Editorial Shoot",
+          "description": "High-definition for photography",
+          "current_price": 8000,
+          "original_price": 10000,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": false,
+          "features": [
+            "HD/Airbrush finish",
+            "Concept-based hairstyling",
+            "On-set touch-ups",
+            "Full lighting-ready prep"
+          ]
+        },
+        {
+          "id": "prof-corporate",
+          "name": "Corporate/Headshot",
+          "description": "Polished and natural professional look",
+          "current_price": 5000,
+          "original_price": 7000,
+          "featured": true,
+          "has_offer": true,
+          "is_popular": true,
+          "features": [
+            "Natural matte makeup",
+            "Minimalist hairstyling",
+            "Grooming for men/women",
+            "1.5-hour duration"
+          ]
+        }
+      ]
+    }
+  ]
+}
