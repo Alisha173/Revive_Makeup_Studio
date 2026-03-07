@@ -28,6 +28,8 @@ function handleRoute() {
     default:
       loadSection("pages/home.html", initHero);
   }
+
+  window.scrollTo(0, 0);
 }
 
 window.addEventListener("DOMContentLoaded", handleRoute);
