@@ -8,6 +8,7 @@ let data = [];
 let currentIndex = 0;
 let autoPlayInterval;
 
+//add inifinity carousel later
 const handleClick1 = () => {moveSlide(currentIndex + 1);
   clearInterval(autoPlayInterval);
   startAutoPlay();

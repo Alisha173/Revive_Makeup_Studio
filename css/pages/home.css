@@ -280,18 +280,19 @@
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  background-color: #fefcfbbd;
-  border: 1px solid #B8954F;
+  background-color: #fefcfbce;
+  border: 0px;
   color: #B8954F;
+  cursor: pointer;
 }
 #preBtn{
   position: absolute;
-  left: -10px;
+  left: -12px;
   z-index: 5;
 }
 #nexBtn{
   position: absolute;
-  right: -10px;
+  right: -12px;
   z-index: 5;
 }
 @media(hover: hover){

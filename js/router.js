@@ -1,5 +1,5 @@
 import loadSection from "./spaLoader.js";
-import { initHero } from "./main.js";
+import { initHero,destroyHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
@@ -20,7 +20,10 @@ function handleRoute() {
         
         initHero();
         initOurWork();
-        cleanup=destroyOurWork;
+        cleanup=()=>{
+        destroyHero();
+        destroyOurWork();
+        }
       });
       break;
 
@@ -41,7 +44,10 @@ function handleRoute() {
         
         initHero();
         initOurWork();
-        cleanup=destroyOurWork;
+        cleanup=()=>{
+        destroyHero();
+        destroyOurWork();
+        }
       });
   }
 

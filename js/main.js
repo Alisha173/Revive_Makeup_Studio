@@ -1,29 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-  initNav();
-});
+
+let navToggle ;
+let navLinks ;
+let autoPlay;
+function handleClick1(){
+   navLinks.classList.toggle("active");
+}
+function handleClick2(e){
+   if(e.target.tagName!=="A")return;
+    e.currentTarget.classList.remove("active");
+}
+function handleClick3(e){
+   if(!navLinks || !navToggle) return;
+
+  if(!navLinks.contains(e.target) && !navToggle.contains(e.target))
+      navLinks.classList.remove("active");
+}
 
 function initNav() {
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  navToggle = document.querySelector(".nav-toggle");
+  navLinks = document.querySelector(".nav-links");
 
   if (!navToggle || !navLinks) return;
 
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  navToggle.addEventListener("click", handleClick1);
 
-  navLinks.addEventListener('click',(e)=>{
-    if(e.target.tagName!=="A")return;
-    e.currentTarget.classList.remove("active");
-  })
-  document.addEventListener('click',(e)=>{
-    if(!navLinks.contains(e.target) && !navToggle.contains(e.target))
-      navLinks.classList.remove("active");
-  })
+  navLinks.addEventListener('click',handleClick2);
+
+  document.addEventListener('click',handleClick3);
 }
 
 
 export function initHero() {
+  initNav();
   const heroSlides = [
     {
       image: "assets/images/hero/pic1.png",
@@ -71,7 +79,8 @@ export function initHero() {
   const slides = carousel.querySelectorAll(".hero-slide");
   if (!slides.length) return;
 
-  setInterval(() => {
+  clearInterval(autoPlay);
+  autoPlay=setInterval(() => {
     const idx=currentIndex;
     slides[currentIndex].classList.add("exit");
     slides[currentIndex].classList.remove("active");
@@ -82,4 +91,16 @@ export function initHero() {
     currentIndex = (currentIndex + 1) % slides.length;
     slides[currentIndex].classList.add("active");
   }, 5000);
+}
+
+export function destroyHero(){
+  clearInterval(autoPlay);
+  autoPlay = null;
+  navToggle?.removeEventListener("click", handleClick1);
+
+  navLinks?.removeEventListener('click',handleClick2);
+  navLinks?.classList.remove("active");
+  document.removeEventListener('click',handleClick3);
+  navToggle = null;
+  navLinks = null;
 }

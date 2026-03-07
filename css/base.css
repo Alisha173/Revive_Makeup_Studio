@@ -68,5 +68,8 @@ img {
   font-weight: 500;
   cursor: pointer;
 }
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 
