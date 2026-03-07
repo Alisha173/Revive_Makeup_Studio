@@ -1,15 +1,15 @@
-
+document.addEventListener("DOMContentLoaded",initNav);
 let navToggle ;
 let navLinks ;
 let autoPlay;
-function handleClick1(){
+function hdlClick1(){
    navLinks.classList.toggle("active");
 }
-function handleClick2(e){
+function hdlClick2(e){
    if(e.target.tagName!=="A")return;
     e.currentTarget.classList.remove("active");
 }
-function handleClick3(e){
+function hdlClick3(e){
    if(!navLinks || !navToggle) return;
 
   if(!navLinks.contains(e.target) && !navToggle.contains(e.target))
@@ -19,19 +19,17 @@ function handleClick3(e){
 function initNav() {
   navToggle = document.querySelector(".nav-toggle");
   navLinks = document.querySelector(".nav-links");
-
   if (!navToggle || !navLinks) return;
 
-  navToggle.addEventListener("click", handleClick1);
+  navToggle.addEventListener("click", hdlClick1);
 
-  navLinks.addEventListener('click',handleClick2);
+  navLinks.addEventListener('click',hdlClick2);
 
-  document.addEventListener('click',handleClick3);
+  document.addEventListener('click',hdlClick3);
 }
 
 
 export function initHero() {
-  initNav();
   const heroSlides = [
     {
       image: "assets/images/hero/pic1.png",
@@ -96,11 +94,5 @@ export function initHero() {
 export function destroyHero(){
   clearInterval(autoPlay);
   autoPlay = null;
-  navToggle?.removeEventListener("click", handleClick1);
-
-  navLinks?.removeEventListener('click',handleClick2);
   navLinks?.classList.remove("active");
-  document.removeEventListener('click',handleClick3);
-  navToggle = null;
-  navLinks = null;
 }
