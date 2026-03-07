@@ -2,6 +2,7 @@ import loadSection from "./spaLoader.js";
 import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
+import initCallbackForm from "./callback.js";
 
 
 function handleRoute() {
@@ -18,6 +19,10 @@ function handleRoute() {
 
     case "#testimonials":
       loadSection("pages/testimonial.html", loadTestimonials);
+      break;
+
+    case "#callback":
+      loadSection("pages/callback.html", initCallbackForm);
       break;
 
     default:
