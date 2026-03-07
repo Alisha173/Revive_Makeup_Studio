@@ -1,0 +1,90 @@
+<section class="callback-section">
+    <div class="callback-header">
+        <hr class="accent-line">
+        <h2>Request a Call Back</h2>
+        <p>Share your details and we'll call you back within 2 hours</p>
+    </div>
+
+    <div class="callback-card">
+        <div class="callback-card__banner">
+            <h3>Your Information</h3>
+            <p>Tell us about your requirements and we'll get back to you right away</p>
+        </div>
+
+        <form class="callback-form" action="#" method="POST">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="your-name">Full Name *</label>
+                    <input id="your-name" name="your-name" type="text" placeholder="Your name" minlength="2" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number *</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-phone icon-left"></i>
+                        <input id="phone-number" name="phone-number" type="tel" placeholder="+91 XXXXX XXXXX" required class="has-icon" minlength="10" maxlength="18">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="packages">Package Interested In *</label> 
+                    <select id="packages" name="packages" required>
+                        <option value="" disabled selected>Select a package</option>
+                        <option value="HD Makeup">HD Makeup -- ₹9,999</option>
+                        <option value="Ultra HD Makeup">Ultra HD Makeup -- ₹12,999</option>
+                        <option value="Glass Skin Makeup">Glass Skin Makeup -- ₹14,999</option>
+                        <option value="Airbrush Makeup">Airbrush Makeup -- ₹19,999</option>
+                        <option value="Party Makeup">Party Makeup</option>
+                        <option value="Model/PhotoShoot Makeup">Model/Photoshoot Makeup</option>
+                        <option value="Other">Other/undecided - Kindly specify below</option>
+                    </select>          
+                </div>
+                <div class="form-group">
+                    <label for="location">Location *</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-location-dot icon-left"></i>
+                        <input id="location" name="location" type="text" placeholder="Your location (City/Area in Kerala)" required class="has-icon" minlength="3" maxlength="150">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="date-yes-no">Have you decided on the event date? *</label>
+                <select id="date-yes-no" name="date-yes-no" required>
+                    <option value="yes" selected>Yes, I have a date</option>
+                    <option value="no">Not decided yet</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="date-group">
+                <label for="event-date">Event Date</label>
+                <div class="input-with-icon">
+                    <i class="fa-regular fa-calendar icon-left"></i>
+                    <input id="event-date" name="event-date" type="date" class="has-icon" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="additional-details">Additional Details</label>
+                <textarea id="additional-details" name="additional-details" rows="3" placeholder="Tell us about your event, religious/cultural preferences, any specific requirements..."></textarea>
+            </div>
+
+            <div class="form-note">
+                <p><strong>Note:</strong> We provide services across Kerala and beyond. Travel charges apply for long-distance journeys. We respect all religious and cultural traditions.</p>
+            </div>
+
+            <button type="submit" class="btn-submit">Request Call Back</button>
+        </form>
+    </div>
+
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check modal-icon"></i>
+            <h3>Request Received!</h3>
+            <p>Thank you for reaching out. We will call you back in 24hrs.</p>
+            <button id="btn-close-modal" class="btn-submit">Return to Home</button>
+        </div>
+    </div>
+</section>

@@ -57,7 +57,7 @@ export function initHero() {
                     <h2>${slide.title}</h2>
                     <p>${slide.description}</p>
                     <div class="hero-actions">
-                        <a href="#booking" class="btn btn-book">Book Free Trial</a>
+                        <a href="#callback" class="btn btn-book">Book Free Trial</a>
                         <a href="#contact" class="btn">Contact Us</a>
                     </div>
                 </div>

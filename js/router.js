@@ -2,6 +2,7 @@ import loadSection from "./spaLoader.js";
 import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
+import initCallbackForm from "./callback.js";
 
 
 function handleRoute() {
@@ -20,9 +21,15 @@ function handleRoute() {
       loadSection("pages/testimonial.html", loadTestimonials);
       break;
 
+    case "#callback":
+      loadSection("pages/callback.html", initCallbackForm);
+      break;
+
     default:
       loadSection("pages/home.html", initHero);
   }
+
+  window.scrollTo(0, 0);
 }
 
 window.addEventListener("DOMContentLoaded", handleRoute);

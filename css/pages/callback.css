@@ -1,0 +1,277 @@
+/* --- Callback Page Styles --- */
+
+/* --- Section & Header --- */
+.callback-section {
+    padding: 60px 20px;
+    background-color: var(--bg-light); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-primary);
+}
+
+.callback-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.accent-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-primary);
+    border: none;
+    margin: 0 auto 15px auto;
+}
+
+.callback-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.callback-header p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* --- Card Layout --- */
+.callback-card {
+    width: 100%;
+    max-width: 850px;
+    background: var(--color-light);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.callback-card__banner {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 30px 40px;
+}
+
+.callback-card__banner h3 {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.callback-card__banner p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    opacity: 0.95;
+    margin: 0;
+}
+
+/* --- Form Body --- */
+.callback-form {
+    padding: 40px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+/* --- Inputs & Selects --- */
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--color-testimonials-border);
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-muted);
+    font-weight: 300;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    /* Creates a soft gold glow around focused inputs */
+    box-shadow: 0 0 0 3px rgba(179, 139, 89, 0.15); 
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* --- Icon Input Wrappers --- */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon .icon-left {
+    position: absolute;
+    left: 18px;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    pointer-events: none; /* Prevents icon from blocking clicks */
+}
+
+input.has-icon {
+    padding-left: 45px;
+}
+
+/* Make standard date icon less intrusive if browser adds it */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+/* --- Note Box --- */
+.form-note {
+    background-color: var(--color-background-2);
+    border: 1px solid var(--color-testimonials-border);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-note p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.form-note strong {
+    color: var(--color-primary);
+}
+
+/* --- Submit Button --- */
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+    background: var(--accent-color);
+}
+
+.btn-submit:active {
+    transform: scale(0.99);
+}
+
+/* --- Responsive Mobile Tweaks --- */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .callback-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .callback-form, .callback-card__banner {
+        padding: 25px;
+    }
+}
+
+
+/* --- Success Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensures it sits on top of the navbar */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* When the .active class is added via JS, the modal appears */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--color-light);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0); /* Slides up slightly when appearing */
+}
+
+.modal-icon {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: var(--color-muted);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
