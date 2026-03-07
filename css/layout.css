@@ -1,7 +1,7 @@
 /* Navbar Layout */
 .site-header {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
   background-color: white;
@@ -40,10 +40,17 @@
   cursor: pointer;
 }
 
-#app{
-  margin-top: 5%;
+
+.toggleDiv{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap :10px;
 }
 @media (max-width: 960px) {
+  .toggleDiv{
+    display: flex;
+  }
   .nav-links {
     display: none;
     position: absolute;
@@ -54,6 +61,7 @@
     flex-direction: column;
     padding: 1rem 0;
     gap: 1rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.485);
   }
 
   .nav-links.active {
@@ -68,9 +76,7 @@
     flex-wrap: nowrap;
     padding: 1rem;
   }
-  #app{
-  margin-top: 1px;
-  }
+ 
 }
 
   

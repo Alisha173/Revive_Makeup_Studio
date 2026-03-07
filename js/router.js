@@ -3,14 +3,25 @@ import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
-
+import {initOurWork,destroyOurWork} from "./ourWork.js";
+let cleanup=null;
 
 function handleRoute() {
   const hash = location.hash || "#home";
 
+  if(cleanup){
+    cleanup();
+    cleanup=null;
+  }
+
   switch (hash) {
     case "#home":
-      loadSection("pages/home.html", initHero);
+      loadSection("pages/home.html", ()=>{
+        
+        initHero();
+        initOurWork();
+        cleanup=destroyOurWork;
+      });
       break;
 
     case "#gallery":
@@ -26,7 +37,12 @@ function handleRoute() {
       break;
 
     default:
-      loadSection("pages/home.html", initHero);
+      loadSection("pages/home.html", ()=>{
+        
+        initHero();
+        initOurWork();
+        cleanup=destroyOurWork;
+      });
   }
 
   window.scrollTo(0, 0);

@@ -79,10 +79,6 @@
     margin-left: auto;
   }
 
-  .navbar .btn {
-    display: none;
-  }
-
   .brand {
     gap: 0.5rem;
   }
@@ -106,7 +102,7 @@
   }
 
   .site-header {
-    position: relative;
+    /* position: relative; */
     z-index: 9999;
   }
 }
