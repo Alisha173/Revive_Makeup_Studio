@@ -1,0 +1,99 @@
+{
+  "bridal": {
+    "title": "Bridal Packages",
+    "description": "Customized packages honoring all traditions. Free trial makeup included.",
+    "packages": [
+      {
+        "name": "HD Makeup",
+        "target": "Soft, minimalist and elegant finish.",
+        "price": "₹9,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": false,
+        "features": [
+          "Minimal, soft & classy look",
+          "Perfect for a natural aesthetic",
+          "Light, breathable coverage"
+        ]
+      },
+      {
+        "name": "Ultra HD Makeup",
+        "target": "Refined HD makeup with enhanced finish.",
+        "price": "₹12,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": true,
+        "features": [
+          "Classy HD with long-lasting finish",
+          "Polished, camera-ready look",
+          "Ideal for extended functions"
+        ]
+      },
+      {
+        "name": "Glass Skin Makeup",
+        "target": "Fresh, radiant glass-skin effect with dewy glow.",
+        "price": "₹14,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": false,
+        "features": [
+          "Dewy, glowing glass-skin look",
+          "Luminous, hydrated finish",
+          "Perfect for daytime ceremonies"
+        ]
+      },
+      {
+        "name": "Airbrush Makeup",
+        "target": "Lightweight, seamless makeup with superior hold.",
+        "price": "₹19,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": false,
+        "features": [
+          "Ultra-light, waterproof & long wear",
+          "Sweat-proof and seamless",
+          "Lasts all day without touch-ups"
+        ]
+      }
+    ]
+  },
+  "party": {
+    "title": "Party Makeup Packages",
+    "description": "Get glam for your next big event or celebration.",
+    "packages": [
+      {
+        "name": "Party Basic",
+        "target": "Simple and elegant",
+        "price": "₹2,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": false,
+        "features": [
+          "Light makeup",
+          "Basic hairstyling",
+          "1-hour duration"
+        ]
+      }
+    ]
+  },
+  "professional": {
+    "title": "Professional Shoots",
+    "description": "Flawless HD makeup tailored for camera and studio lighting.",
+    "packages": [
+      {
+        "name": "Portfolio Shoot",
+        "target": "For models and actors",
+        "price": "₹5,999",
+        "originalPrice": "",
+        "offer": "",
+        "isPopular": true,
+        "features": [
+          "Multiple looks (up to 3)",
+          "HD camera-ready makeup",
+          "On-set touchups",
+          "Half-day coverage"
+        ]
+      }
+    ]
+  }
+}
