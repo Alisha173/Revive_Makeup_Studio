@@ -7,6 +7,13 @@ export default async function loadPackages() {
     return;
   }
 
+  const footerBtn = document.querySelector(".btn-callback");
+  if (footerBtn) {
+    footerBtn.addEventListener("click", () => {
+      window.location.hash = "#callback";
+    });
+  }
+
   try {
     const res = await fetch("data/packages.json");
     if (!res.ok) throw new Error("Failed to load packages data");
@@ -97,6 +104,11 @@ function renderPackages(packages) {
       const li = document.createElement("li");
       li.innerHTML = `${feature}`;
       featuresList.appendChild(li);
+    });
+
+    const bookBtn = clone.querySelector(".btn-book-now");
+    bookBtn.addEventListener("click", () => {
+      window.location.hash = "#callback";
     });
 
     packagesGrid.appendChild(clone);
