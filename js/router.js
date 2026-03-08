@@ -2,8 +2,7 @@ import loadSection from "./spaLoader.js";
 import { initHero } from "./main.js";
 import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
-// import loadPackages from "./packages.js";
-
+import loadPackages from "./packages.js"; // Removed the duplicate import
 
 function handleRoute() {
   const hash = location.hash || "#home";
@@ -22,7 +21,8 @@ function handleRoute() {
       break;
 
     case "#packages":
-      // loadSection("pages/packages.html", loadPackages);
+      loadSection("pages/packages.html", loadPackages);
+      break; // <-- Added the missing break statement here
 
     default:
       loadSection("pages/home.html", initHero);
