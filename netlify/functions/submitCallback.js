@@ -52,18 +52,17 @@ exports.handler = async (event) => {
             return { statusCode: 400, body: JSON.stringify({ error: "Additional details must be under 500 characters" }) };
         }
 
-        //temporary hardcode
-        formData.token = "890733revive759299"; 
+        const googleAppScriptUrl = process.env.GOOGLE_SCRIPT_URL;
+        formData.token = process.env.AUTH_TOKEN;
 
-        const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbwgsyPFLlnId1kyT8VW8RpQxAX1N9MTTcLJvKFWi5117QMCEBaLGHgEbb2Se75s3-9g/exec"; 
-
-        const response = await fetch(googleAppScriptUrl, {
+       const response = await fetch(googleAppScriptUrl, {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {
                 "Content-Type": "application/json",
             },
         });
+        
         if (response.ok) {
         return {
             statusCode: 200,
