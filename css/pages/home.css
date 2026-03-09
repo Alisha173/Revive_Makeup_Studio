@@ -357,7 +357,6 @@
 
 }
 #ourTestimonials img{
-   
   height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -424,6 +423,10 @@
   /* .hero {
     min-height: 70vh;
   } */
+   #ourTestimonials img{
+  object-position: top;
+  aspect-ratio: 6/4;
+  }
   #ourTestimonials .OTslide{
     flex-direction: column;
   }
