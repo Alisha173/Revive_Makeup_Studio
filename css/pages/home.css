@@ -233,7 +233,7 @@
     align-items: center;
     position: relative;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
   justify-content: center;
 }
 #ourWork .imageContainer .smlCarousel{
@@ -272,7 +272,7 @@
   list-style: none;
   transition: transform 0.4s ease-in-out;
 }
-#ourWork .slide-btn{
+.slide-btn{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,6 +295,113 @@
   right: -12px;
   z-index: 5;
 }
+
+#ourTestimonials{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #FCF9F5;
+  gap: 20px;
+  padding: 40px 20px;
+
+}
+#testPreBtn{
+  position: absolute;
+  left:-12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#testNexBtn{
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#ourTestimonials .testContainer{
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 244, 243);
+  position: relative;
+  border-radius: 20px;
+  width: 90%;
+  box-shadow: 5px 5px 10px 2px gray;
+  max-width: 1200px;
+}
+#ourTestimonials .trackContainer{
+  overflow: hidden;
+  width: 100%;
+}
+#ourTestimonials .testTrack{
+  border-radius: 20px;
+ overflow: hidden;
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+#ourTestimonials .testTrack .OTslide{
+  display: none;
+    flex:0 0 100%;
+
+}
+#ourTestimonials .testTrack .OTslide.active{
+  display: flex;
+    flex:0 0 100%;
+
+}
+#ourTestimonials img{
+   
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+#ourTestimonials .client-name{
+    color: var(--color-primary);
+}
+#ourTestimonials footer {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+#ourTestimonials .rating {
+  /* margin-top: 8px; */
+  margin-bottom: 8px;
+  color: #d4af6d; /* gold */
+  letter-spacing: 2px;
+}
+#ourTestimonials .testBtn{
+  padding: 10px;
+  color: var(--color-primary);
+  background-color: white;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  text-decoration: none;
+}
+.slide-dots{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.slide-dots .dot{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #E8DAC7;
+  transition: width 0.2s ease-in-out;
+}
+.slide-dots .dot.active{
+  border-radius: 10px;
+  width: 25px;
+  background-color: #BE9A57;
+}
 @media(hover: hover){
   #ourWork .viewGallery:hover{
   background:linear-gradient(270deg,#eec784,#CEAA6C);
@@ -304,6 +411,12 @@
   transform: translateX(0px);
 
 }
+#ourTestimonials .testBtn:hover{
+  cursor: pointer;
+  color: black;
+  background-color: #F5EAD7;
+
+}
 }
 
 /* Hero Section Responsive Styles */
@@ -311,6 +424,12 @@
   /* .hero {
     min-height: 70vh;
   } */
+  #ourTestimonials .OTslide{
+    flex-direction: column;
+  }
+  #ourTestimonials .testContainer{
+    font-size: 0.8rem;
+  }
 
   .hero-content {
     text-align: center;

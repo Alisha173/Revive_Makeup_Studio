@@ -4,6 +4,9 @@ import loadGallery from "./gallery.js";
 import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
 import {initOurWork,destroyOurWork} from "./ourWork.js";
+import { initOurTestimonials,destroyOurTestimonials } from "./ourTestimonials.js";
+
+history.scrollRestoration = "manual";
 let cleanup=null;
 import loadPackages from "./packages.js"; // Removed the duplicate import
 
@@ -16,18 +19,6 @@ function handleRoute() {
   }
 
   switch (hash) {
-    case "#home":
-      loadSection("pages/home.html", ()=>{
-        
-        initHero();
-        initOurWork();
-        cleanup=()=>{
-        destroyHero();
-        destroyOurWork();
-        }
-      });
-      break;
-
     case "#gallery":
       loadSection("pages/gallery.html", loadGallery);
       break;
@@ -42,15 +33,18 @@ function handleRoute() {
     case "#packages":
       loadSection("pages/packages.html", loadPackages);
       break; // <-- Added the missing break statement here
-
+    
+    case '#home':
     default:
       loadSection("pages/home.html", ()=>{
         
         initHero();
         initOurWork();
+        initOurTestimonials();
         cleanup=()=>{
         destroyHero();
         destroyOurWork();
+        destroyOurTestimonials();
         }
       });
   }

@@ -77,7 +77,7 @@ export function initHero() {
   const slides = carousel.querySelectorAll(".hero-slide");
   if (!slides.length) return;
 
-  clearInterval(autoPlay);
+  if (autoPlay) clearInterval(autoPlay);
   autoPlay=setInterval(() => {
     const idx=currentIndex;
     slides[currentIndex].classList.add("exit");
@@ -96,3 +96,11 @@ export function destroyHero(){
   autoPlay = null;
   navLinks?.classList.remove("active");
 }
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) return;
+
+  const carousel = document.getElementById("heroCarousel");
+  if (!carousel) return;
+
+  initHero();
+});
