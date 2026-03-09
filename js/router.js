@@ -5,6 +5,7 @@ import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
 import {initOurWork,destroyOurWork} from "./ourWork.js";
 let cleanup=null;
+import loadPackages from "./packages.js"; // Removed the duplicate import
 
 function handleRoute() {
   const hash = location.hash || "#home";
@@ -38,6 +39,9 @@ function handleRoute() {
     case "#callback":
       loadSection("pages/callback.html", initCallbackForm);
       break;
+    case "#packages":
+      loadSection("pages/packages.html", loadPackages);
+      break; // <-- Added the missing break statement here
 
     default:
       loadSection("pages/home.html", ()=>{
