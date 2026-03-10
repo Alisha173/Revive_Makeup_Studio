@@ -104,7 +104,7 @@
    Packages Section (Base & Spacing)
 ============================== */
 .packages-section {
-  padding: 80px 0;
+  padding: 30px 0;
   /* Using the same background variable as testimonials to maintain consistency */
   background-color: var(--color-background-testimonials); 
 }
@@ -536,7 +536,7 @@
   font-weight: 250;
   color: var(--color-primary);
   margin: 0;
-  
+  margin-top: 1.5rem;
   /* Removed the background mask and padding since it now lives entirely inside the box */
   background-color: transparent; 
   padding: 0; 
@@ -560,7 +560,7 @@
   position: relative;
   
   /* 1️⃣ Outside Safe Zone: Matches .testimonial-share logic perfectly */
-  width: calc(100% - 48px); 
+  width: calc(100% - 32px); 
   margin: 64px auto 0 auto; /* Centers the box and keeps the top offset for the crown */
   
   /* 2️⃣ Inside Spacing: Uses rems to match testimonial-share (2.5rem = ~40px) */

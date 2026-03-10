@@ -10,6 +10,7 @@ export default async function loadPackages() {
   const footerBtn = document.querySelector(".btn-callback");
   if (footerBtn) {
     footerBtn.addEventListener("click", () => {
+      callbackPackageSelector.value="";
       window.location.hash = "#callback";
     });
   }
@@ -79,6 +80,7 @@ function updateCategoryView(categoryKey, data) {
 function renderPackages(packages) {
   const packagesGrid = document.getElementById("packagesGrid");
   const template = document.querySelector("#package-card-template");
+  const callbackPackageSelector = document.getElementById("packages");
   
   packagesGrid.innerHTML = ""; // Clear existing cards
 
@@ -108,6 +110,7 @@ function renderPackages(packages) {
 
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
+      callbackPackageSelector.value = pkg.name;
       window.location.hash = "#callback";
     });
 
