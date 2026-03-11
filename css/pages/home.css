@@ -1,5 +1,5 @@
 /* Hero Section */
-
+@import "home2.css";
 .hero {
   min-height: fit-content;
   position: relative;
@@ -284,6 +284,7 @@
   border: 0px;
   color: #B8954F;
   cursor: pointer;
+  border: 1px solid #B8954F;
 }
 #preBtn{
   position: absolute;

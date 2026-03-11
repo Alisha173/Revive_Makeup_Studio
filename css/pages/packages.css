@@ -148,6 +148,22 @@
   opacity: 0.8;
 }
 
+.package-offer{
+   background-color: green;
+  color: white;
+  padding:1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.package-price-original{
+  color: grey;
+  text-decoration: line-through;
+  font-size: 14px;
+}
 .category-title {
   /* Matching the aesthetic of your testimonial-share h3 */
   font-family: var(--font-footer-heading);
@@ -255,6 +271,10 @@
 
 .package-price-info {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
 }
 
 .package-price {

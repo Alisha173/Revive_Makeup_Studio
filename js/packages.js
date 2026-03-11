@@ -96,7 +96,7 @@ function renderPackages(packages) {
     clone.querySelector(".package-target").textContent = pkg.target;
     clone.querySelector(".package-price").textContent = pkg.price;
     clone.querySelector(".package-price-original").textContent = pkg.originalPrice;
-    clone.querySelector(".package-offer").textContent = pkg.offer;
+    clone.querySelector(".package-offer").textContent = pkg.offer?"OFFER":"";
 
     // Inject the checklist features
     const featuresList = clone.querySelector(".package-features");

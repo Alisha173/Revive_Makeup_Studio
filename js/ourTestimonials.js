@@ -51,7 +51,7 @@ function loadOurTestimonials(data){
   data.forEach((item,idx) => {
     const li=document.createElement("li");
     const dot=document.createElement("div");
-    dot.className="dot";
+    dot.className=`dot ${idx===0?"active":""}`;
     li.className=`OTslide ${idx===0?"active":""}`;
     const maxRating = 5;
       const rating = item.rating || 0;
@@ -110,6 +110,7 @@ function loadOurTestimonials(data){
 
       `;
       testTrack.appendChild(li);
+
       slideDots.appendChild(dot);
   });
   if(autoplay)
