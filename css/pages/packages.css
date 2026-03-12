@@ -234,7 +234,11 @@
 .pkg-filter-btn span {
   font-size: 1.2rem; /* Make the emojis/icons slightly larger */
 }
-
+.pkg-filter-btn span img {
+width: 1em;
+height: 1em;
+display: block;
+}
 /* Active State */
 .pkg-filter-btn.active {
   background-color: #c29b62; /* Matching your gold accent */
@@ -647,4 +651,10 @@
     transition: max-width 0.4s ease; /* Adds a smooth resizing animation when clicking tabs */
   }
 
+}
+.category-header-container .crown-icon img {
+width: 1em;
+height: 1em;
+display: block;
+margin: 0 auto;
 }

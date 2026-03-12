@@ -53,13 +53,14 @@ function updateCategoryView(categoryKey, data) {
   const categoryData = data[categoryKey];
   if (!categoryData) return;
 
+  // 1. Update the dictionary to include your SVG code for bridal
   const categoryIcons = {
-    bridal: "♕",
+    bridal: `<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjg5NTRmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjU2MiAzLjI2NmEuNS41IDAgMCAxIC44NzYgMEwxNS4zOSA4Ljg3YTEgMSAwIDAgMCAxLjUxNi4yOTRMMjEuMTgzIDUuNWEuNS41IDAgMCAxIC43OTguNTE5bC0yLjgzNCAxMC4yNDZhMSAxIDAgMCAxLS45NTYuNzM0SDUuODFhMSAxIDAgMCAxLS45NTctLjczNEwyLjAyIDYuMDJhLjUuNSAwIDAgMSAuNzk4LS41MTlsNC4yNzYgMy42NjRhMSAxIDAgMCAwIDEuNTE2LS4yOTR6Ii8+PHBhdGggZD0iTTUgMjFoMTQiLz48L3N2Zz4=" width="28" height="28" alt="Bridal Category" style="display: block; margin: 0 auto;" />`,
     party: "✨",
     professional: "👥"
   };
 
-  // 1️⃣ Target the content container and toggle the compact class
+  // Target the content container and toggle the compact class
   const contentBox = document.querySelector(".packages-content");
   if (categoryKey === "party" || categoryKey === "professional") {
     contentBox.classList.add("compact-view");
@@ -67,8 +68,8 @@ function updateCategoryView(categoryKey, data) {
     contentBox.classList.remove("compact-view");
   }
 
-  // Update text and icon
-  document.getElementById("categoryIcon").textContent = categoryIcons[categoryKey];
+  // 2. Change .textContent to .innerHTML for the icon so it renders the SVG tag
+  document.getElementById("categoryIcon").innerHTML = categoryIcons[categoryKey];
   document.getElementById("categoryTitle").textContent = categoryData.title;
   document.getElementById("categoryDesc").textContent = categoryData.description;
 

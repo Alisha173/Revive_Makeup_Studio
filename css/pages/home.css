@@ -213,7 +213,7 @@
 #ourWork{
   width: 100%;
   height: 100vh;
-  background-color: #FCF9F5;
+  background-color: #F7F4F0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -221,9 +221,10 @@
   align-items: center;
   text-align: center;
   padding: 10px;
+  border-bottom: 1px solid #c5a26062;
 }
 #ourWork p{
-  font-size: 12px;
+  font-size: 14px;
   color: gray;
 }
 #ourWork .imageContainer{
@@ -308,6 +309,7 @@
   background-color: #FCF9F5;
   gap: 20px;
   padding: 40px 20px;
+  border-bottom: 1px solid #c5a26062;
 
 }
 #testPreBtn{
