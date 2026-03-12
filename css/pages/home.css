@@ -1,5 +1,5 @@
 /* Hero Section */
-@import "home2.css";
+@import "/css/pages/home2.css";
 .hero {
   min-height: fit-content;
   position: relative;
