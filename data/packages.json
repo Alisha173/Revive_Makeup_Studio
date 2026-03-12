@@ -22,7 +22,7 @@
         "price": "₹12,999",
         "originalPrice": "₹100",
         "offer": true,
-        "isPopular": true,
+        "isPopular": false,
         "features": [
           "Classy HD with long-lasting finish",
           "Polished, camera-ready look",
@@ -35,7 +35,7 @@
         "price": "₹14,999",
         "originalPrice": "₹100",
         "offer": true,
-        "isPopular": false,
+        "isPopular": true,
         "features": [
           "Dewy, glowing glass-skin look",
           "Luminous, hydrated finish",

@@ -252,9 +252,9 @@
   }
 
   /* 3. Hide the bullet points */
-  .client-meta .meta-item + .meta-item::before {
+  /* .client-meta .meta-item + .meta-item::before {
     display: none; 
-  }
+  } */
 
 }
 

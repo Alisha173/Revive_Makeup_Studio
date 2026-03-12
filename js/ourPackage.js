@@ -4,7 +4,7 @@ export async function initOurPackage(){
     if(!res.ok)
       throw new Error("unable to fetch data");
     const data=await res.json();
-     const filteredData=data.bridal.packages.slice(0,3);
+     const filteredData=data.bridal.packages.slice(1,4);
   loadPackages(filteredData);
   }
   catch(err){
@@ -52,13 +52,14 @@ const handleBtn=(e)=>{
   const mid=card.querySelector(".midPart");
   const pkgTrack=document.querySelector(".pkgTrack");
   btn.classList.toggle("active");
-  pkgTrack.querySelectorAll(".pkgSlide").forEach(card=>{
-    const el=card.querySelector(".midPart");
-    if(el!==mid)
-      {el.style.maxHeight="0px";
-        card.querySelector(".dropDownBtn").classList.remove("active");
-      }
-  })
+ //needed?
+  // pkgTrack.querySelectorAll(".pkgSlide").forEach(card=>{
+  //   const el=card.querySelector(".midPart");
+  //   if(el!==mid)
+  //     {el.style.maxHeight="0px";
+  //       card.querySelector(".dropDownBtn").classList.remove("active");
+  //     }
+  // })
   if(mid.style.maxHeight && mid.style.maxHeight!=="0px")
     mid.style.maxHeight="0px";
   else
