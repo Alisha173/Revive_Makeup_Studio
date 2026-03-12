@@ -62,7 +62,7 @@
     "description": "Get glam for your next big event or celebration.",
     "packages": [
       {
-        "name": "Party Basic",
+        "name": "Party Makeup",
         "target": "Simple and elegant",
         "price": "₹2,999",
         "originalPrice": "₹100",
@@ -81,7 +81,7 @@
     "description": "Flawless HD makeup tailored for camera and studio lighting.",
     "packages": [
       {
-        "name": "Portfolio Shoot",
+        "name": "Model/Photoshoot Makeup",
         "target": "For models and actors",
         "price": "₹5,999",
         "originalPrice": "₹100",
