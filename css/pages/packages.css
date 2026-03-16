@@ -1,18 +1,76 @@
 /* ==============================
+   Packages Section (Base & Spacing)
+============================== */
+.packages-section {
+  padding: 30px 0;
+  background-color: var(--color-background-testimonials); 
+}
+
+.packages-section .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 100;
+  font-family: var(--font-primary);
+  padding: 0 24px;
+}
+
+.packages-section h2 {
+  font-family: var(--font-footer-heading);
+  font-size: 60px;
+  font-weight: 100;
+}
+
+.packages-section p {
+  font-family: var(--font-primary);
+  max-width: 620px;
+  color: #666;
+}
+
+/* ==============================
+   Packages Content Box (The Gold Border)
+============================== */
+.packages-content {
+  border: 1.5px solid #c29b62; 
+  border-radius: 12px;
+  position: relative;
+  background-color: white;
+  width: calc(100% - 32px); 
+  margin: 64px auto 0 auto; 
+  padding: 0 2.5rem 2.5rem 2.5rem; 
+
+  transition: max-width 0.4s ease; 
+}
+
+/* ==============================
    Packages Grid Layout
 ============================== */
 .packages-grid {
   display: grid;
-  /* Forces exactly 2 columns, sizing them between 300px and 400px */
-  grid-template-columns: repeat(2, minmax(300px, 400px));
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   gap: 32px; 
-  padding: 0 24px; 
+  padding: 0; 
   width: 100%;
-  align-items: stretch; /* Ensures side-by-side cards are the same height */
+  align-items: stretch; 
+  transform: translateZ(0);
 }
 
-/* If there is only one card, make it span the whole row but center itself */
+/* ==============================
+   Package Cards
+============================== */
+.package-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  transform-origin: center;
+  will-change: transform;
+}
+
 .package-card:only-child {
   grid-column: 1 / -1;
   justify-self: center;
@@ -20,70 +78,16 @@
   max-width: 400px;
 }
 
-/* Responsive: stack to 1 column on mobile */
-@media (max-width: 768px) {
-  .packages-grid {
-    grid-template-columns: 1fr; 
-  }
-  
-  .package-card:only-child {
-    grid-column: auto;
-  }
-}
-
-.package-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 24px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.package-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 24px;
-  position: relative;
-  transition: transform 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.package-card p{
-    font-family: var(--font-primary);
-    /* font-size: .7rem; */
-}
-
-.package-card span{
-    font-family: var(--font-primary);
-    /* font-size: .7rem; */
-}
-
-.package-features{
-    font-family: var(--font-primary);
-    font-size: .8rem;
-}
-
-.divider-packages {
-  margin: 3rem auto;
-  margin-bottom: 2rem;
-  max-width: 5rem;
-  height: 0.3rem;
-  background-color: var(--color-primary);
-  border: none;
-
-  display: flex;
-  justify-content: center;
-}
-
-
 .package-card.popular {
-  transform: scale(1.05); /* Elevates the card */
-  border-color: #c29b62; /* Gold border */
+  /* transform: scale(1.05); */
+  border-color: #c29b62; 
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   z-index: 2;
+}
+
+.package-card p,
+.package-card span {
+  font-family: var(--font-primary);
 }
 
 .popular-badge {
@@ -98,470 +102,40 @@
   font-size: 0.85rem;
 }
 
-.hidden { display: none; }
-
 /* ==============================
-   Packages Section (Base & Spacing)
-============================== */
-.packages-section {
-  padding: 30px 0;
-  /* Using the same background variable as testimonials to maintain consistency */
-  background-color: var(--color-background-testimonials); 
-}
-
-/* ==============================
-   Main Section Header 
-============================== */
-.packages-section .section-header {
-  text-align: center;
-  margin-bottom: 48px;
-  font-weight: 100;
-  font-family: var(--font-primary);
-  padding: 0 24px; /* Local safe-zone padding */
-}
-
-.packages-section h2 {
-  font-family: var(--font-footer-heading);
-  font-size: 60px;
-  font-weight: 100;
-}
-
-.packages-section p {
-  font-family: var(--font-primary);
-  max-width: 620px;
-  /* margin: 8px auto 0; */
-  color: #666;
-}
-
-/* ==============================
-   Category Sub-Header (e.g., "Bridal Packages")
+   Category Sub-Header
 ============================== */
 .category-header-container {
   text-align: center;
-  margin: 48px auto 32px;
+  margin: -18px auto 40px auto; 
   padding: 0 24px;
-}
-
-.category-header-container .crown-icon {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  opacity: 0.8;
-}
-
-.package-offer{
-   background-color: green;
-  color: white;
-  padding:1px 8px;
-  border-radius: 10px;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-}
-.package-price-original{
-  color: grey;
-  text-decoration: line-through;
-  font-size: 14px;
-}
-.category-title {
-  /* Matching the aesthetic of your testimonial-share h3 */
-  font-family: var(--font-footer-heading);
-  font-size: 2rem;
-  font-weight: 250;
-  color: var(--color-primary);
-  margin: 0 0 8px 0;
-}
-
-.category-desc {
-  font-family: var(--font-primary);
-  font-size: 0.95rem;
-  color: #666;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* ==============================
-   Responsive Typography & Padding
-============================== */
-@media (max-width: 768px) {
-  .packages-section {
-    padding: 0;
-  }
-
-  .packages-section h2 {
-    font-size: 2.2rem;
-  }
-
-  .category-title {
-    font-size: 1.7rem;
-  }
-}
-
-/* ==============================
-   Packages Secondary Navbar (Filters)
-============================== */
-.packages-filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Light cream background for the pill container */
-  background-color: #f8f5f0; 
-  padding: 8px;
-  border-radius: 50px;
-  width: fit-content;
-  /* Centers the pill horizontally and adds space below */
-  margin: 0 auto 32px auto; 
-  gap: 8px;
-}
-
-.pkg-filter-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border: none;
-  background-color: transparent;
-  border-radius: 50px;
-  font-family: var(--font-primary);
-  font-size: .8rem;
-  color: #002244; /* Dark blue/slate color for text based on your image */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pkg-filter-btn span {
-  font-size: 1.2rem; /* Make the emojis/icons slightly larger */
-}
-.pkg-filter-btn span img {
-width: 1em;
-height: 1em;
-display: block;
-}
-/* Active State */
-.pkg-filter-btn.active {
-  background-color: #c29b62; /* Matching your gold accent */
-  color: #ffffff;
-}
-
-/* Optional: Slight hover effect for inactive buttons */
-.pkg-filter-btn:not(.active):hover {
-  background-color: rgba(194, 155, 98, 0.1); 
-}
-
-/* Mobile adjustments so the pill doesn't break off-screen */
-@media (max-width: 600px) {
-  .packages-filters {
-    padding: 6px;
-    gap: 4px;
-  }
-  .pkg-filter-btn {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-  }
-}
-
-
-/* ==============================
-   Package Card Headers & Pricing
-============================== */
-.package-target {
-  font-size: 0.8rem; /* Made slightly smaller */
-  color: #666;
-  margin-top: 4px;
-  margin-bottom: 16px;
-}
-
-.package-price-info {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  gap: 10px;
-}
-
-.package-price {
-  color: #d4af6d; /* Matches your gold theme */
-  font-size: 1.3rem; /* Made it pop a little more */
-  font-weight: 400;
-  font-family: var(--font-primary);
-}
-
-/* ==============================
-   Package Features List 
-============================== */
-.package-features {
-  list-style-type: none; /* Strips out the default black bullet points */
-  padding-left: 0; /* Aligns the list perfectly flush with the card header */
-  margin: 0 0 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* Adds breathing room between each feature */
-  font-family: var(--font-primary);
-  font-size: 0.85rem;
-}
-
-.package-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px; /* Space between the tick and the text */
-  line-height: 1.4;
-  color: #444;
-}
-
-.check-icon {
-  color: #d4af6d; /* Golden tick */
-  font-weight: bold;
-}
-
-/* ==============================
-   Book Now Button
-============================== */
-.btn-book-now {
-  width: 100%; /* Makes the button span the full width of the card */
-  background-color: #ffffff;
-  color: #d4af6d;
-  border: 1px solid #d4af6d;
-  padding: 7px 12px; /* Taller vertical padding */
-  border-radius: 4px;
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: auto; /* Pushes the button to the absolute bottom of the card */
-}
-
-/* Optional: Inverts colors on hover for a nice interactive feel */
-.btn-book-now:hover {
-  background-color: #d4af6d;
-  color: #ffffff;
-}
-
-/* ==============================
-   Packages Secondary Navbar (Filters)
-============================== */
-.packages-filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f0e6; /* Very light beige/cream from the image */
-  padding: 6px; /* Snug padding */
-  border-radius: 50px; /* Full pill shape */
-  width: fit-content;
-  margin: 0 auto 40px auto; 
-  gap: 4px;
-}
-
-.pkg-filter-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 32px; /* Wide horizontal padding */
-  border: none;
-  background-color: transparent;
-  border-radius: 50px; /* Full pill shape */
-  font-family: var(--font-primary);
-  font-size: .8rem;
-  color: #002244; /* Dark text for inactive state */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pkg-filter-btn.active {
-  background-color: #c29b62; /* Solid gold */
-  color: #ffffff; /* White text */
-}
-
-/* Optional hover state for inactive buttons */
-.pkg-filter-btn:not(.active):hover {
-  background-color: rgba(194, 155, 98, 0.15); 
-}
-
-@media (max-width: 600px) {
-  .pkg-filter-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-}
-
-/* ==============================
-   Package Features List & Gold Ticks
-============================== */
-.package-features {
-  list-style: none; /* Ensures default black dots are removed */
-  padding: 0; 
-  margin: 0 0 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* Spacing between each feature */
-  font-family: var(--font-primary);
-  font-size: 0.85rem;
-}
-
-/* Style the list item text */
-.package-features li {
-  position: relative;
-  padding-left: 28px; /* Creates an invisible box on the left for the tick to sit inside */
-  color: #444;
-  line-height: 1.4;
-}
-
-/* Generate the golden tick mark */
-.package-features li::before {
-  content: "✓"; /* The custom tick character */
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #d4af6d; /* Your requested gold color */
-  font-weight: 800;
-  font-size: 1rem; 
-}
-
-.packages-footer{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1rem;
-}
-
-.packages-note-div{
-    padding: 1rem;
-    border-radius: 15px;
-    background-color: #f7ead3;
-    text-align: center;
-}
-
-.btn-callback{
-    font-size: 1.1rem;
-    font-family: var(--font-primary);
-    background-color: rgb(203, 166, 103);
-    color: white;
-    padding: .5rem 1rem;
-    border-radius: 6px;
-
-    border: none;
-}
-
-.btn-callback:hover{
-    background-color: rgb(231, 194, 129);
-}
-
-
-/* ==============================
-   Packages Content Box (The Gold Border)
-============================== */
-.packages-content {
-  /* 1️⃣ All four borders solid gold */
-  border: 1.5px solid #c29b62; 
-  border-radius: 12px;
-  position: relative;
-  /* Pushes the box down so the overlapping crown doesn't hit the filters */
-  margin-top: 64px; 
-  /* padding-bottom: 40px;  */
-  background-color: white;
-
-  padding-left: 80px;  
-  padding-right: 80px; 
-  padding-bottom: 48px;
-
-}
-
-@media (max-width: 768px) {
-  .packages-content {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-/* ==============================
-   Category Sub-Header (The Cut-Out Effect)
-============================== */
-.category-header-container {
-  text-align: center;
-  /* 2️⃣ Pulls the container UP so the top border hits the exact middle of the <h3> */
-  margin-top: -52px; 
-  margin-bottom: 40px; /* Space between the description and the cards */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .category-header-container .crown-icon {
-  font-size: 1.5rem;
-  margin-bottom: 4px;
-  opacity: 0.8;
-  /* Background ensures the crown sits cleanly above the box line if it touches */
+  font-size: 1.8rem; 
+  margin-bottom: 12px; 
+  opacity: 1; 
   background-color: var(--color-background-testimonials); 
-  padding: 0 16px;
+  padding: 0 20px; 
+  position: relative;
+  z-index: 2; 
   line-height: 1;
 }
 
+
+
 .category-title {
   font-family: var(--font-footer-heading);
   font-size: 2rem;
   font-weight: 250;
   color: var(--color-primary);
-  margin: 0;
-  
-  /* 3️⃣ Visual Layering: Masks the line to create the "cut" effect */
-  background-color: var(--color-background-testimonials); 
-  padding: 0 24px; /* Determines how wide the cut in the line is */
+  margin: 1.5rem 0 0 0;
   position: relative;
-  z-index: 2; /* Forces the text to sit on a higher visual layer than the border */
+  z-index: 2; 
   line-height: 1.2;
-}
-
-.category-desc {
-  font-family: var(--font-primary);
-  font-size: 0.95rem;
-  color: #666;
-  max-width: 500px;
-  margin: 12px auto 0;
-  padding: 0 16px;
-  /* Safely inside the box, below the border line */
-}
-
-/* ==============================
-   Category Sub-Header (Icon Cut-Out Effect)
-============================== */
-.category-header-container {
-  text-align: center;
-  /* Pulls the container up just enough so the emoji hits the border line */
-  margin-top: -18px; 
-  margin-bottom: 40px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category-header-container .crown-icon {
-  font-size: 1.8rem; /* Made slightly larger so it anchors the box nicely */
-  margin-bottom: 12px; /* Space between icon and the heading below it */
-  opacity: 1; /* Made fully opaque so the line doesn't bleed through */
-  
-  /* The Magic Cut-Out: This paints over the line exactly where the icon sits */
-  background-color: var(--color-background-testimonials); 
-  padding: 0 20px; /* Controls how wide the gap in the gold line is */
-  
-  position: relative;
-  z-index: 2; /* Forces the icon to sit directly on top of the border */
-  line-height: 1;
-}
-
-.category-title {
-  font-family: var(--font-footer-heading);
-  font-size: 2rem;
-  font-weight: 250;
-  color: var(--color-primary);
-  margin: 0;
-  margin-top: 1.5rem;
-  /* Removed the background mask and padding since it now lives entirely inside the box */
   background-color: transparent; 
   padding: 0; 
 }
@@ -576,85 +150,275 @@ display: block;
 }
 
 /* ==============================
-   Packages Content Box (The Gold Border)
+   Packages Secondary Navbar (Filters)
 ============================== */
-.packages-content {
-  border: 1.5px solid #c29b62; 
-  border-radius: 12px;
-  position: relative;
-  
-  /* 1️⃣ Outside Safe Zone: Matches .testimonial-share logic perfectly */
-  width: calc(100% - 32px); 
-  margin: 64px auto 0 auto; /* Centers the box and keeps the top offset for the crown */
-  
-  /* 2️⃣ Inside Spacing: Uses rems to match testimonial-share (2.5rem = ~40px) */
-  padding: 0 2.5rem 2.5rem 2.5rem; 
-}
-
-/* ==============================
-   Packages Grid Layout
-============================== */
-.packages-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 1fr allows cards to fill the new space gracefully */
+.packages-filters {
+  display: flex;
   justify-content: center;
-  gap: 32px; 
-  
-  /* 3️⃣ Removed padding: 0 24px; from here! 
-     The parent .packages-content is now handling the padding, so we don't want to double up */
-  padding: 0; 
-  width: 100%;
-  align-items: stretch; 
+  align-items: center;
+  background-color: #f5f0e6; 
+  padding: 6px; 
+  border-radius: 50px; 
+  width: fit-content;
+  margin: 0 auto 40px auto; 
+  gap: 4px;
+}
+
+.pkg-filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 32px; 
+  border: none;
+  background-color: transparent;
+  border-radius: 50px; 
+  font-family: var(--font-primary);
+  font-size: .8rem;
+  color: #002244; 
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pkg-filter-btn span {
+  font-size: 1.2rem; 
+}
+
+.pkg-filter-btn span img {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.pkg-filter-btn.active {
+  background-color: #c29b62; 
+  color: #ffffff; 
+}
+
+.pkg-filter-btn:not(.active):hover {
+  background-color: rgba(194, 155, 98, 0.15); 
 }
 
 /* ==============================
-   Responsive Typography & Padding
+   Package Pricing & Info
 ============================== */
+.package-offer {
+  background-color: green;
+  color: white;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.package-price-original {
+  color: grey;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.package-target {
+  font-size: 0.8rem; 
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.package-price-info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+}
+
+.package-price {
+  color: #d4af6d; 
+  font-size: 1.3rem; 
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+/* ==============================
+   Package Features List 
+============================== */
+.package-features {
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+}
+
+.package-features li {
+  position: relative;
+  padding-left: 28px; 
+  color: #444;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px; 
+}
+
+.package-features li::before {
+  content: "✓"; 
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4af6d; 
+  font-weight: 800;
+  font-size: 1rem; 
+}
+
+.check-icon {
+  color: #d4af6d; 
+  font-weight: bold;
+}
+
+/* ==============================
+   Buttons & Footer
+============================== */
+.btn-book-now {
+  width: 100%; 
+  background-color: #ffffff;
+  color: #d4af6d;
+  border: 1px solid #d4af6d;
+  padding: 7px 12px; 
+  border-radius: 4px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto; 
+}
+
+.btn-book-now:hover {
+  background-color: #d4af6d;
+  color: #ffffff;
+}
+
+.btn-callback {
+  font-size: 1.1rem;
+  font-family: var(--font-primary);
+  background-color: rgb(203, 166, 103);
+  color: white;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.btn-callback:hover {
+  background-color: rgb(231, 194, 129);
+}
+
+.divider-packages {
+  margin: 3rem auto 2rem auto;
+  max-width: 5rem;
+  height: 0.3rem;
+  background-color: var(--color-primary);
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.packages-footer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.packages-note-div {
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #f7ead3;
+  text-align: center;
+}
+
+.hidden { display: none; }
+
+/* ==============================
+   Media Queries
+============================== */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Added to cleanly bridge the gap if needed, though mostly relying on min-width 1024px below */
+}
+
+@media (min-width: 1024px) {
+  .packages-content {
+    max-width: 1100px; 
+  }
+  .packages-content.compact-view {
+    max-width: 600px; 
+    /* transition: max-width 0.4s ease;  */
+  }
+}
+
 @media (max-width: 768px) {
   .packages-section {
     padding: 0;
   }
-
   .packages-section h2 {
     font-size: 2.2rem;
   }
-
   .category-title {
     font-size: 1.7rem;
   }
-
   .packages-grid {
     grid-template-columns: 1fr; 
   }
-  
   .package-card:only-child {
     grid-column: auto;
   }
-
-  /* 4️⃣ Shrink the inner padding on mobile, but keep the outside calc() margins */
   .packages-content {
     padding: 0 1rem 1.5rem 1rem;
-    /* Optional: If 48px feels too narrow on mobile, you can use width: calc(100% - 32px); here */
   }
 }
 
-@media (min-width: 1024px) {
-  
-  /* Give the default (Bridal) box a sensible max-width so it doesn't stretch infinitely on massive 4k screens */
-  .packages-content {
-    max-width: 1100px; 
+@media (max-width: 600px) {
+  .packages-filters {
+    padding: 6px;
+    gap: 4px;
   }
-
-  /* 2️⃣ Shrink the box tightly around the single card when Party/Professional is active */
-  .packages-content.compact-view {
-    max-width: 600px; /* Leaves just enough room for the 400px card + 2.5rem padding */
-    transition: max-width 0.4s ease; /* Adds a smooth resizing animation when clicking tabs */
+  .pkg-filter-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
-
 }
-.category-header-container .crown-icon img {
-width: 1em;
-height: 1em;
-display: block;
-margin: 0 auto;
+
+.pkg-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pkg-icon svg{
+  width:20px;
+  height:20px;
+}
+
+.pkg-filter-btn svg{
+  stroke:#d4af37;
+}
+
+.pkg-filter-btn.active svg{
+  stroke:white;
+}
+
+.crown-icon svg{
+  stroke:#b8954f;
+  display: block;
+  width: 36px;
+  height: 36px;
+  shape-rendering: geometricPrecision;
 }
