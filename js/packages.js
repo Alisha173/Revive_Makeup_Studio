@@ -1,5 +1,4 @@
 const icons = {
-
   bridal: `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg>
   `,
@@ -10,11 +9,10 @@ const icons = {
 
   professional: `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.5 20h-6.5a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v3" /><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" /></svg>
-  `
+  `,
 };
 
 export default async function loadPackages() {
-
   initIcons();
 
   const packagesGrid = document.getElementById("packagesGrid");
@@ -28,7 +26,8 @@ export default async function loadPackages() {
   const footerBtn = document.querySelector(".btn-callback");
   if (footerBtn) {
     footerBtn.addEventListener("click", () => {
-      callbackPackageSelector.value="";
+      // Clear any previously saved package so the dropdown remains default
+      sessionStorage.removeItem("selectedPackage");
       window.location.hash = "#callback";
     });
   }
@@ -38,11 +37,10 @@ export default async function loadPackages() {
     if (!res.ok) throw new Error("Failed to load packages data");
 
     const packagesData = await res.json();
-    
+
     // Initialize with the first category (bridal)
     updateCategoryView("bridal", packagesData);
     initPkgFilters(filterButtons, packagesData);
-
   } catch (err) {
     console.error(err);
     packagesGrid.innerHTML = "<p>Packages unavailable at the moment.</p>";
@@ -50,7 +48,7 @@ export default async function loadPackages() {
 }
 
 function initIcons() {
-  document.querySelectorAll("[data-icon]").forEach(el => {
+  document.querySelectorAll("[data-icon]").forEach((el) => {
     const iconName = el.dataset.icon;
     if (icons[iconName]) {
       el.innerHTML = icons[iconName];
@@ -59,12 +57,12 @@ function initIcons() {
 }
 
 function initPkgFilters(filterButtons, data) {
-  filterButtons.forEach(btn => {
+  filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
 
       // Update active state on buttons
-      filterButtons.forEach(b => {
+      filterButtons.forEach((b) => {
         b.classList.remove("active");
         b.setAttribute("aria-pressed", "false");
       });
@@ -91,7 +89,8 @@ function updateCategoryView(categoryKey, data) {
   document.getElementById("categoryIcon").innerHTML = icons[categoryKey];
 
   document.getElementById("categoryTitle").textContent = categoryData.title;
-  document.getElementById("categoryDesc").textContent = categoryData.description;
+  document.getElementById("categoryDesc").textContent =
+    categoryData.description;
 
   renderPackages(categoryData.packages);
 }
@@ -100,13 +99,13 @@ function renderPackages(packages) {
   const packagesGrid = document.getElementById("packagesGrid");
   const template = document.querySelector("#package-card-template");
   const callbackPackageSelector = document.getElementById("packages");
-  
+
   packagesGrid.innerHTML = ""; // Clear existing cards
 
-  packages.forEach(pkg => {
+  packages.forEach((pkg) => {
     const clone = template.content.cloneNode(true);
     const cardDiv = clone.querySelector(".package-card");
-    
+
     // Handle the "Popular" highlight styling
     if (pkg.isPopular) {
       cardDiv.classList.add("popular");
@@ -116,12 +115,15 @@ function renderPackages(packages) {
     clone.querySelector(".package-name").textContent = pkg.name;
     clone.querySelector(".package-target").textContent = pkg.target;
     clone.querySelector(".package-price").textContent = pkg.price;
-    clone.querySelector(".package-price-original").textContent = pkg.originalPrice;
-    clone.querySelector(".package-offer").textContent = pkg.offer?"OFFER":"";
+    clone.querySelector(".package-price-original").textContent =
+      pkg.originalPrice;
+    clone.querySelector(".package-offer").textContent = pkg.offer
+      ? "OFFER"
+      : "";
 
     // Inject the checklist features
     const featuresList = clone.querySelector(".package-features");
-    pkg.features.forEach(feature => {
+    pkg.features.forEach((feature) => {
       const li = document.createElement("li");
       li.innerHTML = `${feature}`;
       featuresList.appendChild(li);
@@ -129,7 +131,8 @@ function renderPackages(packages) {
 
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
-      callbackPackageSelector.value = pkg.name;
+      // Save the exact package name to session memory
+      sessionStorage.setItem("selectedPackage", pkg.name);
       window.location.hash = "#callback";
     });
 
