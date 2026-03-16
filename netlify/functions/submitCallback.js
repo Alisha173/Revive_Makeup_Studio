@@ -7,9 +7,6 @@ exports.handler = async (event) => {
     try {
         const formData = JSON.parse(event.body);
 
-        //Validation
-        // --- HONEYPOT CHECK ---
-        // If 'extra-info' is filled, it's a bot.
         if (formData['extra-info']) {
             console.warn("Bot detected via disguised honeypot.");
             return { 
