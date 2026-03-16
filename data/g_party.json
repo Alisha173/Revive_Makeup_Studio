@@ -1,0 +1,42 @@
+[
+  {
+    "id": "p1",
+    "images": [
+      { "src": "p1_1.jpg", "alt": "Picture 1 image 1" },
+      { "src": "p1_2.jpg", "alt": "Picture 1 image 2" }
+    ]
+  },
+  {
+    "id": "p2",
+    "images": [
+      { "src": "p2_1.jpg", "alt": "Picture 2 image 1" },
+      { "src": "p2_2.jpg", "alt": "Picture 2 image 2" }
+    ]
+  },
+  {
+    "id": "p3",
+    "images": [
+      { "src": "p3_1.jpg", "alt": "Picture 3 image 1" },
+      { "src": "p3_2.jpg", "alt": "Picture 3 image 2" }
+    ]
+  },
+  {
+    "id": "p4",
+    "images": [
+      { "src": "p4_1.jpg", "alt": "Picture 4 image 1" }
+    ]
+  },
+  {
+    "id": "p5",
+    "images": [
+      { "src": "p5_1.jpg", "alt": "Picture 5 image 1" }
+    ]
+  },
+  {
+    "id": "p6",
+    "images": [
+      { "src": "p6_1.jpg", "alt": "Picture 6 image 1" },
+      { "src": "p6_2.jpg", "alt": "Picture 6 image 2" }
+    ]
+  }
+]
