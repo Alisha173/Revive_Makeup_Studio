@@ -104,7 +104,7 @@
    Packages Section (Base & Spacing)
 ============================== */
 .packages-section {
-  padding: 80px 0;
+  padding: 30px 0;
   /* Using the same background variable as testimonials to maintain consistency */
   background-color: var(--color-background-testimonials); 
 }
@@ -148,6 +148,22 @@
   opacity: 0.8;
 }
 
+.package-offer{
+   background-color: green;
+  color: white;
+  padding:1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.package-price-original{
+  color: grey;
+  text-decoration: line-through;
+  font-size: 14px;
+}
 .category-title {
   /* Matching the aesthetic of your testimonial-share h3 */
   font-family: var(--font-footer-heading);
@@ -218,7 +234,11 @@
 .pkg-filter-btn span {
   font-size: 1.2rem; /* Make the emojis/icons slightly larger */
 }
-
+.pkg-filter-btn span img {
+width: 1em;
+height: 1em;
+display: block;
+}
 /* Active State */
 .pkg-filter-btn.active {
   background-color: #c29b62; /* Matching your gold accent */
@@ -255,6 +275,10 @@
 
 .package-price-info {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
 }
 
 .package-price {
@@ -536,7 +560,7 @@
   font-weight: 250;
   color: var(--color-primary);
   margin: 0;
-  
+  margin-top: 1.5rem;
   /* Removed the background mask and padding since it now lives entirely inside the box */
   background-color: transparent; 
   padding: 0; 
@@ -560,7 +584,7 @@
   position: relative;
   
   /* 1️⃣ Outside Safe Zone: Matches .testimonial-share logic perfectly */
-  width: calc(100% - 48px); 
+  width: calc(100% - 32px); 
   margin: 64px auto 0 auto; /* Centers the box and keeps the top offset for the crown */
   
   /* 2️⃣ Inside Spacing: Uses rems to match testimonial-share (2.5rem = ~40px) */
@@ -627,4 +651,10 @@
     transition: max-width 0.4s ease; /* Adds a smooth resizing animation when clicking tabs */
   }
 
+}
+.category-header-container .crown-icon img {
+width: 1em;
+height: 1em;
+display: block;
+margin: 0 auto;
 }

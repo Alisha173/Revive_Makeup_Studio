@@ -5,6 +5,7 @@ import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
 import {initOurWork,destroyOurWork} from "./ourWork.js";
 import { initOurTestimonials,destroyOurTestimonials } from "./ourTestimonials.js";
+import { initOurPackage } from "./ourPackage.js";
 
 history.scrollRestoration = "manual";
 let cleanup=null;
@@ -39,8 +40,10 @@ function handleRoute() {
       loadSection("pages/home.html", ()=>{
         
         initHero();
+        initOurPackage();
         initOurWork();
         initOurTestimonials();
+      
         cleanup=()=>{
         destroyHero();
         destroyOurWork();

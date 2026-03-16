@@ -10,6 +10,7 @@ export default async function loadPackages() {
   const footerBtn = document.querySelector(".btn-callback");
   if (footerBtn) {
     footerBtn.addEventListener("click", () => {
+      callbackPackageSelector.value="";
       window.location.hash = "#callback";
     });
   }
@@ -53,13 +54,14 @@ function updateCategoryView(categoryKey, data) {
   const categoryData = data[categoryKey];
   if (!categoryData) return;
 
+  // 1. Update the dictionary to include your SVG code for bridal
   const categoryIcons = {
-    bridal: "♕",
+    bridal: `<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjg5NTRmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjU2MiAzLjI2NmEuNS41IDAgMCAxIC44NzYgMEwxNS4zOSA4Ljg3YTEgMSAwIDAgMCAxLjUxNi4yOTRMMjEuMTgzIDUuNWEuNS41IDAgMCAxIC43OTguNTE5bC0yLjgzNCAxMC4yNDZhMSAxIDAgMCAxLS45NTYuNzM0SDUuODFhMSAxIDAgMCAxLS45NTctLjczNEwyLjAyIDYuMDJhLjUuNSAwIDAgMSAuNzk4LS41MTlsNC4yNzYgMy42NjRhMSAxIDAgMCAwIDEuNTE2LS4yOTR6Ii8+PHBhdGggZD0iTTUgMjFoMTQiLz48L3N2Zz4=" width="28" height="28" alt="Bridal Category" style="display: block; margin: 0 auto;" />`,
     party: "✨",
     professional: "👥"
   };
 
-  // 1️⃣ Target the content container and toggle the compact class
+  // Target the content container and toggle the compact class
   const contentBox = document.querySelector(".packages-content");
   if (categoryKey === "party" || categoryKey === "professional") {
     contentBox.classList.add("compact-view");
@@ -67,8 +69,8 @@ function updateCategoryView(categoryKey, data) {
     contentBox.classList.remove("compact-view");
   }
 
-  // Update text and icon
-  document.getElementById("categoryIcon").textContent = categoryIcons[categoryKey];
+  // 2. Change .textContent to .innerHTML for the icon so it renders the SVG tag
+  document.getElementById("categoryIcon").innerHTML = categoryIcons[categoryKey];
   document.getElementById("categoryTitle").textContent = categoryData.title;
   document.getElementById("categoryDesc").textContent = categoryData.description;
 
@@ -79,6 +81,7 @@ function updateCategoryView(categoryKey, data) {
 function renderPackages(packages) {
   const packagesGrid = document.getElementById("packagesGrid");
   const template = document.querySelector("#package-card-template");
+  const callbackPackageSelector = document.getElementById("packages");
   
   packagesGrid.innerHTML = ""; // Clear existing cards
 
@@ -96,7 +99,7 @@ function renderPackages(packages) {
     clone.querySelector(".package-target").textContent = pkg.target;
     clone.querySelector(".package-price").textContent = pkg.price;
     clone.querySelector(".package-price-original").textContent = pkg.originalPrice;
-    clone.querySelector(".package-offer").textContent = pkg.offer;
+    clone.querySelector(".package-offer").textContent = pkg.offer?"OFFER":"";
 
     // Inject the checklist features
     const featuresList = clone.querySelector(".package-features");
@@ -108,6 +111,7 @@ function renderPackages(packages) {
 
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
+      callbackPackageSelector.value = pkg.name;
       window.location.hash = "#callback";
     });
 
