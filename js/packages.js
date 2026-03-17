@@ -129,6 +129,16 @@ function renderPackages(packages) {
       featuresList.appendChild(li);
     });
 
+    const toggleBtn = clone.querySelector(".package-toggle");
+    toggleBtn.addEventListener("click", () => {
+      // Toggle the 'expanded' class on the card itself
+      cardDiv.classList.toggle("is-expanded");
+      
+      // Accessibility: Update aria-expanded if you want to be fancy
+      const isExpanded = cardDiv.classList.contains("is-expanded");
+      toggleBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
       // Save the exact package name to session memory
@@ -139,3 +149,4 @@ function renderPackages(packages) {
     packagesGrid.appendChild(clone);
   });
 }
+ 

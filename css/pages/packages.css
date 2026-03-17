@@ -152,6 +152,9 @@
 /* ==============================
    Packages Secondary Navbar (Filters)
 ============================== */
+/* ==============================
+   Packages Secondary Navbar (Filters)
+============================== */
 .packages-filters {
   display: flex;
   justify-content: center;
@@ -159,9 +162,15 @@
   background-color: #f5f0e6; 
   padding: 6px; 
   border-radius: 50px; 
+  
+  /* --- RESPONSIVE UPDATES --- */
   width: fit-content;
+  /* Max width is 100% of the screen minus 2rem (1rem on each side) */
+  max-width: calc(100% - 2rem); 
   margin: 0 auto 40px auto; 
   gap: 4px;
+  /* Ensures the bar doesn't look cut off if buttons are too wide */
+  overflow: hidden; 
 }
 
 .pkg-filter-btn {
@@ -178,6 +187,12 @@
   color: #002244; 
   cursor: pointer;
   transition: all 0.3s ease;
+
+  /* --- RESPONSIVE UPDATES --- */
+  /* This allows buttons to shrink their width and text if space gets tight */
+  flex-shrink: 1; 
+  white-space: nowrap; 
+  min-width: 0; 
 }
 
 .pkg-filter-btn span {
@@ -421,4 +436,48 @@
   width: 36px;
   height: 36px;
   shape-rendering: geometricPrecision;
+}
+
+/* 1. Hide the toggle button on desktop by default */
+.package-toggle {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* This handles the flip animation */
+  /* padding: 5px; */
+  width: 32px;
+  height: 32px;
+}
+
+/* 2. Mobile specific styles */
+@media (max-width: 768px) {
+  .package-toggle {
+    display: block; /* Show the button on mobile */
+    color: var(--color-primary);
+    background-color: rgb(249, 247, 236);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hide features by default on mobile */
+  .package-features {
+    display: none;
+    margin-top: 15px;
+  }
+
+  /* Show features when the card has the .is-expanded class */
+  .package-card.is-expanded .package-features {
+    display: block;
+  }
+
+  /* Flip the icon 180 degrees when expanded */
+  .package-card.is-expanded .package-toggle {
+    transform: rotate(180deg);
+  }
 }
