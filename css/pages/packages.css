@@ -38,7 +38,7 @@
   margin: 64px auto 0 auto; 
   padding: 0 2.5rem 2.5rem 2.5rem; 
 
-  transition: max-width 0.4s ease; 
+  transition: max-width 0.4s; 
 }
 
 /* ==============================
@@ -63,7 +63,7 @@
   border-radius: 8px;
   padding: 24px;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -181,7 +181,7 @@
   padding: 8px 32px; 
   border: none;
   background-color: transparent;
-  border-radius: 50px; 
+  border-radius: 8px; 
   font-family: var(--font-primary);
   font-size: .8rem;
   color: #002244; 
@@ -205,10 +205,45 @@
   display: block;
 }
 
+/* ==============================
+   Updated Filter Selection Logic
+============================== */
+
+/* 1. Remove the universal rounding from the active state */
 .pkg-filter-btn.active {
   background-color: #c29b62; 
   color: #ffffff; 
+  border-radius: 0; /* Square by default when active */
 }
+
+/* 2. Round ONLY the left side if the first button is active */
+.pkg-filter-btn.active:first-child,
+.pkg-filter-btn:first-child:hover
+ {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* 3. Round ONLY the right side if the last button is active */
+.pkg-filter-btn.active:last-child,
+.pkg-filter-btn:last-child:hover
+ {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.pkg-filter-btn.active:nth-child(2),
+.pkg-filter-btn:nth-child(2):hover
+ {
+  border-radius: 8px;
+}
+
+/* 4. The middle button (Party) is already covered by the 
+   'border-radius: 0' in step 1, so it stays perfectly square. */
 
 .pkg-filter-btn:not(.active):hover {
   background-color: rgba(194, 155, 98, 0.15); 
@@ -327,6 +362,7 @@
   padding: .5rem 1rem;
   border-radius: 6px;
   border: none;
+  transition: background-color .3s;
 }
 
 .btn-callback:hover {
@@ -447,7 +483,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease; /* This handles the flip animation */
+  transition: transform 0.3s; /* This handles the flip animation */
   /* padding: 5px; */
   width: 32px;
   height: 32px;
@@ -467,13 +503,23 @@
 
   /* Hide features by default on mobile */
   .package-features {
-    display: none;
-    margin-top: 15px;
+    display: block; /* Change from none to block so it can animate */
+    max-height: 0;   /* Start at zero height */
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;      /* Remove margin when collapsed to avoid jumps */
+    padding: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s ease, 
+                margin 0.3s ease;
   }
 
-  /* Show features when the card has the .is-expanded class */
+  /* When expanded, we animate to a height large enough to fit the content */
   .package-card.is-expanded .package-features {
-    display: block;
+    max-height: 500px; /* Adjust this to be taller than your longest list */
+    opacity: 1;
+    margin-top: 15px;
+    margin-bottom: 24px;
   }
 
   /* Flip the icon 180 degrees when expanded */
