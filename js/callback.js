@@ -13,6 +13,20 @@ export default function initCallbackForm() {
         return;
     }
 
+    // Target the dropdown menu
+    const packageDropdown = document.getElementById('packages-select');
+
+    // Check if a package was saved in memory from the Packages page
+    const preselectedPackage = sessionStorage.getItem("selectedPackage");
+
+    if (preselectedPackage && packageDropdown) {
+        // Set the dropdown value to match the saved package name
+        packageDropdown.value = preselectedPackage;
+
+        // Optional: Clear the memory so it doesn't force this selection on future visits
+        sessionStorage.removeItem("selectedPackage");
+    }
+
     phoneInput.addEventListener('input', function(e) {
         const originalValue = this.value;
         const cursorPosition = this.selectionStart;

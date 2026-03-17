@@ -1,5 +1,6 @@
 <section class="packages-section" id="packages">
   <div class="container">
+
     <div class="section-header">
       <hr class="divider-packages" />
       <h2>Our Packages</h2>
@@ -7,53 +8,40 @@
     </div>
 
     <div class="packages-filters" role="tablist">
-      <button
-        class="pkg-filter-btn active"
-        data-filter="bridal"
-        aria-pressed="true"
-      >
-        <span
-          ><img
-            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjU2MiAzLjI2NmEuNS41IDAgMCAxIC44NzYgMEwxNS4zOSA4Ljg3YTEgMSAwIDAgMCAxLjUxNi4yOTRMMjEuMTgzIDUuNWEuNS41IDAgMCAxIC43OTguNTE5bC0yLjgzNCAxMC4yNDZhMSAxIDAgMCAxLS45NTYuNzM0SDUuODFhMSAxIDAgMCAxLS45NTctLjczNEwyLjAyIDYuMDJhLjUuNSAwIDAgMSAuNzk4LS41MTlsNC4yNzYgMy42NjRhMSAxIDAgMCAwIDEuNTE2LS4yOTR6Ii8+PHBhdGggZD0iTTUgMjFoMTQiLz48L3N2Zz4="
-            width="16"
-            height="16"
-            alt="Bridal"
-            style="display: block"
-          />
-        </span>
+
+      <button class="pkg-filter-btn active" data-filter="bridal" aria-pressed="true">
+        <span class="pkg-icon" data-icon="bridal"></span>
         Bridal
       </button>
+
       <button class="pkg-filter-btn" data-filter="party" aria-pressed="false">
-        <span>✨</span> Party
+        <span class="pkg-icon" data-icon="party"></span>
+        Party
       </button>
-      <button
-        class="pkg-filter-btn"
-        data-filter="professional"
-        aria-pressed="false"
-      >
-        <span>👥</span> Professional
+
+      <button class="pkg-filter-btn" data-filter="professional" aria-pressed="false">
+        <span class="pkg-icon" data-icon="professional"></span>
+        Professional
       </button>
+
     </div>
 
     <div class="packages-content">
+
       <div class="category-header-container">
-        <div class="crown-icon" id="categoryIcon">
-          <img
-            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjg5NTRmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExLjU2MiAzLjI2NmEuNS41IDAgMCAxIC44NzYgMEwxNS4zOSA4Ljg3YTEgMSAwIDAgMCAxLjUxNi4yOTRMMjEuMTgzIDUuNWEuNS41IDAgMCAxIC43OTguNTE5bC0yLjgzNCAxMC4yNDZhMSAxIDAgMCAxLS45NTYuNzM0SDUuODFhMSAxIDAgMCAxLS45NTctLjczNEwyLjAyIDYuMDJhLjUuNSAwIDAgMSAuNzk4LS41MTlsNC4yNzYgMy42NjRhMSAxIDAgMCAwIDEuNTE2LS4yOTR6Ii8+PHBhdGggZD0iTTUgMjFoMTQiLz48L3N2Zz4="
-            width="28"
-            height="28"
-            alt="Bridal Category"
-            style="display: block; margin: 0 auto"
-          />
-        </div>
+
+        <div class="crown-icon" id="categoryIcon"></div>
+
         <h3 id="categoryTitle" class="category-title">Bridal Packages</h3>
+
         <p id="categoryDesc" class="category-desc">
-          Customized packages honoring all traditions. Free trial makeup
-          included.
+          Customized packages honoring all traditions. Free trial makeup included.
         </p>
+
       </div>
 
       <div class="packages-grid" id="packagesGrid"></div>
+
     </div>
 
     <div class="packages-footer">
@@ -65,16 +53,21 @@
 
       <button class="btn-callback">Request Call Back</button>
     </div>
+
   </div>
 
   <template id="package-card-template">
-    <div class="package-card">
-      <div class="popular-badge hidden">⭐ Popular</div>
+  <div class="package-card">
+    <div class="popular-badge hidden">⭐ Popular</div>
+    
+    <button class="package-toggle" aria-label="Toggle details">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
 
-      <div class="package-card-header">
-        <h4 class="package-name"></h4>
-        <p class="package-target"></p>
-      </div>
+    <div class="package-card-header">
+      <h4 class="package-name"></h4>
+      <p class="package-target"></p>
+    </div>
 
       <div class="package-price-info">
         <span class="package-price"></span>
@@ -85,6 +78,8 @@
       <ul class="package-features"></ul>
 
       <button class="btn-book-now">Book Now</button>
+
     </div>
   </template>
+
 </section>
