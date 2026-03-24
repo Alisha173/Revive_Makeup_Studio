@@ -1,6 +1,7 @@
 import loadSection from "./spaLoader.js";
 import { initHero,destroyHero } from "./main.js";
 import loadGallery from "./gallery.js";
+import { initLightbox } from "./lightbox.js";
 import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
 import {initOurWork,destroyOurWork} from "./ourWork.js";

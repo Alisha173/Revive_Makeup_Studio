@@ -2,16 +2,16 @@
   {
     "id": "b1",
     "images": [
-      { "src": "b1_1.jpg", "alt": "Bride 1 picture 1" },
-      { "src": "b1_2.jpg", "alt": "Bride 1 picture 2" },
-      { "src": "b1_3.jpg", "alt": "Bride 1 picture 3" }
+      { "src": "assets/images/gallery/test/b1_1.jpg", "alt": "Bride 1 picture 1" },
+      { "src": "assets/images/gallery/test/b1_2.jpg", "alt": "Bride 1 picture 2" },
+      { "src": "assets/images/gallery/test/b1_3.jpg", "alt": "Bride 1 picture 3" }
     ]
   },
   {
     "id": "b2",
     "images": [
-      { "src": "b2_1.jpg", "alt": "Bride 2 picture 1" },
-      { "src": "b2_2.jpg", "alt": "Bride 2 picture 2" }
+      { "src": "assets/images/gallery/test/b2_1.jpg", "alt": "Bride 2 picture 1" },
+      { "src": "assets/images/gallery/test/b2_2.jpg", "alt": "Bride 2 picture 2" }
     ]
   },
   {

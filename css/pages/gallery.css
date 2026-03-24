@@ -36,50 +36,130 @@
 
 /*    Filters    */
 
+/* --- Gallery Filters (Capsule Bar) --- */
 .gallery-filters {
   display: flex;
-  justify-content: space-evenly;
-  min-width: 32%;
-  margin-bottom: 40px;
-  background-color: #F7F0E7;
-  gap:4px;
-  padding: 3px 5px;
-  border-radius: 20px;
-  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f0e6; 
+  padding: 6px; 
+  border-radius: 50px; 
+  width: fit-content;
+  max-width: calc(100% - 2rem); 
+  margin: 0 auto 40px auto; 
+  gap: 4px;
+  overflow: hidden; 
 }
 
 .filter-btn {
-  padding: 7px 20px;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 24px; 
   border: none;
-  background-color: #f3efe8;
-  color: #222;               
+  background-color: transparent;
+  border-radius: 8px; 
+  font-family: var(--font-primary);
+  font-size: .85rem;
+  color: #002244; 
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-weight: bold;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
-
-.filter-btn:hover {
-  background-color: #e7d9bf;
-}
-
+/* --- Active State Logic --- */
 .filter-btn.active {
-  background-color: #D4AF73;
-  color: white;
+  background-color: #c29b62; 
+  color: #ffffff; 
+  border-radius: 50px; 
+}
+
+.filter-btn:hover{
+  background-color: #e3d4bd;
+  border-radius: 50px;
+}
+
+/* Rounding the ends of the capsule */
+/* .filter-btn.active:first-child,
+.filter-btn:first-child:hover {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.filter-btn.active:last-child,
+.filter-btn:last-child:hover {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+} */
+
+/* --- Icon Handling --- */
+.pkg-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pkg-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #d4af37; /* Gold by default */
+  transition: stroke 0.3s ease;
+}
+
+.filter-btn.active .pkg-icon svg {
+  stroke: white; /* White when active */
 }
 
 /*    Gallery Grid   */
 
+/* --- Updated Gallery Grid --- */
+
 .gallery-grid {
   display: grid;
+  /* Desktop/Tablet: Remains dynamic based on item size */
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
   padding: 0 10px;
+  transition: all 0.3s ease; /* Smooth transition for layout changes */
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablet and Mobile (Most phones) */
+@media (max-width: 768px) {
+  .gallery-grid {
+    /* Force exactly 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px; /* Smaller gap looks more balanced on mobile */
+  }
+
+  .gallery-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .gallery-section .section-header {
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+}
+
+/* Excessively Small Screens (below ~350px width) */
+@media (max-width: 350px) {
+  .gallery-grid {
+    /* Revert to 1 column to avoid cramped images */
+    grid-template-columns: 1fr;
+  }
 }
 
 /*    Gallery Items  */
+
+/* --- Gallery Item Entrance Animation --- */
 
 .gallery-item {
   position: relative;
@@ -88,9 +168,27 @@
   background-color: #f5f5f5;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
   user-select: none;
   aspect-ratio: 1/1;
+  
+  /* Trigger animation whenever the element is displayed */
+  animation: itemReveal 0.6s ease-out forwards;
+}
+
+@keyframes itemReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ensure hidden items don't take up space */
+.gallery-item.hidden {
+  display: none;
 }
 
 .gallery-item::after {
@@ -160,3 +258,168 @@
 
 }
 
+
+/* --- Lightbox Overlay (The Blur Layer) --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Content Wrapper (The White Card) --- */
+.lightbox-content {
+  position: relative; /* Crucial for positioning the close button */
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  height: 85vh; /* Desktop height */
+  background-color: #fefdfa;
+  border-radius: 24px;
+  padding: 40px 30px 30px 30px; /* Top padding for close button space */
+  gap: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Left: Main Image Container --- */
+.lightbox-left {
+  flex: 2.5;
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-left img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --- Right: Sidebar --- */
+.lightbox-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Alt Texts (Contrast Adjusted for Light Background) */
+.alt-text-item {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #888; /* Faded dark grey for readability on light bg */
+}
+
+.alt-text-item.active {
+  color: var(--color-primary); /* Golden Highlight */
+}
+
+/* Thumbnails */
+
+.thumbnail-track{
+  display: flex;
+  gap: 1rem;
+}
+
+.thumb-item {
+  width: 70px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.thumb-item:hover {
+  opacity: 0.8;
+}
+
+.thumb-item.active {
+  opacity: 1;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* --- Close Button (Updated for Contrast) --- */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eee; /* Light grey circle */
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 960px) {
+  .lightbox-content {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh; /* Prevents it from being too long */
+    padding: 50px 15px 15px 15px;
+    gap: 15px;
+    width: 95%; /* Better width on small screens */
+  }
+
+  .lightbox-left {
+    flex: none;
+    height: 45vh; /* Controls vertical space for image */
+  }
+
+  /* Hide alt texts on mobile as requested */
+  .lightbox-top {
+    display: none;
+  }
+
+  .lightbox-right {
+    flex: none;
+    height: auto;
+  }
+
+  .thumbnail-track {
+    padding-top: 10px;
+    justify-content: center;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -10,10 +10,22 @@
     </div>
 
     <div class="gallery-filters" role="tablist">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-      <button class="filter-btn" data-filter="bridal" aria-pressed="false">Bridal</button>
-      <button class="filter-btn" data-filter="party" aria-pressed="false">Party</button>
-      <button class="filter-btn" data-filter="professional" aria-pressed="false">Professional</button>
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">
+        <span class="pkg-icon" data-icon="all"></span>
+        All
+      </button>
+      <button class="filter-btn" data-filter="bridal" aria-pressed="false">
+        <span class="pkg-icon" data-icon="bridal"></span>
+        Bridal
+      </button>
+      <button class="filter-btn" data-filter="party" aria-pressed="false">
+        <span class="pkg-icon" data-icon="party"></span>
+        Party
+      </button>
+      <button class="filter-btn" data-filter="professional" aria-pressed="false">
+        <span class="pkg-icon" data-icon="professional"></span>
+        Professional
+      </button>
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
@@ -31,4 +43,26 @@
     </div>
 
   </div>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+  <div class="lightbox-content">
+    <button class="close-btn" aria-label="Close lightbox">&times;</button>
+
+    <div class="lightbox-left">
+      <div class="nav-hitbox left" data-nav="prev"></div>
+      <div class="nav-hitbox right" data-nav="next"></div>
+      <img id="lightboxMainImg" src="" alt="">
+    </div>
+
+    <div class="lightbox-right">
+      <div class="lightbox-top">
+        <div id="altTextContainer" class="alt-text-list"></div>
+      </div>
+      <div class="lightbox-bottom">
+        <div id="thumbnailContainer" class="thumbnail-track"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>

@@ -178,7 +178,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 32px; 
+  padding: 8px 16px; 
   border: none;
   background-color: transparent;
   border-radius: 8px; 
@@ -210,13 +210,23 @@
 ============================== */
 
 /* 1. Remove the universal rounding from the active state */
+.pkg-filter-btn:hover{
+  background-color: #e3d4bd;
+  border-radius: 50px;
+}
 .pkg-filter-btn.active {
   background-color: #c29b62; 
-  color: #ffffff; 
-  border-radius: 0; /* Square by default when active */
+
+  color: #ffffff;
+
+  border-radius: 50px;
+
 }
 
-/* 2. Round ONLY the left side if the first button is active */
+  /*  
+  border-radius: 0; 
+}
+
 .pkg-filter-btn.active:first-child,
 .pkg-filter-btn:first-child:hover
  {
@@ -226,7 +236,6 @@
   border-bottom-right-radius: 8px;
 }
 
-/* 3. Round ONLY the right side if the last button is active */
 .pkg-filter-btn.active:last-child,
 .pkg-filter-btn:last-child:hover
  {
@@ -242,12 +251,9 @@
   border-radius: 8px;
 }
 
-/* 4. The middle button (Party) is already covered by the 
-   'border-radius: 0' in step 1, so it stays perfectly square. */
-
 .pkg-filter-btn:not(.active):hover {
   background-color: rgba(194, 155, 98, 0.15); 
-}
+} */
 
 /* ==============================
    Package Pricing & Info

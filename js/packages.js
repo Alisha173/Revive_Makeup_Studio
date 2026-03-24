@@ -54,7 +54,7 @@ function initIcons() {
       el.innerHTML = icons[iconName];
     }
   });
-}
+} 
 
 function initPkgFilters(filterButtons, data) {
   filterButtons.forEach((btn) => {
@@ -89,8 +89,7 @@ function updateCategoryView(categoryKey, data) {
   document.getElementById("categoryIcon").innerHTML = icons[categoryKey];
 
   document.getElementById("categoryTitle").textContent = categoryData.title;
-  document.getElementById("categoryDesc").textContent =
-    categoryData.description;
+  document.getElementById("categoryDesc").textContent = categoryData.description;
 
   renderPackages(categoryData.packages);
 }
