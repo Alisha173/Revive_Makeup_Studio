@@ -55,12 +55,12 @@ export function initHero() {
     slideEl.className = `hero-slide ${index === 0 ? "active" : ""}`;
 
     slideEl.innerHTML = `
-            <img src="${slide.image}" alt="">
+            <img src="${slide.image}" alt="" fetchpriority="high">
             <div class="container">
             
                 <div class="hero-content">
                     <span class="hero-badge">${slide.badge}</span>
-                    <h2>${slide.title}</h2>
+                    <h1 class="heroHead">${slide.title}</h1>
                     <p>${slide.description}</p>
                     <div class="hero-actions">
                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
