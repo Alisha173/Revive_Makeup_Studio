@@ -29,15 +29,15 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="packages">Package Interested In *</label> 
-                    <select id="packages" name="packages" required>
+                    <label for="packages-select">Package Interested In *</label> 
+                    <select id="packages-select" name="packages" required>
                         <option value="" disabled selected>Select a package</option>
                         <option value="HD Makeup">HD Makeup -- ₹9,999</option>
                         <option value="Ultra HD Makeup">Ultra HD Makeup -- ₹12,999</option>
                         <option value="Glass Skin Makeup">Glass Skin Makeup -- ₹14,999</option>
                         <option value="Airbrush Makeup">Airbrush Makeup -- ₹19,999</option>
                         <option value="Party Makeup">Party Makeup</option>
-                        <option value="Model/PhotoShoot Makeup">Model/Photoshoot Makeup</option>
+                        <option value="Model/Photoshoot Makeup">Model/Photoshoot Makeup</option>
                         <option value="Other">Other/undecided - Kindly specify below</option>
                     </select>  
                 </div>
@@ -69,6 +69,11 @@
             <div class="form-group">
                 <label for="additional-details">Additional Details</label>
                 <textarea id="additional-details" name="additional-details" rows="3" placeholder="Tell us about your event, religious/cultural preferences, any specific requirements..."></textarea>
+            </div>
+
+            <div class="f-details" aria-hidden="true" style="display:none !important;">
+                <label for="f-extra">Additional Reference Details</label>
+                <input type="text" id="f-extra" name="extra-info" tabindex="-1" autocomplete="off">
             </div>
 
             <div class="form-note">
