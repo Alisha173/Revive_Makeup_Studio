@@ -3,9 +3,9 @@
     "id": "b1",
     "category": "bridal",
     "images": [
-      { "src": "assets/images/bridal/b1_1.webp", "alt": "Bride 1 picture 1" },
-      { "src": "assets/images/bridal/b1_2.webp", "alt": "Bride 1 picture 2" },
-      { "src": "assets/images/bridal/b1_3.webp", "alt": "Bride 1 picture 3" }
+      { "src": "assets/images/bridal/b1_1.webp", "alt": "Full Bridal Makeup" },
+      { "src": "assets/images/bridal/b1_2.webp", "alt": "Airbrush Makeup" },
+      { "src": "assets/images/bridal/b1_3.webp", "alt": "Hair work" }
     ]
   },
   {

@@ -4,6 +4,9 @@ let localData = [];
 let activeSetIndex = 0;
 let activeImgIndex = 0;
 
+let touchStartX = 0;
+let touchEndX = 0;
+
 export function initLightbox(data) {
   localData = data; // Receive data from gallery.js
   setupEventListeners();
@@ -24,8 +27,14 @@ function renderLightboxContent() {
   const currentImgData = set.images[activeImgIndex];
 
   document.getElementById("lightboxMainImg").src = currentImgData.src;
+
   
-  // Update Alt Texts
+  const mobileCaption = document.getElementById("mobileAltCaption");
+  if (mobileCaption) {
+    mobileCaption.textContent = currentImgData.alt;
+  }
+  
+  // 1. Render Alt Texts (Logic remains same)
   const altContainer = document.getElementById("altTextContainer");
   altContainer.innerHTML = "";
   set.images.forEach((img, index) => {
@@ -36,16 +45,36 @@ function renderLightboxContent() {
     altContainer.appendChild(p);
   });
 
-  // Update Thumbnails
+  // 2. Render & Auto-Scroll Thumbnails
   const thumbContainer = document.getElementById("thumbnailContainer");
   thumbContainer.innerHTML = "";
+  
   set.images.forEach((img, index) => {
     const thumb = document.createElement("img");
     thumb.src = img.src;
     thumb.className = `thumb-item ${index === activeImgIndex ? 'active' : ''}`;
-    thumb.onclick = () => { activeImgIndex = index; renderLightboxContent(); };
+    
+    // Add Click listener
+    thumb.onclick = () => { 
+      activeImgIndex = index; 
+      renderLightboxContent(); 
+    };
+
     thumbContainer.appendChild(thumb);
+
+    // AUTO-SCROLL LOGIC:
+    // If this is the active thumbnail, center it in the track
+    if (index === activeImgIndex) {
+      setTimeout(() => {
+        thumb.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center' // This keeps it in the middle of the "Stage"
+        });
+      }, 50);
+    }
   });
+
 }
 
 function navigate(direction) {
@@ -74,4 +103,46 @@ function setupEventListeners() {
       navigate(box.dataset.nav);
     };
   });
+
+
+  const imgContainer = document.querySelector(".lightbox-left");
+
+  // 1. Close Button & Backdrop Logic
+
+
+  // 2. Desktop Hitbox Clicking (Left/Right side of image)
+  document.querySelectorAll(".nav-hitbox").forEach(box => {
+    box.onclick = (e) => {
+      e.stopPropagation();
+      navigate(box.dataset.nav);
+    };
+  });
+
+  // 3. Mobile Swipe Gestures
+  imgContainer.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  imgContainer.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50; // Minimum distance in pixels to trigger a swipe
+  
+  if (touchEndX < touchStartX - swipeThreshold) {
+    navigate('next'); // Swiped left -> Show next
+  } 
+  if (touchEndX > touchStartX + swipeThreshold) {
+    navigate('prev'); // Swiped right -> Show previous
+  }
+}
+
+// Helper to clean up when closing
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "auto";
 }

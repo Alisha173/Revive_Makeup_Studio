@@ -45,24 +45,27 @@
   </div>
 
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-  <div class="lightbox-content">
-    <button class="close-btn" aria-label="Close lightbox">&times;</button>
+    <div class="lightbox-content">
+      <button class="close-btn" aria-label="Close lightbox">&times;</button>
 
-    <div class="lightbox-left">
-      <div class="nav-hitbox left" data-nav="prev"></div>
-      <div class="nav-hitbox right" data-nav="next"></div>
-      <img id="lightboxMainImg" src="" alt="">
-    </div>
+      <div class="lightbox-top-row">
+        <div class="lightbox-left">
+          <div class="nav-hitbox left" data-nav="prev"></div>
+          <div class="nav-hitbox right" data-nav="next"></div>
+          <img id="lightboxMainImg" src="" alt="">
 
-    <div class="lightbox-right">
-      <div class="lightbox-top">
-        <div id="altTextContainer" class="alt-text-list"></div>
+          <div id="mobileAltCaption" class="mobile-alt-caption"></div>
+        </div>
+
+        <div class="lightbox-right-info">
+          <div id="altTextContainer" class="alt-text-list"></div>
+        </div>
       </div>
-      <div class="lightbox-bottom">
+
+      <div class="lightbox-bottom-tray">
         <div id="thumbnailContainer" class="thumbnail-track"></div>
       </div>
     </div>
   </div>
-</div>
 
 </section>
