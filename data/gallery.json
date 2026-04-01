@@ -1,54 +1,277 @@
 [
   {
-    "src": "assets/images/gallery/bridal/img3.jpg",
+    "id": "b1",
     "category": "bridal",
-    "alt": "Traditional Kerala bridal makeup look",
-    "featured": true
+    "images": [
+      { "src": "assets/images/bridal/b1_1.webp", "alt": "Full Bridal Makeup" },
+      { "src": "assets/images/bridal/b1_2.webp", "alt": "Airbrush Makeup" },
+      { "src": "assets/images/bridal/b1_3.webp", "alt": "Hair work" }
+    ]
   },
   {
-    "src": "assets/images/gallery/professional/img2.jpg",
+    "id": "b2",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b2_1.webp", "alt": "Bride 2 picture 1" },
+      { "src": "assets/images/bridal/b2_2.webp", "alt": "Bride 2 picture 2" }
+    ]
+  },
+  {
+    "id": "b3_1",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b3_1_1.webp", "alt": "Bride 3_1 picture 1" },
+      { "src": "assets/images/bridal/b3_1_2.webp", "alt": "Bride 3_1 picture 2" },
+      { "src": "assets/images/bridal/b3_1_3.webp", "alt": "Bride 3_1 picture 3" }
+    ]
+  },
+  {
+    "id": "b3_2",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b3_2_1.webp", "alt": "Bride 3_2 picture 1" },
+      { "src": "assets/images/bridal/b3_2_2.webp", "alt": "Bride 3_2 picture 2" },
+      { "src": "assets/images/bridal/b3_2_3.webp", "alt": "Bride 3_2 picture 3" }
+    ]
+  },
+  {
+    "id": "b4",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b4_1.webp", "alt": "Bride 4 picture 1" },
+      { "src": "assets/images/bridal/b4_2.webp", "alt": "Bride 4 picture 2" },
+      { "src": "assets/images/bridal/b4_3.webp", "alt": "Bride 4 picture 3" },
+      { "src": "assets/images/bridal/b4_4.webp", "alt": "Bride 4 picture 4" },
+      { "src": "assets/images/bridal/b4_5.webp", "alt": "Bride 4 picture 5" }
+    ]
+  },
+  {
+    "id": "b5",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b5_1.webp", "alt": "Bride 5 picture 1" },
+      { "src": "assets/images/bridal/b5_2.webp", "alt": "Bride 5 picture 2" }
+    ]
+  },
+  {
+    "id": "b6",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b6_1.webp", "alt": "Bride 6 picture 1" },
+      { "src": "assets/images/bridal/b6_2.webp", "alt": "Bride 6 picture 2" },
+      { "src": "assets/images/bridal/b6_3.webp", "alt": "Bride 6 picture 3" },
+      { "src": "assets/images/bridal/b6_4.webp", "alt": "Bride 6 picture 4" }
+    ]
+  },
+  {
+    "id": "b7",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b7.webp", "alt": "Bride 7" }
+    ]
+  },
+  {
+    "id": "b8",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b8_1.webp", "alt": "Bride 8 picture 1" },
+      { "src": "assets/images/bridal/b8_2.webp", "alt": "Bride 8 picture 2" }
+    ]
+  },
+  {
+    "id": "b9_1",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b9_1.webp", "alt": "Bride 9 picture 1" },
+      { "src": "assets/images/bridal/b9_2.webp", "alt": "Bride 9 picture 2" },
+      { "src": "assets/images/bridal/b9_3.webp", "alt": "Bride 9 picture 3" },
+      { "src": "assets/images/bridal/b9_4.webp", "alt": "Bride 9 picture 4" }
+    ]
+  },
+  {
+    "id": "b10",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b10_1.webp", "alt": "Bride 10 picture 1" }
+    ]
+  },
+  {
+    "id": "b11",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b11_1.webp", "alt": "Bride 11 picture 1" },
+      { "src": "assets/images/bridal/b11_2.webp", "alt": "Bride 11 picture 2" },
+      { "src": "assets/images/bridal/b11_3.webp", "alt": "Bride 11 picture 3" },
+      { "src": "assets/images/bridal/b11_4.webp", "alt": "Bride 11 picture 4" }
+    ]
+  },
+  {
+    "id": "b12",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b12_1.webp", "alt": "Bride 12 picture 1" },
+      { "src": "assets/images/bridal/b12_2.webp", "alt": "Bride 12 picture 2" },
+      { "src": "assets/images/bridal/b12_3.webp", "alt": "Bride 12 picture 3" }
+    ]
+  },
+  {
+    "id": "b13",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b13_1.webp", "alt": "Bride 13 picture 1" },
+      { "src": "assets/images/bridal/b13_2.webp", "alt": "Bride 13 picture 2" }
+    ]
+  },
+  {
+    "id": "b14",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b14_1.webp", "alt": "Bride 14 picture 1" },
+      { "src": "assets/images/bridal/b14_2.webp", "alt": "Bride 14 picture 2" }
+    ]
+  },
+  {
+    "id": "b15",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b15_1.webp", "alt": "Bride 15 picture 1" },
+      { "src": "assets/images/bridal/b15_2.webp", "alt": "Bride 15 picture 2" }
+    ]
+  },
+  {
+    "id": "b16",
+    "category": "bridal",
+    "images": [
+      { "src": "assets/images/bridal/b16_1.webp", "alt": "Bride 16 picture 1" },
+      { "src": "assets/images/bridal/b16_2.webp", "alt": "Bride 16 picture 2" },
+      { "src": "assets/images/bridal/b16_3.webp", "alt": "Bride 16 picture 3" }
+    ]
+  },
+  
+  {
+    "id": "m1",
     "category": "professional",
-    "alt": "Professional studio makeup look",
-    "featured": false
+    "images": [
+      { "src": "assets/images/model/m1_1.webp", "alt": "M1 picture 1" },
+      { "src": "assets/images/model/m1_2.webp", "alt": "M1 picture 2" }
+    ]
   },
   {
-    "src": "assets/images/gallery/bridal/img6.jpg",
-    "category": "bridal",
-    "alt": "Elegant bridal makeup styling"
-  },
-  {
-    "src": "assets/images/gallery/professional/img1.jpg",
+    "id": "m2",
     "category": "professional",
-    "alt": "Photoshoot makeup artistry"
+    "images": [
+      { "src": "assets/images/model/m2_1.webp", "alt": "M2 picture 1" }
+    ]
   },
   {
-    "src": "assets/images/gallery/bridal/img1.jpg",
-    "category": "bridal",
-    "alt": "Classic bridal makeup look"
-  },
-  {
-    "src": "assets/images/gallery/bridal/img5.jpg",
-    "category": "bridal",
-    "alt": "South Indian bridal makeup"
-  },
-  {
-    "src": "assets/images/gallery/professional/img3.jpg",
+    "id": "m3",
     "category": "professional",
-    "alt": "High fashion professional makeup"
+    "images": [
+      { "src": "assets/images/model/m3_1.webp", "alt": "M3 picture 1" },
+      { "src": "assets/images/model/m3_2.webp", "alt": "M3 picture 2" }
+    ]
   },
   {
-    "src": "assets/images/gallery/bridal/img7.jpg",
-    "category": "bridal",
-    "alt": "Minimal bridal makeup look"
+    "id": "m4",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m4_1.webp", "alt": "M4 picture 1" },
+      { "src": "assets/images/model/m4_2.webp", "alt": "M4 picture 2" }
+    ]
   },
   {
-    "src": "assets/images/gallery/bridal/img2.jpg",
-    "category": "bridal",
-    "alt": "Traditional wedding bridal makeup"
+    "id": "m5",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m5_1.webp", "alt": "M5 picture 1" },
+      { "src": "assets/images/model/m5_2.webp", "alt": "M5 picture 2" }
+    ]
   },
   {
-    "src": "assets/images/gallery/bridal/img4.jpg",
-    "category": "bridal",
-    "alt": "Modern bridal makeup look"
+    "id": "m6",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m6_1.webp", "alt": "M6 picture 1" },
+      { "src": "assets/images/model/m6_2.webp", "alt": "M6 picture 2" }
+    ]
+  },
+  {
+    "id": "m7",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m7_1.webp", "alt": "M7 picture 1" },
+      { "src": "assets/images/model/m7_2.webp", "alt": "M7 picture 2" }
+    ]
+  },
+  {
+    "id": "m8",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m8_1.webp", "alt": "M8 picture 1" },
+      { "src": "assets/images/model/m8_2.webp", "alt": "M8 picture 2" }
+    ]
+  },
+  {
+    "id": "m9",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m9_1.webp", "alt": "M9 picture 1" },
+      { "src": "assets/images/model/m9_2.webp", "alt": "M9 picture 2" }
+    ]
+  },
+  {
+    "id": "m10",
+    "category": "professional",
+    "images": [
+      { "src": "assets/images/model/m10_1.webp", "alt": "M10 picture 1" }
+    ]
+  },
+  {
+    "id": "p1",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p1_1.webp", "alt": "Picture 1 image 1" },
+      { "src": "assets/images/party/p1_2.webp", "alt": "Picture 1 image 2" }
+    ]
+  },
+  {
+    "id": "p2",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p2_1.webp", "alt": "Picture 2 image 1" },
+      { "src": "assets/images/party/p2_2.webp", "alt": "Picture 2 image 2" }
+    ]
+  },
+  {
+    "id": "p3",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p3_1.webp", "alt": "Picture 3 image 1" },
+      { "src": "assets/images/party/p3_2.webp", "alt": "Picture 3 image 2" }
+    ]
+  },
+  {
+    "id": "p4",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p4_1.webp", "alt": "Picture 4 image 1" },
+      { "src": "assets/images/party/p4_2.webp", "alt": "Picture 4 image 2" }
+    ]
+  },
+  {
+    "id": "p5",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p5_1.webp", "alt": "Picture 5 image 1" }
+    ]
+  },
+  {
+    "id": "p6",
+    "category": "party",
+    "images": [
+      { "src": "assets/images/party/p6_1.webp", "alt": "Picture 6 image 1" },
+      { "src": "assets/images/party/p6_2.webp", "alt": "Picture 6 image 2" }
+    ]
   }
+
 ]

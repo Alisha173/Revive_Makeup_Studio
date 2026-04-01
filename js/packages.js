@@ -16,7 +16,7 @@ export default async function loadPackages() {
   initIcons();
 
   const packagesGrid = document.getElementById("packagesGrid");
-  const filterButtons = document.querySelectorAll(".pkg-filter-btn");
+  const filterButtons = document.querySelectorAll(".filter-item");
 
   if (!packagesGrid || !filterButtons.length) {
     console.warn("Packages DOM not found");

@@ -10,7 +10,8 @@ const galleryIcons = {
 };
 
 function initGalleryIcons() {
-  document.querySelectorAll(".gallery-filters [data-icon]").forEach((el) => {
+  // CHANGED: Select from .filter-capsule instead of .gallery-filters
+  document.querySelectorAll(".filter-capsule [data-icon]").forEach((el) => {
     const iconName = el.dataset.icon;
     if (galleryIcons[iconName]) {
       el.innerHTML = galleryIcons[iconName];
@@ -19,30 +20,25 @@ function initGalleryIcons() {
 }
 
 export default async function loadGallery() {
-
   initGalleryIcons();
 
   const galleryGrid = document.getElementById("galleryGrid");
-  const filterButtons = document.querySelectorAll(".filter-btn");
+  // CHANGED: Query for .filter-item instead of .filter-btn
+  const filterButtons = document.querySelectorAll(".filter-item");
 
-  //Safety check
   if (!galleryGrid || !filterButtons.length) {
-    console.warn("Gallery DOM not found");
+    console.warn("Gallery DOM not found: check if HTML classes match JS selectors");
     return;
   }
 
   try {
-    const res = await fetch("data/galleryTest.json");
-
-    if (!res.ok) {
-      throw new Error("Failed to load gallery data");
-    }
+    const res = await fetch("data/gallery.json");
+    if (!res.ok) throw new Error("Failed to load gallery data");
 
     const galleryData = await res.json();
     renderGallery(galleryGrid, galleryData);
     initFilters(filterButtons, galleryGrid);
     intersectionFunction();
-
     initLightbox(galleryData);
 
   } catch (err) {
@@ -155,6 +151,8 @@ function renderGallery(galleryGrid, data) {
   // Re-run intersection observer if it exists to pick up new elements
   if(typeof intersectionFunction === 'function') intersectionFunction();
 }
+
+
 function initFilters(filterButtons, galleryGrid) {
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -169,9 +167,7 @@ function initFilters(filterButtons, galleryGrid) {
       btn.setAttribute("aria-pressed", "true");
 
       galleryGrid.querySelectorAll(".gallery-item").forEach(item => {
-        const show =
-          filter === "all" || item.classList.contains(filter);
-
+        const show = filter === "all" || item.classList.contains(filter);
         item.classList.toggle("hidden", !show);
       });
     });
