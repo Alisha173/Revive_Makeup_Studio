@@ -157,11 +157,13 @@ function renderGallery(galleryGrid, data) {
       div.classList.add("intro-active");
       div.classList.add("pulse-trigger");
       
-      // Grab the notification element
-      const notice = document.getElementById("galleryNotification");
+      const notice = div.querySelector(".gallery-item-notice");
       if (notice) {
-        // Slight delay so the page loads before the slide-in happens
-        setTimeout(() => notice.classList.add("show-notice"), 300);
+        // A 100ms delay ensures the browser paints the "hidden" state first,
+        // which forces the slide-up transition to actually play on load.
+        setTimeout(() => {
+          div.classList.add("show-notice");
+        }, 100);
       }
       
       // Clean up after 6 seconds
@@ -169,8 +171,9 @@ function renderGallery(galleryGrid, data) {
         div.classList.remove("intro-active");
         div.classList.remove("pulse-trigger");
         
+        // This will now trigger the slide back DOWN behind the image
         if (notice) {
-          notice.classList.remove("show-notice");
+          div.classList.remove("show-notice");
         }
       }, 6000);
     }
