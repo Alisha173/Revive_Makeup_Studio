@@ -4,6 +4,7 @@
   /* padding: 10px 0; */
   background-color: #fff;
   /* font-family: var(--font-heading); */
+  position: relative;
 }
 
 
@@ -22,7 +23,7 @@
 
 .gallery-item {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 12px;
   background-color: #f5f5f5;
   cursor: pointer;
@@ -66,6 +67,7 @@
 
   background: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.988));
   transition: opacity 0.3s ease-in;
+  border-radius: 12px;
 }
 
 .gallery-item.active::after {
@@ -92,6 +94,13 @@
 
 .gallery-item.active img {
   transform: scale(1.1);
+}
+
+.gallery-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 /* lightbox nav */
@@ -426,5 +435,191 @@
 @media (max-width: 350px) {
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Folder count Badge */
+
+.item-count-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 42px;  /* Slightly larger for this icon style */
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.badge-icon {
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  width: 75%;
+  height: 75%;
+  color: #fff; /* SVG color */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.badge-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.badge-num {
+  position: relative;
+  z-index: 2;
+  
+  /* POSITIONING:
+     We move it slightly up and left to sit in the folder "pocket" 
+     and avoid the plus sign in the bottom right corner */
+  transform: translate(-3px, 1px);
+  
+  font-family: var(--font-primary);
+  font-size: 0.7rem; 
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* On mobile, shrink the whole badge slightly */
+@media (max-width: 768px) {
+  .item-count-badge {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+  }
+  .badge-num {
+    font-size: 0.6rem;
+    transform: translate(-2px, 1px);
+  }
+}
+
+/* Ensure badge remains visible or fades on hover if desired */
+.gallery-item:hover .item-count-badge {
+  background-color: #94673abe; 
+}
+
+/* User Prompt Pulse Effect */
+
+.gallery-item.intro-active .item-count-badge {
+  opacity: 1;
+  background-color: #94673abe; /* Slightly darker for better visibility */
+}
+
+/* 2. The Pulse Effect */
+/* Ensure the badge is the anchor for the transformation */
+/* 1. Permanent Enlargement during Intro */
+.gallery-item.pulse-trigger .item-count-badge {
+  opacity: 1;
+  background-color:#94673abe;
+  transform: scale(1.3); 
+  transition: transform 0.5s ease;
+  z-index: 10;
+}
+
+/* 2. Filled Ripple Base Style */
+.gallery-item.pulse-trigger .item-count-badge::before,
+.gallery-item.pulse-trigger .item-count-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  /* Using background-color for the "filled" effect */
+  background-color: #c29b62; 
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1; /* Ripples emanate from BEHIND the badge */
+  animation: filledStaggeredRipple 2s ease-out infinite;
+}
+
+/* 3. Staggered Delay */
+.gallery-item.pulse-trigger .item-count-badge::after {
+  animation-delay: 0.5s; /* Second filled pulse follows the first */
+}
+
+/* 4. Tighter Ripple Animation */
+@keyframes filledStaggeredRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6; /* Starts as a visible filled circle */
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    /* Reduced scale from 3.5 to 2.2 for a "tighter" extent */
+    transform: scale(2.2); 
+    opacity: 0;
+  }
+}
+
+
+/* user prompt notification capsule */
+
+/* Gallery Notification Capsule */
+.notification-wrapper {
+  position: absolute;
+  left: 0;
+  top: 18.9rem;
+  /* This pulls it slightly up so it hovers exactly between the filters and the grid */
+  margin-top: -15px; 
+  
+  z-index: 15;
+  
+  /* Prevents the invisible wrapper box from blocking clicks on your filters/grid */
+  pointer-events: none; 
+  overflow: hidden;
+  padding-right: 20px; /* Give the drop-shadow room to breathe */
+}
+
+/* The Capsule */
+.gallery-notification {
+  /* Re-enable clicks on the actual capsule */
+  pointer-events: auto; 
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  background-color: #fefdfa; 
+  color: #654321;
+  border: 1px solid #c29b62; 
+  border-left: none; /* Remove left border so it sits flush against the screen */
+  
+  /* Asymmetrical radius: flat on the left, pill-shaped on the right */
+  border-radius: 0 50px 50px 0; 
+  padding: 10px 24px 10px 16px;
+  
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 4px 4px 15px rgba(194, 155, 98, 0.15);
+
+  /* Animation Initial State */
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.6s ease-out;
+}
+/* Added via JS */
+.gallery-notification.show-notice {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.gallery-notification svg {
+  color: #c29b62; 
+}
+
+@media (max-width: 768px) {
+  .gallery-notification {
+    font-size: 0.85rem;
+    padding: 8px 18px 8px 12px;
   }
 }
