@@ -4,6 +4,7 @@ Packages Section (Base & Spacing)
 .packages-section {
   /* padding: 10px 0; */
   background-color: white;
+  margin-bottom: 1.5rem;
 }
 
 
@@ -34,7 +35,7 @@ Packages Content Box (The Gold Border)
   margin: 1rem auto 0 auto; 
   padding: 0 2.5rem 2.5rem 2.5rem; 
   
-  transition: max-width 0.4s; 
+  transition: max-width 0.4s;
 }
 
 /* ==============================
@@ -49,6 +50,7 @@ Packages Content Box (The Gold Border)
   width: 100%;
   align-items: stretch; 
   transform: translateZ(0);
+  
 }
 
 /* ==============================

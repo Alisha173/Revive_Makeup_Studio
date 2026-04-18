@@ -328,7 +328,8 @@
 
 @media (max-width: 960px) {
   .gallery-section {
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    padding-bottom: 20px;
   }
 
   .gallery-section h2 {
@@ -619,6 +620,17 @@
 
 .gallery-item-notice svg {
   color: #c29b62; 
+}
+
+/* Lazy Loading States */
+.gallery-item img.lazy-image {
+  opacity: 0;
+  /* We keep your transform transition so the hover zoom still works! */
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease;
+}
+
+.gallery-item img.lazy-loaded {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

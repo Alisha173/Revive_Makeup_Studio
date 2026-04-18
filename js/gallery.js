@@ -146,8 +146,8 @@ function renderGallery(galleryGrid, data) {
     };
 
     div.style.setProperty('--after-text', `"${firstImage.alt}"`);
-    img.setAttribute('src', firstImage.src);
-    img.setAttribute('alt', firstImage.alt);
+    img.setAttribute('data-src', firstImage.src); 
+    img.setAttribute('alt', firstImage.alt);;
 
     // Placeholder for Phase 2 Lightbox trigger
     // Change this line (around line 123 of gallery.js)
@@ -183,6 +183,9 @@ function renderGallery(galleryGrid, data) {
   
   // Re-run intersection observer if it exists to pick up new elements
   if(typeof intersectionFunction === 'function') intersectionFunction();
+
+  initLazyLoading();
+
 }
 
 
@@ -206,3 +209,32 @@ function initFilters(filterButtons, galleryGrid) {
     });
   });
 }
+
+// The Lazy Load Intersection Observer
+function initLazyLoading() {
+  const lazyImages = document.querySelectorAll(".lazy-image");
+  
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        
+        // Copy the URL from data-src into the real src
+        img.src = img.dataset.src;
+        
+        // Only fade in AFTER the browser has fully downloaded it
+        img.onload = () => {
+          img.classList.add("lazy-loaded");
+        };
+        
+        // Stop watching this specific image to save memory
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    // Look 500px above and below the current screen
+    rootMargin: "500px 0px 500px 0px" 
+  });
+
+  lazyImages.forEach(img => imageObserver.observe(img));
+} 

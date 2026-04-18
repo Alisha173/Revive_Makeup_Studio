@@ -6,6 +6,10 @@ async function loadSection(path, initFn) {
     const html = await res.text();
     document.getElementById("app").innerHTML = html;
 
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 10);
+
     if (typeof initFn === "function") {
       initFn();
     }

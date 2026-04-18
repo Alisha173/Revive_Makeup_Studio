@@ -53,7 +53,7 @@ function handleRoute() {
       });
   }
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 }
 
 window.addEventListener("DOMContentLoaded", handleRoute);
