@@ -1,108 +1,13 @@
 /*   Gallery Section    */
 
 .gallery-section {
-  padding: 10px 0;
+  /* padding: 10px 0; */
   background-color: #fff;
-  font-family: var(--font-heading);
+  /* font-family: var(--font-heading); */
+  position: relative;
 }
 
-/*   Section Header     */
 
-.gallery-section .section-header {
-  text-align: center;
-  margin: 36px 0px;
-  width: 100%;
-  padding: 0px 10px;
-}
-
-.gallery-section .section-line {
-  display: inline-block;
-  width: 60px;
-  height: 5px;
-  background: var(--accent-color);
-  margin-bottom: 16px;
-}
-
-.gallery-section h2 {
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-.gallery-section p {
-  color: #666;
-}
-
-/*    Filters    */
-
-.gallery-filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f0e6;
-  padding: 6px;
-  border-radius: 50px;
-  width: fit-content;
-  max-width: calc(100% - 2rem);
-  margin: 0 auto 40px auto;
-  gap: 4px;
-  overflow: hidden;
-}
-
-.filter-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 8px clamp(12px, 3vw, 24px);
-  border: none;
-  background-color: transparent;
-  border-radius: 8px;
-
-  font-family: var(--font-primary);
-  font-size: clamp(0.7rem, 2vw, 0.85rem);
-  font-weight: 600;
-  color: #002244;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-
-  flex-shrink: 1;
-  min-width: 0;
-}
-
-/* Active / Hover */
-
-.filter-btn:hover {
-  background-color: #e3d4bd;
-  border-radius: 50px;
-}
-
-.filter-btn.active {
-  background-color: #c29b62;
-  color: #ffffff;
-  border-radius: 50px;
-}
-
-/* Icons */
-
-.pkg-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pkg-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: #d4af37;
-  transition: stroke 0.3s ease;
-}
-
-.filter-btn.active .pkg-icon svg {
-  stroke: white;
-}
 
 /*    Gallery Grid   */
 
@@ -118,7 +23,7 @@
 
 .gallery-item {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 12px;
   background-color: #f5f5f5;
   cursor: pointer;
@@ -127,6 +32,7 @@
   aspect-ratio: 1/1;
 
   animation: itemReveal 0.6s ease-out forwards;
+  z-index: 10;
 }
 
 @keyframes itemReveal {
@@ -162,6 +68,7 @@
 
   background: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.988));
   transition: opacity 0.3s ease-in;
+  border-radius: 12px;
 }
 
 .gallery-item.active::after {
@@ -174,6 +81,7 @@
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  z-index: 10;
 }
 
 @media (hover: hover) {
@@ -188,6 +96,17 @@
 
 .gallery-item.active img {
   transform: scale(1.1);
+}
+
+.gallery-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  position: relative;
+
+  border-radius: 12px;
+  z-index: 10;
 }
 
 /* lightbox nav */
@@ -409,7 +328,8 @@
 
 @media (max-width: 960px) {
   .gallery-section {
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    padding-bottom: 20px;
   }
 
   .gallery-section h2 {
@@ -511,8 +431,6 @@
   }
 }
 
-/* <= 768px */
-
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -520,25 +438,217 @@
   }
 }
 
-/* <= 400px */
-
-@media (max-width: 400px) {
-  .pkg-icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .filter-btn,
-  .pkg-filter-btn {
-    gap: 4px;
-    padding: 6px 10px;
-  }
-}
-
-/* <= 350px */
 
 @media (max-width: 350px) {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Folder count Badge */
+
+.item-count-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 42px;  /* Slightly larger for this icon style */
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.badge-icon {
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  width: 75%;
+  height: 75%;
+  color: #fff; /* SVG color */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.badge-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.badge-num {
+  position: relative;
+  z-index: 2;
+  
+  /* POSITIONING:
+     We move it slightly up and left to sit in the folder "pocket" 
+     and avoid the plus sign in the bottom right corner */
+  transform: translate(-3px, 1px);
+  
+  font-family: var(--font-primary);
+  font-size: 0.7rem; 
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* On mobile, shrink the whole badge slightly */
+@media (max-width: 768px) {
+  .item-count-badge {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+  }
+  .badge-num {
+    font-size: 0.6rem;
+    transform: translate(-2px, 1px);
+  }
+}
+
+/* Ensure badge remains visible or fades on hover if desired */
+.gallery-item:hover .item-count-badge {
+  background-color: #94673abe; 
+}
+
+/* User Prompt Pulse Effect */
+
+.gallery-item.intro-active .item-count-badge {
+  opacity: 1;
+  background-color: #94673abe; /* Slightly darker for better visibility */
+}
+
+/* 2. The Pulse Effect */
+/* Ensure the badge is the anchor for the transformation */
+/* 1. Permanent Enlargement during Intro */
+.gallery-item.pulse-trigger .item-count-badge {
+  opacity: 1;
+  background-color:#94673abe;
+  transform: scale(1.3); 
+  transition: transform 0.5s ease;
+  z-index: 10;
+}
+
+/* 2. Filled Ripple Base Style */
+.gallery-item.pulse-trigger .item-count-badge::before,
+.gallery-item.pulse-trigger .item-count-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  /* Using background-color for the "filled" effect */
+  background-color: #c29b62; 
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1; /* Ripples emanate from BEHIND the badge */
+  animation: filledStaggeredRipple 2s ease-out infinite;
+}
+
+/* 3. Staggered Delay */
+.gallery-item.pulse-trigger .item-count-badge::after {
+  animation-delay: 0.5s; /* Second filled pulse follows the first */
+}
+
+/* 4. Tighter Ripple Animation */
+@keyframes filledStaggeredRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6; /* Starts as a visible filled circle */
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    /* Reduced scale from 3.5 to 2.2 for a "tighter" extent */
+    transform: scale(2.2); 
+    opacity: 0;
+  }
+}
+
+
+/* user prompt notification capsule */
+
+/* Gallery Item Notification Overlay */
+.gallery-item .gallery-item-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+  background-color: #fefdfa; 
+  color: #654321;
+  border: 1px solid #c29b62; 
+  border-bottom: none; 
+  border-radius: 12px 12px 0 0; 
+  
+  position: absolute;
+  /* Starts exactly 15px below the top edge of the image container */
+  top: 15px; 
+  left: 0;
+  width: 100%;
+  
+  /* INITIAL STATE: Sitting still, hidden behind the image */
+  transform: translateY(0); 
+  opacity: 0;
+  
+  z-index: 5; /* LOWER than the image container */
+  pointer-events: none; 
+  
+  /* Added extra padding at the bottom so the text isn't cut off by the overlapping image */
+  padding: 10px 15px 20px 15px; 
+  
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-align: center;
+  
+  box-shadow: 0 -4px 10px rgba(101, 67, 33, 0.15);
+
+  /* Added a slight cubic-bezier for a smooth, natural sliding motion */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.4s ease-out;
+}
+
+/* 3. ACTIVE STATE */
+.gallery-item.show-notice .gallery-item-notice {
+  /* Slides UP out from behind the image. Because it started 15px down, 
+     it remains tucked 15px behind the image, leaving zero gaps! */
+  transform: translateY(-100%);
+  opacity: 1;
+}
+
+.gallery-item-notice svg {
+  color: #c29b62; 
+}
+
+/* Lazy Loading States */
+.gallery-item img.lazy-image {
+  opacity: 0;
+  /* We keep your transform transition so the hover zoom still works! */
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease;
+}
+
+.gallery-item img.lazy-loaded {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .gallery-item-notice span{
+    font-size: 0.7rem;
+    gap: 6px;
+  }
+
+  .gallery-item-notice{
+    padding: 5px 10px 10px 10px; /* Maintained bottom padding ratio */
+
+  }
+  
+  /* .gallery-item-notice svg{
+    width: 14px;
+    height: 14px;
+  } */
+
+
+
 }

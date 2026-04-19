@@ -2,44 +2,57 @@
   <div class="container">
 
     <div class="section-header">
-      <span class="section-line"></span>
+      <hr class="section-top-divider" />
       <h2>Our Gallery</h2>
       <p>
         Explore our portfolio showcasing diverse beauty across Kerala's rich cultural traditions
       </p>
     </div>
 
-    <div class="gallery-filters" role="tablist">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">
-        <span class="pkg-icon" data-icon="all"></span>
+    <div class="filter-capsule" role="tablist">
+      <button class="filter-item active" data-filter="all" aria-pressed="true">
+        <span class="filter-icon" data-icon="all"></span>
         All
       </button>
-      <button class="filter-btn" data-filter="bridal" aria-pressed="false">
-        <span class="pkg-icon" data-icon="bridal"></span>
+      <button class="filter-item" data-filter="bridal" aria-pressed="false">
+        <span class="filter-icon" data-icon="bridal"></span>
         Bridal
       </button>
-      <button class="filter-btn" data-filter="party" aria-pressed="false">
-        <span class="pkg-icon" data-icon="party"></span>
+      <button class="filter-item" data-filter="party" aria-pressed="false">
+        <span class="filter-icon" data-icon="party"></span>
         Party
       </button>
-      <button class="filter-btn" data-filter="professional" aria-pressed="false">
-        <span class="pkg-icon" data-icon="professional"></span>
+      <button class="filter-item" data-filter="professional" aria-pressed="false">
+        <span class="filter-icon" data-icon="professional"></span>
         Professional
       </button>
     </div>
 
+ 
+
     <div class="gallery-grid" id="galleryGrid">
       <!-- Images injected by JS -->
        <template id="card-template">
-          <div class="gallery-item">
-            <img
-              src=""
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+          <div class="gallery-item"> 
+            
+            <div class="gallery-item-notice">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="m.5 3 .04.87a2 2 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2m5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19q-.362.002-.683.12L1.5 2.98a1 1 0 0 1 1-.98z"/>
+              </svg>
+              <span>Tap folder to explore full album</span>
+            </div>
+
+            <div class="gallery-image-container">
+              <img data-src="" alt="" class="lazy-image" decoding="async" />
+            </div>
+            
+            <div class="item-count-badge">
+              <span class="badge-icon"></span>
+              <span class="badge-num"></span>
+            </div>
+            
           </div>
-       </template>
+        </template>
     </div>
 
   </div>

@@ -3,7 +3,7 @@
 ============================== */
 
 .testimonial-section {
-  padding: 80px 0;
+  /* padding: 80px 0; */
   background-color: var(--color-background-testimonials);
 }
 
@@ -23,14 +23,14 @@
    Section Header
 ============================== */
 
-.testimonial-section .section-header {
+/* .testimonial-section .section-header {
   text-align: center;
   margin-bottom: 48px;
   font-weight: 100;
   font-family: var(--font-primary);
-  /* NEW: Local safe-zone padding */
+
   padding: 0 24px; 
-}
+} */
 
 .testimonial-section .section-line {
   display: inline-block;
