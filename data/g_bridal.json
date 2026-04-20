@@ -2,8 +2,8 @@
   {
     "id": "b1",
     "images": [
-      { "src": "assets/images/gallery/test/b1_1.jpg", "alt": "Bride 1 picture 1" },
-      { "src": "assets/images/gallery/test/b1_2.jpg", "alt": "Bride 1 picture 2" },
+      { "src": "assets/images/gallery/test/b1_1.jpg", "alt": "Glass Makeup" },
+      { "src": "assets/images/gallery/test/b1_2.jpg", "alt": "" },
       { "src": "assets/images/gallery/test/b1_3.jpg", "alt": "Bride 1 picture 3" }
     ]
   },
