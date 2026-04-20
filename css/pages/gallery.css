@@ -431,6 +431,13 @@
   }
 }
 
+/* Tablet Layout: Force 4 columns only on medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);

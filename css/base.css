@@ -7,6 +7,19 @@
     box-sizing: border-box;
 }
 
+/* SPA Transition Cloak */
+#app {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#app.loading {
+    opacity: 0;
+    visibility: hidden;
+    transition: none; /* Instant hide when switching */
+}
+
 /* CSS Variables */
 :root {
     /* Colors */
