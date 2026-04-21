@@ -17,6 +17,13 @@ function hdlClick3(e){
 }
 
 function initNav() {
+
+  const nav = document.querySelector(".navbar");
+document.documentElement.style.setProperty(
+  "--nav-height",
+  nav.offsetHeight + "px"
+);
+
   navToggle = document.querySelector(".nav-toggle");
   navLinks = document.querySelector(".nav-links");
   if (!navToggle || !navLinks) return;
@@ -42,6 +49,23 @@ popup.addEventListener("click", (e) => {
   if (e.target === popup || e.target.closest("a")) {
     popup.classList.remove("active");
   }
+});
+
+  let lastScrollY = window.scrollY;
+const navbar = document.querySelector(".site-header");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // 🔽 Scrolling DOWN → hide navbar
+    navbar.classList.add("hide");
+  } else {
+    // 🔼 Scrolling UP → show navbar
+    navbar.classList.remove("hide");
+  }
+
+  lastScrollY = currentScrollY;
 });
 }
 

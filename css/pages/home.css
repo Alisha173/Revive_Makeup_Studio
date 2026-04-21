@@ -10,7 +10,7 @@
 }
 
 .hero-carousel {
-  height: 60vh;
+  height: calc(100dvh - var(--nav-height));
   width: 100%;
   position: relative;
   max-width: none;

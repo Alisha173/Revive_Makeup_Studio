@@ -97,7 +97,6 @@ function updateCategoryView(categoryKey, data) {
 function renderPackages(packages) {
   const packagesGrid = document.getElementById("packagesGrid");
   const template = document.querySelector("#package-card-template");
-  const callbackPackageSelector = document.getElementById("packages");
 
   packagesGrid.innerHTML = ""; // Clear existing cards
 
@@ -105,42 +104,55 @@ function renderPackages(packages) {
     const clone = template.content.cloneNode(true);
     const cardDiv = clone.querySelector(".package-card");
 
-    // Handle the "Popular" highlight styling
+    // ⭐ Popular badge
     if (pkg.isPopular) {
       cardDiv.classList.add("popular");
       clone.querySelector(".popular-badge").classList.remove("hidden");
     }
 
+    // 📌 Basic info
     clone.querySelector(".package-name").textContent = pkg.name;
     clone.querySelector(".package-target").textContent = pkg.target;
-    clone.querySelector(".package-price").textContent = pkg.price;
-    clone.querySelector(".package-price-original").textContent =
-      pkg.originalPrice;
-    clone.querySelector(".package-offer").textContent = pkg.offer
-      ? "OFFER"
-      : "";
 
-    // Inject the checklist features
+    // 💰 PRICE LOGIC (YOUR VERSION ADDED)
+    const priceEl = clone.querySelector(".package-price");
+    const originalPriceEl = clone.querySelector(".package-price-original");
+    const offerEl = clone.querySelector(".package-offer");
+
+    if (pkg.offer) {
+      priceEl.textContent = pkg.price;
+      originalPriceEl.textContent = pkg.originalPrice;
+      originalPriceEl.style.display = "inline";
+      offerEl.textContent = "OFFER";
+      offerEl.style.display = "inline";
+    } else {
+      priceEl.textContent = pkg.originalPrice;
+      originalPriceEl.textContent = "";
+      originalPriceEl.style.display = "none";
+      offerEl.textContent = "";
+      offerEl.style.display = "none";
+    }
+
+    // 📋 Features list
     const featuresList = clone.querySelector(".package-features");
     pkg.features.forEach((feature) => {
       const li = document.createElement("li");
-      li.innerHTML = `${feature}`;
+      li.textContent = feature;
       featuresList.appendChild(li);
     });
 
+    // 🔽 Toggle expand
     const toggleBtn = clone.querySelector(".package-toggle");
     toggleBtn.addEventListener("click", () => {
-      // Toggle the 'expanded' class on the card itself
       cardDiv.classList.toggle("is-expanded");
-      
-      // Accessibility: Update aria-expanded if you want to be fancy
+
       const isExpanded = cardDiv.classList.contains("is-expanded");
       toggleBtn.setAttribute("aria-expanded", isExpanded);
     });
 
+    // 📞 Book now button
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
-      // Save the exact package name to session memory
       sessionStorage.setItem("selectedPackage", pkg.name);
       window.location.hash = "#callback";
     });
@@ -148,4 +160,3 @@ function renderPackages(packages) {
     packagesGrid.appendChild(clone);
   });
 }
- 

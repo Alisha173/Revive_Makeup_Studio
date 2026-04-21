@@ -7,8 +7,8 @@
         "name": "HD Makeup",
         "target": "Soft, minimalist and elegant finish.",
         "price": "₹9,999",
-        "originalPrice": "₹100",
-        "offer": true,
+        "originalPrice": "₹9,999",
+        "offer": false,
         "isPopular": false,
         "features": [
           "Minimal, soft & classy look",
@@ -19,9 +19,9 @@
       {
         "name": "Ultra HD Makeup",
         "target": "Refined HD makeup with enhanced finish.",
-        "price": "₹12,999",
-        "originalPrice": "₹100",
-        "offer": true,
+        "price": "",
+        "originalPrice": "₹12,999",
+        "offer": false,
         "isPopular": false,
         "features": [
           "Classy HD with long-lasting finish",
@@ -33,7 +33,7 @@
         "name": "Glass Skin Makeup",
         "target": "Fresh, radiant glass-skin effect with dewy glow.",
         "price": "₹14,999",
-        "originalPrice": "₹100",
+        "originalPrice": "₹19,999",
         "offer": true,
         "isPopular": true,
         "features": [
@@ -46,7 +46,7 @@
         "name": "Airbrush Makeup",
         "target": "Lightweight, seamless makeup with superior hold.",
         "price": "₹19,999",
-        "originalPrice": "₹100",
+        "originalPrice": "₹24,999",
         "offer": true,
         "isPopular": false,
         "features": [
