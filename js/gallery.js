@@ -40,7 +40,6 @@ export default async function loadGallery() {
     const galleryData = await res.json();
     renderGallery(galleryGrid, galleryData);
     initFilters(filterButtons, galleryGrid);
-    intersectionFunction();
     initLightbox(galleryData);
 
   } catch (err) {
@@ -48,72 +47,6 @@ export default async function loadGallery() {
     galleryGrid.innerHTML = "<p>Gallery unavailable at the moment.</p>";
   }
 }
-
-// const intersectionFunction=()=>{
-// const isTouchDevice = window.matchMedia("(hover: none)").matches;
-
-// if (isTouchDevice) {
-//   const items = document.querySelectorAll(".gallery-item");
-
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         items.forEach(item => item.classList.remove("active"));
-//         entry.target.classList.add("active");
-//       }
-//     });
-//   }, { threshold: 0.9 });
-
-//   items.forEach(item => observer.observe(item));
-// }
-// }
-
-
-
-const intersectionFunction = () => {
-  const isTouchDevice = window.matchMedia("(hover: none)").matches;
-
-  if (!isTouchDevice) return;
-
-  const items = document.querySelectorAll(".gallery-item");
-
-  // store latest visibility ratios for every item
-  const visibilityMap = new Map();
-
-  const observer = new IntersectionObserver((entries) => {
-    // update map whenever observer reports changes
-    entries.forEach(entry => {
-      visibilityMap.set(entry.target, entry.intersectionRatio);
-    });
-
-    // find the most visible element overall
-    let bestItem = null;
-    let bestRatio = 0;
-
-    items.forEach(item => {
-      const ratio = visibilityMap.get(item) || 0;
-      if (ratio > bestRatio) {
-        bestRatio = ratio;
-        bestItem = item;
-      }
-    });
-
-    // remove active from all
-    items.forEach(item => item.classList.remove("active"));
-
-    // only activate the most visible one
-    if (bestItem && bestRatio > 0) {
-      bestItem.classList.add("active");
-    }
-  }, {
-    threshold: Array.from({ length: 101 }, (_, i) => i / 100)
-  });
-
-  items.forEach(item => {
-    visibilityMap.set(item, 0);
-    observer.observe(item);
-  });
-};
 
 let currentGalleryData = []; 
 
@@ -180,9 +113,6 @@ function renderGallery(galleryGrid, data) {
 
     galleryGrid.appendChild(clone);
   });
-  
-  // Re-run intersection observer if it exists to pick up new elements
-  if(typeof intersectionFunction === 'function') intersectionFunction();
 
   initLazyLoading();
 
