@@ -163,7 +163,7 @@ function renderGallery(galleryGrid, data) {
         // which forces the slide-up transition to actually play on load.
         setTimeout(() => {
           div.classList.add("show-notice");
-        }, 100);
+        }, 200);
       }
       
       // Clean up after 6 seconds
