@@ -45,24 +45,33 @@ const loadPackages=(data)=>{
   })
   pkgTrack.addEventListener('click',handleBtn);
 }
-const handleBtn=(e)=>{
-  const btn=e.target.closest(".dropDownBtn");
-  if(!btn)return;
-  const card=btn.closest(".pkgSlide");
-  const mid=card.querySelector(".midPart");
-  const pkgTrack=document.querySelector(".pkgTrack");
-  btn.classList.toggle("active");
- //needed?
-  // pkgTrack.querySelectorAll(".pkgSlide").forEach(card=>{
-  //   const el=card.querySelector(".midPart");
-  //   if(el!==mid)
-  //     {el.style.maxHeight="0px";
-  //       card.querySelector(".dropDownBtn").classList.remove("active");
-  //     }
-  // })
-  if(mid.style.maxHeight && mid.style.maxHeight!=="0px")
-    mid.style.maxHeight="0px";
-  else
-    mid.style.maxHeight=mid.scrollHeight+"px";
+
+
+const handleBtn = (e) => {
+  // --- NEW CODE: Check if the user clicked the "Book Now" button ---
+  const bookBtn = e.target.closest(".bkNow");
+  if (bookBtn) {
+    // We need to grab the package name to save it. 
+    // It's located in the h3 tag inside the same card.
+    const card = bookBtn.closest(".pkgSlide");
+    const packageName = card.querySelector("h3").textContent;
+    
+    // Save it to session storage just like the main packages page does
+    sessionStorage.setItem("selectedPackage", packageName);
+    return; // Exit the function, letting the standard href="#callback" do its job
+  }
+  // --- END NEW CODE ---
+
+  // Existing dropdown logic
+  const btn = e.target.closest(".dropDownBtn");
+  if (!btn) return;
+  const card = btn.closest(".pkgSlide");
+  const mid = card.querySelector(".midPart");
   
-}
+  btn.classList.toggle("active");
+  
+  if (mid.style.maxHeight && mid.style.maxHeight !== "0px")
+    mid.style.maxHeight = "0px";
+  else
+    mid.style.maxHeight = mid.scrollHeight + "px";
+} 

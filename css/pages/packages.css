@@ -1,18 +1,13 @@
 /* ==============================
-   Packages Section (Base & Spacing)
+Packages Section (Base & Spacing)
 ============================== */
 .packages-section {
-  padding: 30px 0;
-  background-color: var(--color-background-testimonials); 
+  /* padding: 10px 0; */
+  background-color: white;
+  margin-bottom: 1.5rem;
 }
 
-.packages-section .section-header {
-  text-align: center;
-  margin-bottom: 48px;
-  font-weight: 100;
-  font-family: var(--font-primary);
-  padding: 0 24px;
-}
+
 
 .packages-section h2 {
   font-family: var(--font-footer-heading);
@@ -21,24 +16,26 @@
 }
 
 .packages-section p {
-  font-family: var(--font-primary);
+  /* font-family: var(--font-primary); */
   max-width: 620px;
-  color: #666;
+  /* color: #666; */
 }
 
 /* ==============================
-   Packages Content Box (The Gold Border)
+Packages Content Box (The Gold Border)
 ============================== */
 .packages-content {
+
+
   border: 1.5px solid #c29b62; 
   border-radius: 12px;
   position: relative;
-  background-color: white;
+  background-color: var(--color-background-testimonials); 
   width: calc(100% - 32px); 
-  margin: 64px auto 0 auto; 
+  margin: 1rem auto 0 auto; 
   padding: 0 2.5rem 2.5rem 2.5rem; 
-
-  transition: max-width 0.4s; 
+  
+  transition: max-width 0.4s;
 }
 
 /* ==============================
@@ -53,6 +50,7 @@
   width: 100%;
   align-items: stretch; 
   transform: translateZ(0);
+  
 }
 
 /* ==============================
@@ -69,6 +67,7 @@
   gap: .5rem;
   transform-origin: center;
   will-change: transform;
+  background-color: white;
 }
 
 .package-card:only-child {
@@ -85,8 +84,19 @@
   z-index: 2;
 }
 
-.package-card p,
+
 .package-card span {
+  font-family: var(--font-primary);
+}
+
+.package-name{
+  font-family: var(--font-footer-heading);
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #b8954f;
+}
+
+.package-target{
   font-family: var(--font-primary);
 }
 
@@ -148,112 +158,6 @@
   margin: 12px auto 0;
   padding: 0 16px;
 }
-
-/* ==============================
-   Packages Secondary Navbar (Filters)
-============================== */
-/* ==============================
-   Packages Secondary Navbar (Filters)
-============================== */
-.packages-filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f0e6; 
-  padding: 6px; 
-  border-radius: 50px; 
-  
-  /* --- RESPONSIVE UPDATES --- */
-  width: fit-content;
-  /* Max width is 100% of the screen minus 2rem (1rem on each side) */
-  max-width: calc(100% - 2rem); 
-  margin: 0 auto 40px auto; 
-  gap: 4px;
-  /* Ensures the bar doesn't look cut off if buttons are too wide */
-  overflow: hidden; 
-}
-
-.pkg-filter-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 16px; 
-  border: none;
-  background-color: transparent;
-  border-radius: 8px; 
-  font-family: var(--font-primary);
-  font-size: .8rem;
-  color: #002244; 
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  /* --- RESPONSIVE UPDATES --- */
-  /* This allows buttons to shrink their width and text if space gets tight */
-  flex-shrink: 1; 
-  white-space: nowrap; 
-  min-width: 0; 
-}
-
-.pkg-filter-btn span {
-  font-size: 1.2rem; 
-}
-
-.pkg-filter-btn span img {
-  width: 1em;
-  height: 1em;
-  display: block;
-}
-
-/* ==============================
-   Updated Filter Selection Logic
-============================== */
-
-/* 1. Remove the universal rounding from the active state */
-.pkg-filter-btn:hover{
-  background-color: #e3d4bd;
-  border-radius: 50px;
-}
-.pkg-filter-btn.active {
-  background-color: #c29b62; 
-
-  color: #ffffff;
-
-  border-radius: 50px;
-
-}
-
-  /*  
-  border-radius: 0; 
-}
-
-.pkg-filter-btn.active:first-child,
-.pkg-filter-btn:first-child:hover
- {
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.pkg-filter-btn.active:last-child,
-.pkg-filter-btn:last-child:hover
- {
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.pkg-filter-btn.active:nth-child(2),
-.pkg-filter-btn:nth-child(2):hover
- {
-  border-radius: 8px;
-}
-
-.pkg-filter-btn:not(.active):hover {
-  background-color: rgba(194, 155, 98, 0.15); 
-} */
 
 /* ==============================
    Package Pricing & Info
@@ -375,16 +279,6 @@
   background-color: rgb(231, 194, 129);
 }
 
-.divider-packages {
-  margin: 3rem auto 2rem auto;
-  max-width: 5rem;
-  height: 0.3rem;
-  background-color: var(--color-primary);
-  border: none;
-  display: flex;
-  justify-content: center;
-}
-
 .packages-footer {
   padding: 1rem;
   display: flex;
@@ -442,35 +336,9 @@
   }
 }
 
-@media (max-width: 600px) {
-  .packages-filters {
-    padding: 6px;
-    gap: 4px;
-  }
-  .pkg-filter-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-}
 
-.pkg-icon{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.pkg-icon svg{
-  width:20px;
-  height:20px;
-}
 
-.pkg-filter-btn svg{
-  stroke:#d4af37;
-}
-
-.pkg-filter-btn.active svg{
-  stroke:white;
-}
 
 .crown-icon svg{
   stroke:#b8954f;
