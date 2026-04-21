@@ -52,7 +52,7 @@ const startFn = () => {
     data.forEach(element=>{
       const li=document.createElement("li");
       li.classList.add("car-slide");
-      li.innerHTML=`<img src=${element.src} alt=${element.alt}>`;
+      li.innerHTML=`<img src="${element.src}" alt="${element.alt}" > `;
       galleryTrack.appendChild(li);
     });
 

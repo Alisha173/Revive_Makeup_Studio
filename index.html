@@ -211,8 +211,33 @@
         </div>
       </div>
     </footer>
-    <a id="callBtn" class="btn btnEffect floatBtn" href="#callback"
-      ><i class="fa-solid fa-phone" style="color: rgb(255, 255, 255)"></i
-    ></a>
+    <!-- Floating Call Button -->
+<a id="callBtn" class="floatBtn">
+  <span></span>
+  <i class="fa-solid fa-plus"></i>
+</a>
+
+<!-- Popup -->
+<div id="callPopup" class="call-popup">
+  <div class="popup-content">
+
+    <!-- Icon -->
+    <div class="popup-icon">
+      <i class="fa-solid fa-phone"></i>
+    </div>
+
+    <h3>Contact Us</h3>
+    <p>How would you like to proceed?</p>
+
+    <div class="popup-buttons">
+      <a href="tel:+919999999999" class="primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+      <a href="#callback" class="secondary">Request Callback</a>
+    </div>
+
+    <span id="closePopup" class="popup-close">&times;</span>
+
+  </div>
+</div>
+      
   </body>
 </html>

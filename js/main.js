@@ -26,42 +26,75 @@ function initNav() {
   navLinks.addEventListener('click',hdlClick2);
 
   document.addEventListener('click',hdlClick3);
+  const callBtn = document.getElementById("callBtn");
+const popup = document.getElementById("callPopup");
+const closeBtn = document.getElementById("closePopup");
+
+callBtn.addEventListener("click", () => {
+  popup.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("active");
+});
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup || e.target.closest("a")) {
+    popup.classList.remove("active");
+  }
+});
 }
 
 
 export function initHero() {
   const heroSlides = [
     {
-      image: "assets/images/hero/pic1.png",
+      image: "assets/images/hero/b1.webp",
       badge: "Royal Bridal Excellence",
       title: "Where every bride shines",
       description: "Serving all the brides of Kerala"
     },
     {
-      image: "assets/images/hero/test.png",
+      image: "assets/images/hero/b2.webp",
       badge: "Luxury Makeup",
       title: "Elegance for your special day",
       description: "Premium bridal artistry"
+    },
+    {
+      image: "assets/images/hero/b3.webp",
+      badge: "Signature Experience",
+      title: "Luxury beyond beauty",
+      description: "Indulge in world-class salon care"
     }
   ];
 
   const carousel = document.getElementById("heroCarousel");
   if (!carousel) return;
 
-  carousel.innerHTML = "";
+  // carousel.innerHTML = ` <div class="container">
+            
+  //               <div class="hero-content">
+  //                   <span class="hero-badge">Royal Bridal Excellence</span>
+                    
+  //                   <div>
+  //                       <p>Where every bride shines</p>
+  //                        <div class="hero-actions">
+  //                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
+  //                           <a href="#contact" class="btn">Contact Us</a>
+  //                       </div>
+  //                   </div>
+                    
+  //               </div>
 
-  heroSlides.forEach((slide, index) => {
-    const slideEl = document.createElement("div");
-    slideEl.className = `hero-slide ${index === 0 ? "active" : ""}`;
+  //           </div>
+  // </div>`;
 
-    slideEl.innerHTML = `
-            <img src="${slide.image}" alt="" fetchpriority="high">
-            <div class="container">
+carousel.innerHTML= `<div class="container">
             
                 <div class="hero-content">
-                    <span class="hero-badge">${slide.badge}</span>
-                    <h1 class="heroHead">${slide.title}</h1>
-                    <p>${slide.description}</p>
+                    <span class="hero-badge">Royal Bridal Excellence</span>
+                    <h1 class="heroHead">Where every bride shines</h1>
+                    <p>Serving all the brides of Kerala</p>
                     <div class="hero-actions">
                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
                         <a href="#contact" class="btn">Contact Us</a>
@@ -69,6 +102,16 @@ export function initHero() {
                 </div>
 
             </div>
+  </div> `;
+
+
+  heroSlides.forEach((slide, index) => {
+    const slideEl = document.createElement("div");
+    slideEl.className = `hero-slide ${index === 0 ? "active" : ""}`;
+
+    slideEl.innerHTML = `
+            <img src="${slide.image}" alt="" fetchpriority="high">
+            
         `;
         carousel.appendChild(slideEl);
   });

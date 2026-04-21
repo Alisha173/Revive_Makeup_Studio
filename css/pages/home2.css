@@ -266,10 +266,212 @@
   text-decoration: none;
   color: #bd9955;
 }
+
+@keyframes pulse {
+  0%{
+    box-shadow: 0 0 0 0 rgba(206, 170, 108, 0.3);
+  }
+  
+   100% {
+    box-shadow: 0 0 0 30px rgba(206, 170, 108, 0);
+  } 
+}
+
+.floatBtn::before,
+.floatBtn::after,
+.floatBtn span {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: -1; /* keep behind button */
+  
+  box-shadow: 0 0 0 0 rgba(235, 151, 7, 0.5);
+  animation: pulse 3s infinite ease-out;
+}
+
+.floatBtn::before {
+  animation-delay: 0s;
+}
+.floatBtn::after {
+  animation-delay: 1s;
+}
+.floatBtn span {
+  animation-delay: 2s;
+}
+
+/* 🔘 FLOATING BUTTON */
+.floatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eec784, #ceaa6c);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 30px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 998;
+
+  transition: all 0.3s ease;
+}
+
+.floatBtn:hover {
+  transform: scale(1.1);
+}
+
+
+/* 🌫 BACKDROP */
+.call-popup {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.call-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* 💎 POPUP CARD */
+.popup-content {
+  width: 320px;
+  padding: 2rem 1.8rem;
+
+  border-radius: 16px;
+
+  background: linear-gradient(145deg, #ffffff, #f8f3ea);
+  border: 1px solid #e6d3a3;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(212, 175, 109, 0.15);
+
+  text-align: center;
+  position: relative;
+
+  transform: scale(0.85) translateY(30px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.call-popup.active .popup-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+
+/* 📞 ICON */
+.popup-icon {
+  width: 60px;
+  height: 60px;
+
+  background: linear-gradient(135deg, #eec784, #ceaa6c);
+  border-radius: 50%;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 22px;
+}
+
+
+/* 📝 TEXT */
+.popup-content h3 {
+  margin-bottom: 5px;
+  color: #b8954f;
+  font-weight: 500;
+}
+
+.popup-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+
+/* 🔘 BUTTONS */
+.popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-buttons a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.popup-buttons .primary {
+  background: linear-gradient(90deg, #eec784, #ceaa6c);
+  color: white;
+}
+
+/* Secondary */
+.popup-buttons .secondary {
+  border: 1px solid #d4af6d;
+  color: #b8954f;
+  background: transparent;
+}
+
+/* ❌ CLOSE BUTTON */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.popup-close:hover {
+  color: #333;
+}
 @media (hover: hover) {
   .pkgContainer .viewPkgBtn:hover {
     background: linear-gradient(180deg, #eec784, #ceaa6c);
   }
+  .popup-buttons .primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(206, 170, 108, 0.4);
+  }
+
+  .popup-buttons .secondary:hover {
+    background: #f9f4ec;
+  }
+  
 }
 @media (max-width: 768px) {
   .slideCard .midText {
