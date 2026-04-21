@@ -4,7 +4,7 @@ let maxindex;
 export const initOurTestimonials=()=>{
   fetch("data/testimonials.json")
   .then(res=>res.json())
-  .then(d=>d.filter(da=>da.image!==null))
+  .then(d=>d.filter(da=>da.image!==null && Array.isArray(da.image) && da.image.length > 0).slice(0, 5))
   .then(data=>loadOurTestimonials(data))
   .catch(err=>console.log("Error:"+err))
 }
@@ -25,19 +25,6 @@ const quoteIcon = `
   </svg>
 `;
 
-const starIcon = `
-  <svg
-    class="testimonial-star"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 576 512"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-  </svg>
-`;
-
-
 function loadOurTestimonials(data){
   curIndex=0;
   const testTrack=document.querySelector(".testTrack");
@@ -47,67 +34,42 @@ function loadOurTestimonials(data){
 
   testTrack.innerHTML = "";
   maxindex=data.length-1;
-  // console.log(maxindex);
   data.forEach((item,idx) => {
     const li=document.createElement("li");
     const dot=document.createElement("div");
     dot.className=`dot ${idx===0?"active":""}`;
     li.className=`OTslide ${idx===0?"active":""}`;
-    const maxRating = 5;
-      const rating = item.rating || 0;
-      const stars = Array.from({ length: maxRating }, (_, i) => {
-        return `
-          <span class="star ${i < rating ? "filled" : "empty"}">
-            ${starIcon}
-          </span>
-        `;
-      }).join("");
-      const charLimit = 200;
+    const charLimit = 200;
       
-      // Create a temporary variable for the text
       let displayedText = item.text;
 
-      // Check length and truncate if necessary
       if (displayedText.length > charLimit) {
-        // Cut at the limit, then back up to the last space found
+        
         displayedText = displayedText.substring(0, charLimit);
         displayedText = displayedText.substring(0, displayedText.lastIndexOf(" ")) + "...";
       }
     li.innerHTML=`
-
-        <div>
-                <img 
-                  src="${item.image}" 
-                  alt="${item.name}" 
-                  class="testimonial-image"
-                  loading="lazy"
-                />
+        <div class="testimonial-image-container">
+          <img 
+            src="${item.image[0]}" 
+            alt="${item.name}" 
+            class="testimonial-image"
+          />
         </div>
-          
-
-          <div class="testimonial-text">
-          
-            ${quoteIcon}
-
-            <div class="rating" aria-label="Rating: ${item.rating} out of 5">
-              ${stars}
+        <div class="testimonial-text">
+          ${quoteIcon}
+          <blockquote>
+            "${displayedText}"
+          </blockquote>
+          <footer>
+            <div class="client-name">${item.name}</div>
+            <div class="client-meta">
+              <span class="meta-item">${item.subtitle}</span>
+              <span class="meta-item">${item.location}</span>
+              <span class="meta-item">${item.date}</span>
             </div>
-
-            <blockquote>
-              “${displayedText}”
-            </blockquote>
-
-            <footer>
-              <div class="client-name">${item.name}</div>
-              <div class="client-meta">
-                <span class="meta-item">${item.subtitle}</span>
-                <span class="meta-item">${item.location}</span>
-                <span class="meta-item">${item.date}</span>
-              </div>
-            </footer>
-          
-          </div>
-
+          </footer>
+        </div>
       `;
       testTrack.appendChild(li);
 
@@ -134,7 +96,6 @@ function moveSlide(index){
   else
     curIndex=index;
 
-  // console.log(curIndex);
   const slides=document.querySelectorAll(".OTslide");
   const dots=document.querySelectorAll(".slide-dots .dot")
   if(slides.length===0)return;
@@ -142,7 +103,7 @@ function moveSlide(index){
   slide.classList.remove("active");
   dots[idx].classList.remove("active");
 });
-  // console.log(slides[curIndex]);
+
   dots[curIndex].classList.add("active");
   slides[curIndex].classList.add("active");
 }
