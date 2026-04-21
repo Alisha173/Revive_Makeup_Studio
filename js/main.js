@@ -49,19 +49,19 @@ popup.addEventListener("click", (e) => {
 export function initHero() {
   const heroSlides = [
     {
-      image: "assets/images/hero/b1.webp",
+      image: "assets/images/bridal/b1_2.webp",
       badge: "Royal Bridal Excellence",
       title: "Where every bride shines",
       description: "Serving all the brides of Kerala"
     },
     {
-      image: "assets/images/hero/b2.webp",
+      image: "assets/images/bridal/b6_1.webp",
       badge: "Luxury Makeup",
       title: "Elegance for your special day",
       description: "Premium bridal artistry"
     },
     {
-      image: "assets/images/hero/b3.webp",
+      image: "assets/images/bridal/b4_5.webp",
       badge: "Signature Experience",
       title: "Luxury beyond beauty",
       description: "Indulge in world-class salon care"
