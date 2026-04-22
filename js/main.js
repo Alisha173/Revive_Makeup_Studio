@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded",initNav);
 let navToggle ;
 let navLinks ;
 let autoPlay;
+let handleBtn;
 function hdlClick1(){
    navLinks.classList.toggle("active");
 }
@@ -51,20 +52,48 @@ popup.addEventListener("click", (e) => {
   }
 });
 
-  let lastScrollY = window.scrollY;
+let lastScrollY = window.scrollY;
 const navbar = document.querySelector(".site-header");
+const navHeight=navbar.offsetHeight;
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
-
-  if (currentScrollY > lastScrollY) {
+  if (Math.abs(currentScrollY - lastScrollY) < 5) return;
+  if(currentScrollY>navHeight && currentScrollY>lastScrollY){
     navbar.classList.add("hide");
-  } else {
+  }else{
     navbar.classList.remove("hide");
   }
-
   lastScrollY = currentScrollY;
 });
+
+  document.body.addEventListener("click",(e)=>{
+    const bookPackageButton=e.target.closest(".bookPackageButton");
+    if(!bookPackageButton)return;
+    popup.classList.add("active");
+    const bookBtn = e.target.closest(".bkNow");
+    if (bookBtn) {
+
+    const card = bookBtn.closest(".pkgSlide");
+    const packageName = card.querySelector("h3").textContent;
+
+    sessionStorage.setItem("selectedPackage", packageName);
+    return; 
+  }
+    const bookBtn2=e.target.closest(".btn-book-now");
+    if(bookBtn2){
+      const parentElement=bookBtn2.parentElement;
+      const pkgName=parentElement.querySelector(".package-name").textContent;
+      sessionStorage.setItem("selectedPackage", pkgName);
+    }
+  });
+
+  const setRealVh=()=>{
+    const vh=window.innerHeight*0.01;
+    document.documentElement.style.setProperty("--real-vh",`${vh}px`);
+  }
+  setRealVh();
+
 }
 
 
@@ -78,7 +107,6 @@ export function initHero() {
   const carousel = document.getElementById("heroCarousel");
   if (!carousel) return;
 
-
 carousel.innerHTML= `<div class="container">
             
                 <div class="hero-content">
@@ -86,8 +114,8 @@ carousel.innerHTML= `<div class="container">
                     <h1 class="heroHead">Where every bride shines</h1>
                     <p>Serving all brides of South India</p>
                     <div class="hero-actions">
-                        <a href="#callback" class="btn btn-book">Book Free Trial</a>
-                        <a href="#contact" class="btn">Contact Us</a>
+                        <button class="btn btn-book bookPackageButton">Book Free Trial</button>
+                        <a id="contactBtn" class="btn">Contact Us</a>
                     </div>
                 </div>
 
@@ -122,12 +150,28 @@ carousel.innerHTML= `<div class="container">
     currentIndex = (currentIndex + 1) % slides.length;
     slides[currentIndex].classList.add("active");
   }, 5000);
+
+  handleBtn=()=>{
+    const el=document.querySelector("#lookStunning");
+    if(!el)return;
+    el.scrollIntoView({behavior:"smooth"});
+    // const yOffset=el.getBoundingClientRect().top+window.pageYOffset;
+    // window.scrollTo({top:yOffset,behavior:"smooth"});
+  }
+
+  const contactBtn=document.querySelector("#contactBtn");
+  if(contactBtn)
+    contactBtn.addEventListener("click",handleBtn);
+
 }
 
 export function destroyHero(){
   clearInterval(autoPlay);
   autoPlay = null;
   navLinks?.classList.remove("active");
+  const contactBtn=document.querySelector("#contactBtn");
+  if(contactBtn)
+    contactBtn.removeEventListener("click",handleBtn);
 }
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) return;

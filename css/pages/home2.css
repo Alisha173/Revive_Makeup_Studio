@@ -42,7 +42,7 @@
   padding: 5px;
   width: 80%;
   background-color: #f9f4ec;
-  color: #b8954f;
+  color: var(--color-dark);
   border-radius: 10px;
   border: 1px solid #b8954f2d;
   font-size: 12px;
@@ -166,6 +166,8 @@
   background: linear-gradient(90deg, #eec784, #ceaa6c);
   border-radius: 7px;
   color: white;
+  border: none;
+  padding: 5px;
 }
 .pkgContainer .viewAllPkgs {
   background-color: #f6ebd8;
