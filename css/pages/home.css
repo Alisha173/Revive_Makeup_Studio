@@ -389,14 +389,18 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+
 #ourTestimonials .client-name{
     color: var(--color-primary);
 }
+
 #ourTestimonials footer {
     border-top: 1px solid #eee;
     padding-top: 12px;
     margin-top: 12px;
 }
+
+#pkgHome .testBtn,
 #ourTestimonials .testBtn{
   padding: 10px;
   color: var(--color-primary);
@@ -432,9 +436,12 @@
   transform: translateX(0px);
 
 }
+
+#pkgHome .testBtn:hover,
 #ourTestimonials .testBtn:hover{
   cursor: pointer;
-  color: black;
+  /* color: rgb(176, 135, 0); */
+  color: #a2763c;
   background-color: #F5EAD7;
 
 }
