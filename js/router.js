@@ -10,14 +10,26 @@ import { initOurPackage } from "./ourPackage.js";
 
 history.scrollRestoration = "manual";
 let cleanup=null;
-import loadPackages from "./packages.js"; // Removed the duplicate import
+import loadPackages from "./packages.js"; 
 
 function handleRoute() {
   const hash = location.hash || "#home";
 
-  if(cleanup){
+  const routes = ["#home", "#gallery", "#testimonials", "#callback", "#packages"];
+
+  if (!routes.includes(hash)) {
+    const el = document.querySelector(hash);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.pageYOffset ;
+      window.scrollTo({ top: y});
+    }
+    return;
+  }
+
+  // 👉 Otherwise, handle routing normally
+  if (cleanup) {
     cleanup();
-    cleanup=null;
+    cleanup = null;
   }
 
   switch (hash) {
@@ -32,28 +44,26 @@ function handleRoute() {
     case "#callback":
       loadSection("pages/callback.html", initCallbackForm);
       break;
+
     case "#packages":
       loadSection("pages/packages.html", loadPackages);
-      break; // <-- Added the missing break statement here
-    
-    case '#home':
+      break;
+
+    case "#home":
     default:
-      loadSection("pages/home.html", ()=>{
-        
+      loadSection("pages/home.html", () => {
         initHero();
         initOurPackage();
         initOurWork();
         initOurTestimonials();
-      
-        cleanup=()=>{
-        destroyHero();
-        destroyOurWork();
-        destroyOurTestimonials();
-        }
+
+        cleanup = () => {
+          destroyHero();
+          destroyOurWork();
+          destroyOurTestimonials();
+        };
       });
   }
-
-  // window.scrollTo(0, 0);
 }
 
 window.addEventListener("DOMContentLoaded", handleRoute);

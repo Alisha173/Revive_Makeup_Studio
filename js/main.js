@@ -87,7 +87,7 @@ carousel.innerHTML= `<div class="container">
                     <p>Serving all brides of South India</p>
                     <div class="hero-actions">
                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
-                        <a href="#contact" class="btn">Contact Us</a>
+                        <a href="#lookStunning" class="btn">Contact Us</a>
                     </div>
                 </div>
 
