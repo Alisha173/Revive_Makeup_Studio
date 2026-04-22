@@ -14,7 +14,7 @@ export async function initOurPackage(){
 }
 const loadPackages=(data)=>{
   const pkgTrack=document.querySelector(".pkgTrack");
-  
+
   data.forEach((item)=>{
     const li=document.createElement("div");
     li.className=`pkgSlide ${item.isPopular?"popular":''}`;
@@ -38,7 +38,7 @@ const loadPackages=(data)=>{
       </ul>
     </div>
     <div class="botPart">
-      <a class="bkNow" href="#callback">Book now</a>
+      <button class="bkNow bookPackageButton">Book now</button>
     </div>
     `;
     pkgTrack.appendChild(li);
@@ -48,14 +48,7 @@ const loadPackages=(data)=>{
 
 
 const handleBtn = (e) => {
-  const bookBtn = e.target.closest(".bkNow");
-  if (bookBtn) {
-    const card = bookBtn.closest(".pkgSlide");
-    const packageName = card.querySelector("h3").textContent;
-    
-    sessionStorage.setItem("selectedPackage", packageName);
-    return; 
-  }
+  
   
   const btn = e.target.closest(".dropDownBtn");
   if (!btn) return;
