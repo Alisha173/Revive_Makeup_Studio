@@ -144,11 +144,11 @@ function renderPackages(packages) {
       toggleBtn.setAttribute("aria-expanded", isExpanded);
     });
 
-    const bookBtn = clone.querySelector(".btn-book-now");
-    bookBtn.addEventListener("click", () => {
-      sessionStorage.setItem("selectedPackage", pkg.name);
-      window.location.hash = "#callback";
-    });
+    // const bookBtn = clone.querySelector(".btn-book-now");
+    // bookBtn.addEventListener("click", () => {
+    //   sessionStorage.setItem("selectedPackage", pkg.name);
+    //   window.location.hash = "#callback";
+    // });
 
     packagesGrid.appendChild(clone);
   });

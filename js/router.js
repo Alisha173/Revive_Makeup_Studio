@@ -14,19 +14,6 @@ import loadPackages from "./packages.js";
 
 function handleRoute() {
   const hash = location.hash || "#home";
-
-  const routes = ["#home", "#gallery", "#testimonials", "#callback", "#packages"];
-
-  if (!routes.includes(hash)) {
-    const el = document.querySelector(hash);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.pageYOffset ;
-      window.scrollTo({ top: y});
-    }
-    return;
-  }
-
-  // 👉 Otherwise, handle routing normally
   if (cleanup) {
     cleanup();
     cleanup = null;

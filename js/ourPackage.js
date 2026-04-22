@@ -38,7 +38,7 @@ const loadPackages=(data)=>{
       </ul>
     </div>
     <div class="botPart">
-      <button class="bkNow">Book now</button>
+      <button class="bkNow bookPackageButton">Book now</button>
     </div>
     `;
     pkgTrack.appendChild(li);
@@ -48,17 +48,7 @@ const loadPackages=(data)=>{
 
 
 const handleBtn = (e) => {
-  const bookBtn = e.target.closest(".bkNow");
-  if (bookBtn) {
-    const popup=document.querySelector("#callPopup");
-    popup.classList.add("active");
-
-    const card = bookBtn.closest(".pkgSlide");
-    const packageName = card.querySelector("h3").textContent;
-
-    sessionStorage.setItem("selectedPackage", packageName);
-    return; 
-  }
+  
   
   const btn = e.target.closest(".dropDownBtn");
   if (!btn) return;
