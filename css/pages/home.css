@@ -256,7 +256,7 @@
   overflow: hidden;
   width: 100%;
 }
-#ourWork .viewGallery{
+.viewPage{
   background:linear-gradient(90deg,#eec784,#CEAA6C);
   color: var(--color-light);
   padding: 0.3rem 0.6rem;
