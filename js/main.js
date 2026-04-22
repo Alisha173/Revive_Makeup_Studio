@@ -52,18 +52,18 @@ popup.addEventListener("click", (e) => {
   }
 });
 
-  let lastScrollY = window.scrollY;
+let lastScrollY = window.scrollY;
 const navbar = document.querySelector(".site-header");
+const navHeight=navbar.offsetHeight;
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
-
-  if (currentScrollY > lastScrollY) {
+  if (Math.abs(currentScrollY - lastScrollY) < 5) return;
+  if(currentScrollY>navHeight && currentScrollY>lastScrollY){
     navbar.classList.add("hide");
-  } else {
+  }else{
     navbar.classList.remove("hide");
   }
-
   lastScrollY = currentScrollY;
 });
 
@@ -86,8 +86,13 @@ window.addEventListener("scroll", () => {
       const pkgName=parentElement.querySelector(".package-name").textContent;
       sessionStorage.setItem("selectedPackage", pkgName);
     }
-  })
+  });
 
+  const setRealVh=()=>{
+    const vh=window.innerHeight*0.01;
+    document.documentElement.style.setProperty("--real-vh",`${vh}px`);
+  }
+  setRealVh();
 
 }
 
