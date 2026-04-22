@@ -58,10 +58,8 @@ window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
 
   if (currentScrollY > lastScrollY) {
-    // 🔽 Scrolling DOWN → hide navbar
     navbar.classList.add("hide");
   } else {
-    // 🔼 Scrolling UP → show navbar
     navbar.classList.remove("hide");
   }
 
@@ -72,53 +70,21 @@ window.addEventListener("scroll", () => {
 
 export function initHero() {
   const heroSlides = [
-    {
-      image: "assets/images/bridal/b1_2.webp",
-      badge: "Royal Bridal Excellence",
-      title: "Where every bride shines",
-      description: "Serving all the brides of Kerala"
-    },
-    {
-      image: "assets/images/bridal/b6_1.webp",
-      badge: "Luxury Makeup",
-      title: "Elegance for your special day",
-      description: "Premium bridal artistry"
-    },
-    {
-      image: "assets/images/bridal/b4_5.webp",
-      badge: "Signature Experience",
-      title: "Luxury beyond beauty",
-      description: "Indulge in world-class salon care"
-    }
+    { image: "assets/images/bridal/b1_2.webp" },
+    { image: "assets/images/bridal/b6_1.webp"},
+    { image: "assets/images/bridal/b4_5.webp", }
   ];
 
   const carousel = document.getElementById("heroCarousel");
   if (!carousel) return;
 
-  // carousel.innerHTML = ` <div class="container">
-            
-  //               <div class="hero-content">
-  //                   <span class="hero-badge">Royal Bridal Excellence</span>
-                    
-  //                   <div>
-  //                       <p>Where every bride shines</p>
-  //                        <div class="hero-actions">
-  //                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
-  //                           <a href="#contact" class="btn">Contact Us</a>
-  //                       </div>
-  //                   </div>
-                    
-  //               </div>
-
-  //           </div>
-  // </div>`;
 
 carousel.innerHTML= `<div class="container">
             
                 <div class="hero-content">
-                    <span class="hero-badge">Royal Bridal Excellence</span>
+                    <span class="hero-badge">Preimum Bridal Artistry</span>
                     <h1 class="heroHead">Where every bride shines</h1>
-                    <p>Serving all the brides of Kerala</p>
+                    <p>Serving all brides of South India</p>
                     <div class="hero-actions">
                         <a href="#callback" class="btn btn-book">Book Free Trial</a>
                         <a href="#contact" class="btn">Contact Us</a>

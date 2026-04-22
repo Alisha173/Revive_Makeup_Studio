@@ -1,7 +1,7 @@
 {
   "bridal": {
     "title": "Bridal Packages",
-    "description": "Customized packages honoring all traditions. Free trial makeup included.",
+    "description": "Free trial makeup included.",
     "packages": [
       {
         "name": "HD Makeup",
@@ -64,34 +64,33 @@
       {
         "name": "Party Makeup",
         "target": "Simple and elegant",
-        "price": "₹2,999",
-        "originalPrice": "₹100",
+        "price": "₹3,499",
+        "originalPrice": "₹4,499",
         "offer": true,
-        "isPopular": false,
+        "isPopular": true,
         "features": [
           "Light makeup",
-          "Basic hairstyling",
-          "1-hour duration"
+          "Hairstyling",
+          "Saree Draping"
         ]
       }
     ]
   },
   "professional": {
     "title": "Professional Shoots",
-    "description": "Flawless HD makeup tailored for camera and studio lighting.",
+    "description": "Flawless makeup tailored for camera and studio lighting.",
     "packages": [
       {
         "name": "Model/Photoshoot Makeup",
-        "target": "For models and actors",
-        "price": "₹5,999",
-        "originalPrice": "₹100",
+        "target": "For models, actors and influencers",
+        "price": "₹9,999",
+        "originalPrice": "11,999",
         "offer":true,
         "isPopular": true,
         "features": [
-          "Multiple looks (up to 3)",
-          "HD camera-ready makeup",
+          "Camera-ready makeup",
           "On-set touchups",
-          "Half-day coverage"
+          "Long lasting coverage"
         ]
       }
     ]

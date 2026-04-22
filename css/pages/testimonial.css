@@ -32,14 +32,6 @@
   padding: 0 24px; 
 } */
 
-.testimonial-section .section-line {
-  display: inline-block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--accent-color);
-  margin-bottom: 16px;
-}
-
 .testimonial-section h2 {
   font-family: var(--font-footer-heading);
   font-size: 60px;

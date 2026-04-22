@@ -48,21 +48,15 @@ const loadPackages=(data)=>{
 
 
 const handleBtn = (e) => {
-  // --- NEW CODE: Check if the user clicked the "Book Now" button ---
   const bookBtn = e.target.closest(".bkNow");
   if (bookBtn) {
-    // We need to grab the package name to save it. 
-    // It's located in the h3 tag inside the same card.
     const card = bookBtn.closest(".pkgSlide");
     const packageName = card.querySelector("h3").textContent;
     
-    // Save it to session storage just like the main packages page does
     sessionStorage.setItem("selectedPackage", packageName);
-    return; // Exit the function, letting the standard href="#callback" do its job
+    return; 
   }
-  // --- END NEW CODE ---
-
-  // Existing dropdown logic
+  
   const btn = e.target.closest(".dropDownBtn");
   if (!btn) return;
   const card = btn.closest(".pkgSlide");

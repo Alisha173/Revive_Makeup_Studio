@@ -26,7 +26,6 @@ export default async function loadPackages() {
   const footerBtn = document.querySelector(".btn-callback");
   if (footerBtn) {
     footerBtn.addEventListener("click", () => {
-      // Clear any previously saved package so the dropdown remains default
       sessionStorage.removeItem("selectedPackage");
       window.location.hash = "#callback";
     });
@@ -38,7 +37,6 @@ export default async function loadPackages() {
 
     const packagesData = await res.json();
 
-    // Initialize with the first category (bridal)
     updateCategoryView("bridal", packagesData);
     initPkgFilters(filterButtons, packagesData);
   } catch (err) {
@@ -61,7 +59,6 @@ function initPkgFilters(filterButtons, data) {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
 
-      // Update active state on buttons
       filterButtons.forEach((b) => {
         b.classList.remove("active");
         b.setAttribute("aria-pressed", "false");
@@ -104,17 +101,14 @@ function renderPackages(packages) {
     const clone = template.content.cloneNode(true);
     const cardDiv = clone.querySelector(".package-card");
 
-    // ⭐ Popular badge
     if (pkg.isPopular) {
       cardDiv.classList.add("popular");
       clone.querySelector(".popular-badge").classList.remove("hidden");
     }
 
-    // 📌 Basic info
     clone.querySelector(".package-name").textContent = pkg.name;
     clone.querySelector(".package-target").textContent = pkg.target;
 
-    // 💰 PRICE LOGIC (YOUR VERSION ADDED)
     const priceEl = clone.querySelector(".package-price");
     const originalPriceEl = clone.querySelector(".package-price-original");
     const offerEl = clone.querySelector(".package-offer");
@@ -150,7 +144,6 @@ function renderPackages(packages) {
       toggleBtn.setAttribute("aria-expanded", isExpanded);
     });
 
-    // 📞 Book now button
     const bookBtn = clone.querySelector(".btn-book-now");
     bookBtn.addEventListener("click", () => {
       sessionStorage.setItem("selectedPackage", pkg.name);
