@@ -81,7 +81,7 @@
     "description": "Flawless makeup tailored for camera and studio lighting.",
     "packages": [
       {
-        "name": "Model/Photoshoot Makeup",
+        "name": "Photoshoot Makeup",
         "target": "For models, actors and influencers",
         "price": "₹9,999",
         "originalPrice": "₹11,999",

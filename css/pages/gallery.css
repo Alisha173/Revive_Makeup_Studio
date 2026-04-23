@@ -118,6 +118,12 @@
   height: 100%;
   z-index: 10;
   cursor: pointer;
+
+  .nav-hitbox {
+  -webkit-tap-highlight-color: transparent;
+  /* Optional: removes standard outline for keyboard navigation if it's also bothering you */
+  outline: none; 
+}
 }
 
 .nav-hitbox.left {
@@ -245,7 +251,7 @@
 
 .alt-text-item:hover {
   color: #555;
-  transform: translateX(5px);
+  /* transform: translateX(5px); */
 }
 
 .alt-text-item.active {
