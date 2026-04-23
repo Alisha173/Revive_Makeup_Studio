@@ -1,0 +1,502 @@
+#pkgHome {
+  width: 100%;
+  min-height: fit-content;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: #fcf9f5;
+  border-bottom: 1px solid #c5a26062;
+}
+.pkgContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  margin-top: -10px;
+}
+#pkgCrownIcon {
+  color: #b8954f;
+  font-size: 48px;
+  margin-bottom: -20px;
+}
+#pkgCrownIcon svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+  margin: 0 auto;
+}
+.pkgContainer .textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.pkgContainer .noteBox {
+  padding: 5px;
+  width: 80%;
+  background-color: #f9f4ec;
+  color: var(--color-dark);
+  border-radius: 10px;
+  border: 1px solid #b8954f2d;
+  font-size: 12px;
+}
+.pkgContainer .slideContainer {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+.pkgContainer .pkgTrack {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.pkgContainer .pkgTrack .pkgSlide {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+  border: 1px solid #d5a75c;
+  border-radius: 10px;
+}
+.pkgSlide .topPart {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  height: fit-content;
+}
+.pkgSlide .topPart .textContent {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  width: 80%;
+}
+.pkgSlide .priceList {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+}
+.pkgSlide ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.pkgSlide .offerPrice {
+  color: #b8954f;
+  font-size: 18px;
+}
+.pkgSlide .actualPrice {
+  color: grey;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+.pkgSlide .offerBox {
+  background-color: green;
+  color: white;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.pkgContainer .pkgTrack .pkgSlide.popular {
+  border: 3px solid #cba767;
+  box-shadow: 5px 5px 5px 2px rgb(136, 136, 136);
+  position: relative;
+  scale: 1.05;
+}
+.pkgContainer .pkgTrack .pkgSlide.popular::after {
+  content: "⭐ Popular";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #cba767;
+  border-radius: 10px;
+  padding: 1px 8px;
+  color: white;
+  font-size: 13px;
+}
+.pkgContainer .dropDownBtn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(249, 247, 236);
+  border: 1px solid #f9f4eb;
+  color: #b8954f;
+  cursor: pointer;
+}
+.pkgContainer .dropDownBtn i {
+  transition: transform 0.2s ease-in-out;
+}
+.pkgContainer .dropDownBtn.active i {
+  transform: rotate(180deg);
+}
+.pkgSlide .midPart {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: fit-content;
+}
+.pkgSlide .botPart {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.pkgSlide .bkNow {
+  text-decoration: none;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(90deg, #eec784, #ceaa6c);
+  border-radius: 7px;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+.pkgContainer .viewAllPkgs {
+  background-color: #f6ebd8;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ceaa6c;
+  box-shadow: 3px 3px 7px 1px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.pkgContainer .viewPkgBtn {
+  padding: 2px 20px;
+  background: linear-gradient(90deg, #eec784, #ceaa6c);
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.pkgSlide li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px; /* Space between the tick and the text */
+  line-height: 1.4;
+  color: #444;
+  position: relative;
+  padding-left: 28px;
+}
+.pkgSlide li::before {
+  content: "✓"; /* The custom tick character */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4af6d; /* Your requested gold color */
+  font-weight: 800;
+  font-size: 1rem;
+}
+#lookStunning {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: #F7F4F0;
+  border-bottom: 1px solid #c5a26062;
+}
+.stunContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  margin-top: -10px;
+}
+.slideHolder {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.slideCard {
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid #c5a260a1;
+  box-shadow: 3px 3px 10px 2px gray;
+  border-radius: 10px;
+}
+.slideCard .imgHolder {
+  width: 50px;
+  height: 50px;
+  background-color: #c5a160;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-shrink: 0;
+}
+.slideCard .midText {
+  font-size: 14px;
+  color: gray;
+}
+.slideCard .ylwText {
+  text-decoration: none;
+  color: #bd9955;
+}
+
+@keyframes pulse {
+  0%{
+    box-shadow: 0 0 0 0 rgba(206, 170, 108, 0.3);
+  }
+  
+   100% {
+    box-shadow: 0 0 0 30px rgba(206, 170, 108, 0);
+  } 
+}
+
+.floatBtn::before,
+.floatBtn::after,
+.floatBtn span {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: -1; /* keep behind button */
+  
+  box-shadow: 0 0 0 0 rgba(235, 151, 7, 0.5);
+  animation: pulse 3s infinite ease-out;
+}
+
+.floatBtn::before {
+  animation-delay: 0s;
+}
+.floatBtn::after {
+  animation-delay: 1s;
+}
+.floatBtn span {
+  animation-delay: 2s;
+}
+
+/* 🔘 FLOATING BUTTON */
+.floatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eec784, #ceaa6c);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 30px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 998;
+
+  transition: all 0.3s ease;
+}
+
+.floatBtn:hover {
+  transform: scale(1.1);
+}
+
+
+/* 🌫 BACKDROP */
+.call-popup {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.call-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* 💎 POPUP CARD */
+.popup-content {
+  width: 320px;
+  padding: 2rem 1.8rem;
+
+  border-radius: 16px;
+
+  background: linear-gradient(145deg, #ffffff, #f8f3ea);
+  border: 1px solid #e6d3a3;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(212, 175, 109, 0.15);
+
+  text-align: center;
+  position: relative;
+
+  transform: scale(0.85) translateY(30px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.call-popup.active .popup-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+
+/* 📞 ICON */
+.popup-icon {
+  width: 60px;
+  height: 60px;
+
+  background: linear-gradient(135deg, #eec784, #ceaa6c);
+  border-radius: 50%;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 22px;
+}
+
+
+/* 📝 TEXT */
+.popup-content h3 {
+  margin-bottom: 5px;
+  color: #b8954f;
+  font-weight: 500;
+}
+
+.popup-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+
+/* 🔘 BUTTONS */
+.popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-buttons a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.popup-buttons .primary {
+  background: linear-gradient(90deg, #eec784, #ceaa6c);
+  color: white;
+}
+
+/* Secondary */
+.popup-buttons .secondary {
+  border: 1px solid #d4af6d;
+  color: #b8954f;
+  background: transparent;
+}
+
+/* ❌ CLOSE BUTTON */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.popup-close:hover {
+  color: #333;
+}
+@media (hover: hover) {
+  .pkgContainer .viewPkgBtn:hover {
+    background: linear-gradient(180deg, #eec784, #ceaa6c);
+  }
+  .popup-buttons .primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(206, 170, 108, 0.4);
+  }
+
+  .popup-buttons .secondary:hover {
+    background: #f9f4ec;
+  }
+  
+}
+@media (max-width: 768px) {
+  .slideCard .midText {
+    display: none;
+  }
+  .slideCard {
+    gap: 10px;
+    flex-direction: row;
+  }
+  .slideCard .inDiv{
+    text-align: left;
+  }
+  .slideHolder {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .pkgContainer .pkgTrack {
+    grid-template-columns: 1fr;
+  }
+  .pkgContainer .dropDownBtn {
+    display: flex;
+  }
+  .pkgSlide .midPart {
+    max-height: 0px;
+  }
+}

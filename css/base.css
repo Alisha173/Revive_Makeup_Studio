@@ -7,10 +7,24 @@
     box-sizing: border-box;
 }
 
+/* SPA Transition Cloak */
+#app {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#app.loading {
+    opacity: 0;
+    visibility: hidden;
+    transition: none; /* Instant hide when switching */
+}
+
 /* CSS Variables */
 :root {
     /* Colors */
     --color-primary: #b38b59;   /* gold */
+    --color-primary-dark: #a2763c; /*dark gold*/ 
     --color-dark: #1a1a1a;
     --color-light: #ffffff;
     --color-muted: #777777;
@@ -20,6 +34,7 @@
     
     /* Gradients */
     --accent-color: linear-gradient(to right, #D4AF73 70%, #bb9a66 90%);
+    --btn-gradient: linear-gradient(90deg, #eec784, #CEAA6C);
     
     /* Backgrounds */
     --bg-dark: #0f0f0f;
@@ -62,14 +77,17 @@ img {
   display: block;
 }
 
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 500;
-  cursor: pointer;
-}
 button, a {
   -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-primary);
+}
+#callBtn{
+  z-index: 100;
+}
+@media (min-width:960px){
+  #callBtn{
+    display: none;
+  }
 }
 
-
+ 

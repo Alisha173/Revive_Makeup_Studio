@@ -1,43 +1,53 @@
 <section class="packages-section" id="packages">
   <div class="container">
-    
+
     <div class="section-header">
-      <hr class="divider-packages">
+      <hr class="section-top-divider" />
       <h2>Our Packages</h2>
       <p>Choose from our curated packages designed for every occasion</p>
     </div>
 
-    <div class="packages-filters" role="tablist">
-      <button class="pkg-filter-btn active" data-filter="bridal" aria-pressed="true">
-        <span>♕</span> Bridal
+    <div class="filter-capsule" role="tablist">
+
+      <button class="filter-item active" data-filter="bridal" aria-pressed="true">
+        <span class="filter-icon" data-icon="bridal"></span>
+        Bridal
       </button>
-      <button class="pkg-filter-btn" data-filter="party" aria-pressed="false">
-        <span>✨</span> Party
+
+      <button class="filter-item" data-filter="party" aria-pressed="false">
+        <span class="filter-icon" data-icon="party"></span>
+        Party
       </button>
-      <button class="pkg-filter-btn" data-filter="professional" aria-pressed="false">
-        <span>👥</span> Professional
+
+      <button class="filter-item" data-filter="professional" aria-pressed="false">
+        <span class="filter-icon" data-icon="professional"></span>
+        Photoshoot
       </button>
+
     </div>
 
     <div class="packages-content">
+
       <div class="category-header-container">
-  <div class="crown-icon" id="categoryIcon">♕</div> 
-  <h3 id="categoryTitle" class="category-title">Bridal Packages</h3>
-  <p id="categoryDesc" class="category-desc">Customized packages honoring all traditions. Free trial makeup included.</p>
-</div>
 
-      <div class="packages-grid" id="packagesGrid">
-        </div>
-    </div>
+        <div class="crown-icon" id="categoryIcon"></div>
 
-    <div class="packages-footer">
+        <h3 id="categoryTitle" class="category-title">Package Heading</h3>
 
-      <div class="packages-note-div">
-
-        <p class="packages-note">*Note: No payment required when booking through our website</p>
+        <p id="categoryDesc" class="category-desc">PakcageDescription</p>
 
       </div>
 
+      <div class="packages-grid" id="packagesGrid"></div>
+
+    </div>
+
+    <div class="packages-footer">
+      <div class="packages-note-div">
+        <p class="packages-note">
+          *Note: No payment needed. Click ‘Book Now’ to call us or request a callback.
+        </p>
+      </div>
 
       <button class="btn-callback">Request Call Back</button>
     </div>
@@ -45,13 +55,17 @@
   </div>
 
   <template id="package-card-template">
-    <div class="package-card">
-      <div class="popular-badge hidden">⭐ Popular</div>
-      
-      <div class="package-card-header">
-        <h4 class="package-name"></h4>
-        <p class="package-target"></p>
-      </div>
+  <div class="package-card">
+    <div class="popular-badge hidden">⭐ Popular</div>
+    
+    <button class="package-toggle" aria-label="Toggle details">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+
+    <div class="package-card-header">
+      <p class="package-name"></p>
+      <p class="package-target"></p>
+    </div>
 
       <div class="package-price-info">
         <span class="package-price"></span>
@@ -59,11 +73,11 @@
         <span class="package-offer"></span>
       </div>
 
-      <ul class="package-features">
-        </ul>
+      <ul class="package-features"></ul>
 
-      <button class="btn-book-now">Book Now</button>
+      <button class="btn-book-now btn-book bookPackageButton">Book Now</button>
+
     </div>
   </template>
-</section>
 
+</section>

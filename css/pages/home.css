@@ -1,5 +1,5 @@
 /* Hero Section */
-
+@import "/css/pages/home2.css";
 .hero {
   min-height: fit-content;
   position: relative;
@@ -10,7 +10,7 @@
 }
 
 .hero-carousel {
-  height: 60vh;
+  height: calc(var(--real-vh)*100 - var(--nav-height));
   width: 100%;
   position: relative;
   max-width: none;
@@ -26,18 +26,19 @@
   align-items: center;
   width: 100%;
   opacity: 0;
-  transform: translateX(calc(100% + 5px));
+  transform: translateX(calc(100%));
   transition: transform 1s ease-in-out;
   z-index: 1;
 }
 
-.hero-slide .container{
+.hero-carousel .container{
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  z-index: 5;
   padding: 0 20px;
+  height: 100%;
 }
 
 
@@ -49,7 +50,7 @@
 .hero-slide.exit{
   opacity: 1;
   z-index: 1;
-  transform: translateX(calc(-100% - 5px));
+  transform: translateX(calc(-100%));
 }
 
 .hero-slide img {
@@ -58,10 +59,18 @@
   width: 100%;
   height: 100%;
   object-fit:cover;
-  object-position: top;
+  object-position: center 10%;
   z-index: 0;
 }
-
+.hero-slide::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.447);
+}
 
 
 .hero-content {
@@ -73,10 +82,11 @@
   /* check */
   display: flex;
   flex-direction: column;
+  /* justify-content: space-around; */
   justify-content: center;
   align-items: center;
   /* check */
-
+  height: 100%;
 }
 
 .hero-content h2 {
@@ -114,9 +124,6 @@
 
 .hero-actions .btn {
   padding: 0.75rem 1.6rem;
-}
-
-.hero-actions .btn:not(.book-btn-primary) {
   border: 1px solid var(--color-light);
   color: var(--color-light);
 }
@@ -124,10 +131,10 @@
 #freeTrial{
   display: flex;
   flex-direction: column;
+  min-height: 75vh;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   padding: 30px 10px;
-  min-height: 90vh;
   width: 100%;
   background: linear-gradient(#f7f4f0);
   text-align: center;
@@ -161,16 +168,15 @@
 .promiseBox{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: center;
   text-align: center;
   border: 1px solid #C09C5A;
   width: clamp(60%,70vw,90%);
-  gap:10px;
-  min-height: 60vh;
+  gap: 20px;
   border-radius: 20px;
   box-shadow: 2px 4px 10px 1px rgb(156, 156, 156);
-  padding: 10px 15px;
+  padding: 15px 20px;
   background-color: white;
 }
 .bxContainer{
@@ -193,37 +199,51 @@
   min-width: 30%;
   padding: 25px 30px;
   border-radius: 20px;
-  background: linear-gradient(180deg,#f6f0e6, #fcf9f3);
+  background: white;
+  box-shadow: 2px 2px 5px 1px gray;
   flex: 0 0 50px; 
 }
-
+.pHd{
+  font-family: var(--font-footer-heading);
+  font-size: 14px;
+  font-weight: 100;
+  text-wrap: balance;
+}
+.pBd{
+  font-family: var(--font-primary);
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.944);
+  text-wrap: balance;
+}
 .noRush{
   grid-column: 1/-1;
-  background-color: #F8EDDA;
+  background-color: var(--color-background-2);
   border: 1px solid #C09C5A;
   border-radius: 10px;
   font-size: 12px;
-  padding: 20px 10px;
+  padding: 10px 5px;
   color: rgb(77, 76, 76);
 }
 .noRush span{
-  color :#C09C5A;
+  color :var(--color-primary-dark);
+  font-weight: 470;
 }
 
 #ourWork{
   width: 100%;
-  height: 100vh;
-  background-color: #FCF9F5;
+  min-height: fit-content;
+  background-color: #F7F4F0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   gap:30px;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
+  border-bottom: 1px solid #c5a26062;
 }
 #ourWork p{
-  font-size: 12px;
+  font-size: 14px;
   color: gray;
 }
 #ourWork .imageContainer{
@@ -233,17 +253,17 @@
     align-items: center;
     position: relative;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
   justify-content: center;
 }
 #ourWork .imageContainer .smlCarousel{
   overflow: hidden;
   width: 100%;
 }
-#ourWork .viewGallery{
+.viewPage{
   background:linear-gradient(90deg,#eec784,#CEAA6C);
   color: var(--color-light);
-  padding: 0.3rem 0.6rem;
+  padding: 10px;
   font-size: 1rem;
   border: 0px;
   display: flex;
@@ -272,7 +292,7 @@
   list-style: none;
   transition: transform 0.4s ease-in-out;
 }
-#ourWork .slide-btn{
+.slide-btn{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -284,6 +304,7 @@
   border: 0px;
   color: #B8954F;
   cursor: pointer;
+  border: 1px solid #B8954F;
 }
 #preBtn{
   position: absolute;
@@ -295,6 +316,126 @@
   right: -12px;
   z-index: 5;
 }
+
+#ourTestimonials{
+  width: 100%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  background-color: #FCF9F5;
+  gap: 20px;
+  padding: 30px 20px;
+  border-bottom: 1px solid #c5a26062;
+
+}
+#testPreBtn{
+  position: absolute;
+  z-index: 10;
+  left:-20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#testNexBtn{
+  position: absolute;
+  z-index: 10;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#ourTestimonials .testContainer{
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 244, 243);
+  position: relative;
+  border-radius: 20px;
+  width: 90%;
+  box-shadow: 5px 5px 10px 2px gray;
+  max-width: 1200px;
+}
+#ourTestimonials .trackContainer{
+  overflow: hidden;
+  width: 100%;
+}
+#ourTestimonials .testTrack{
+  border-radius: 20px;
+ overflow: hidden;
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+#ourTestimonials .testTrack .OTslide{
+  display: none;
+  flex: 0 0 100%;
+  align-items: flex-start;
+  gap: 10px;
+}
+#ourTestimonials .testTrack .OTslide.active{
+  display: flex;
+  flex: 0 0 100%;
+  align-items: flex-start;
+}
+#ourTestimonials .testimonial-image-container {
+  flex: 0 0 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 10px;;
+}
+#ourTestimonials img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+#ourTestimonials .client-meta{
+  display: flex;
+  flex-wrap: wrap;
+}
+#ourTestimonials .client-name{
+    color: var(--color-primary);
+}
+
+#ourTestimonials footer {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+#pkgHome .testBtn,
+#ourTestimonials .testBtn{
+  padding: 10px;
+  color: var(--color-primary);
+  background-color: white;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  text-decoration: none;
+}
+.slide-dots{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.slide-dots .dot{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #E8DAC7;
+  transition: width 0.2s ease-in-out;
+}
+.slide-dots .dot.active{
+  border-radius: 10px;
+  width: 25px;
+  background-color: #BE9A57;
+}
 @media(hover: hover){
   #ourWork .viewGallery:hover{
   background:linear-gradient(270deg,#eec784,#CEAA6C);
@@ -304,14 +445,41 @@
   transform: translateX(0px);
 
 }
-}
 
+#pkgHome .testBtn:hover,
+#ourTestimonials .testBtn:hover{
+  cursor: pointer;
+  /* color: rgb(176, 135, 0); */
+  color: var(--color-primary-dark);
+  background-color: #F5EAD7;
+
+}
+}
+.heroHead{
+    font-size: 54px;
+  }
 /* Hero Section Responsive Styles */
 @media (max-width: 768px) {
   /* .hero {
     min-height: 70vh;
   } */
-
+   #ourTestimonials img{
+  object-position: top;
+  aspect-ratio: 6/4;
+  }
+  #ourTestimonials .OTslide{
+    flex-direction: column;
+  }
+  #ourTestimonials .testContainer{
+    font-size: 0.8rem;
+  }
+  #ourTestimonials .testimonial-image-container{
+    flex: 0 0 100%;
+  }
+  #ourTestimonials .client-meta{
+    display: flex;
+    flex-direction: column;
+  }
   .hero-content {
     text-align: center;
     max-width: 100%;
@@ -354,12 +522,12 @@
     min-width: 50px;
     max-width: 50px;
   }
-  .boxItems p:nth-of-type(1){
-    font-weight: bold;
-  }
   .noRush{
     width: 100%;
     font-size: 10px;
+  }
+  .heroHead{
+    font-size: 36px;
   }
 }
 @media (min-width: 600px) {
@@ -374,3 +542,12 @@
 @media (min-width: 1200px) {
     #ourWork .car-slide { flex: 0 0 25%; }
 }
+
+p,span{
+  font-family:var(  --font-primary);
+}
+h1,h3{
+  font-family: var(--font-footer-heading);
+  font-weight: 100;
+}
+

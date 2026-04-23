@@ -1,33 +1,25 @@
 import loadSection from "./spaLoader.js";
 import { initHero,destroyHero } from "./main.js";
 import loadGallery from "./gallery.js";
+import { initLightbox } from "./lightbox.js";
 import loadTestimonials from "./testimonial.js";
 import initCallbackForm from "./callback.js";
 import {initOurWork,destroyOurWork} from "./ourWork.js";
+import { initOurTestimonials,destroyOurTestimonials } from "./ourTestimonials.js";
+import { initOurPackage } from "./ourPackage.js";
+
+history.scrollRestoration = "manual";
 let cleanup=null;
-import loadPackages from "./packages.js"; // Removed the duplicate import
+import loadPackages from "./packages.js"; 
 
 function handleRoute() {
   const hash = location.hash || "#home";
-
-  if(cleanup){
+  if (cleanup) {
     cleanup();
-    cleanup=null;
+    cleanup = null;
   }
 
   switch (hash) {
-    case "#home":
-      loadSection("pages/home.html", ()=>{
-        
-        initHero();
-        initOurWork();
-        cleanup=()=>{
-        destroyHero();
-        destroyOurWork();
-        }
-      });
-      break;
-
     case "#gallery":
       loadSection("pages/gallery.html", loadGallery);
       break;
@@ -39,23 +31,26 @@ function handleRoute() {
     case "#callback":
       loadSection("pages/callback.html", initCallbackForm);
       break;
+
     case "#packages":
       loadSection("pages/packages.html", loadPackages);
-      break; // <-- Added the missing break statement here
+      break;
 
+    case "#home":
     default:
-      loadSection("pages/home.html", ()=>{
-        
+      loadSection("pages/home.html", () => {
         initHero();
+        initOurPackage();
         initOurWork();
-        cleanup=()=>{
-        destroyHero();
-        destroyOurWork();
-        }
+        initOurTestimonials();
+
+        cleanup = () => {
+          destroyHero();
+          destroyOurWork();
+          destroyOurTestimonials();
+        };
       });
   }
-
-  window.scrollTo(0, 0);
 }
 
 window.addEventListener("DOMContentLoaded", handleRoute);

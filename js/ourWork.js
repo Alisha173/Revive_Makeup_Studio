@@ -27,7 +27,19 @@ export function initOurWork(){
   fetch("data/gallery.json")
     .then(res=>res.json())
     .then(json=>{
-      data = json.slice(0,6);
+      // 1. Grab exactly the first 6 folders from your new JSON
+      const firstSixFolders = json.slice(0, 6);
+      
+      // 2. Translate them: Extract ONLY the first image from each folder's "images" array
+      data = firstSixFolders.map(folder => {
+        const firstImage = folder.images[0];
+        return {
+          src: firstImage.src,
+          alt: firstImage.alt
+        };
+      });
+      
+      // 3. Start the carousel (it now has the flat array format it expects!)
       startFn();
     })
     .catch(err=>console.log("Error loading json:"+err));
@@ -52,7 +64,7 @@ const startFn = () => {
     data.forEach(element=>{
       const li=document.createElement("li");
       li.classList.add("car-slide");
-      li.innerHTML=`<img src=${element.src} alt=${element.alt}>`;
+      li.innerHTML=`<img src="${element.src}" alt="${element.alt}" > `;
       galleryTrack.appendChild(li);
     });
 

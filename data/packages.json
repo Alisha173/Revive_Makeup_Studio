@@ -1,58 +1,58 @@
 {
   "bridal": {
     "title": "Bridal Packages",
-    "description": "Customized packages honoring all traditions. Free trial makeup included.",
+    "description": "Free trial makeup included.",
     "packages": [
       {
         "name": "HD Makeup",
-        "target": "Soft, minimalist and elegant finish.",
+        "target": "Designed for clean and matte look.",
         "price": "₹9,999",
-        "originalPrice": "",
-        "offer": "",
+        "originalPrice": "₹9,999",
+        "offer": false,
         "isPopular": false,
         "features": [
-          "Minimal, soft & classy look",
-          "Perfect for a natural aesthetic",
-          "Light, breathable coverage"
+          "Soft, matte & natural finish",
+          "Lightweight & breathable coverage",
+          "Ideal for minimal, elegant looks"
         ]
       },
       {
         "name": "Ultra HD Makeup",
         "target": "Refined HD makeup with enhanced finish.",
-        "price": "₹12,999",
-        "originalPrice": "",
-        "offer": "",
-        "isPopular": true,
+        "price": "",
+        "originalPrice": "₹12,999",
+        "offer": false,
+        "isPopular": false,
         "features": [
-          "Classy HD with long-lasting finish",
-          "Polished, camera-ready look",
+          "Enhanced HD with improved finish",
+          "Better glow compared to HD",
           "Ideal for extended functions"
         ]
       },
       {
         "name": "Glass Skin Makeup",
-        "target": "Fresh, radiant glass-skin effect with dewy glow.",
+        "target": "Luminous finish suitable for all skin types",
         "price": "₹14,999",
-        "originalPrice": "",
-        "offer": "",
-        "isPopular": false,
+        "originalPrice": "₹19,999",
+        "offer": true,
+        "isPopular": true,
         "features": [
-          "Dewy, glowing glass-skin look",
-          "Luminous, hydrated finish",
-          "Perfect for daytime ceremonies"
+          "Dewy, radiant & glowing finish",
+          "Fresh & hydrated skin look",
+          "Works well for all skin types"
         ]
       },
       {
         "name": "Airbrush Makeup",
-        "target": "Lightweight, seamless makeup with superior hold.",
+        "target": "Lightweight with smooth, long-lasting finish",
         "price": "₹19,999",
-        "originalPrice": "",
-        "offer": "",
+        "originalPrice": "₹24,999",
+        "offer": true,
         "isPopular": false,
         "features": [
-          "Ultra-light, waterproof & long wear",
-          "Sweat-proof and seamless",
-          "Lasts all day without touch-ups"
+          "Ultra-light & seamless finish",
+          "Waterproof & long-lasting",
+          "Flawless & poreless finish"
         ]
       }
     ]
@@ -62,36 +62,35 @@
     "description": "Get glam for your next big event or celebration.",
     "packages": [
       {
-        "name": "Party Basic",
+        "name": "Party Makeup",
         "target": "Simple and elegant",
-        "price": "₹2,999",
-        "originalPrice": "",
-        "offer": "",
-        "isPopular": false,
+        "price": "₹3,499",
+        "originalPrice": "₹4,499",
+        "offer": true,
+        "isPopular": true,
         "features": [
           "Light makeup",
-          "Basic hairstyling",
-          "1-hour duration"
+          "Hairstyling",
+          "Saree Draping"
         ]
       }
     ]
   },
   "professional": {
     "title": "Professional Shoots",
-    "description": "Flawless HD makeup tailored for camera and studio lighting.",
+    "description": "Flawless makeup tailored for camera and studio lighting.",
     "packages": [
       {
-        "name": "Portfolio Shoot",
-        "target": "For models and actors",
-        "price": "₹5,999",
-        "originalPrice": "",
-        "offer": "",
+        "name": "Photoshoot Makeup",
+        "target": "For models, actors and influencers",
+        "price": "₹9,999",
+        "originalPrice": "₹11,999",
+        "offer":true,
         "isPopular": true,
         "features": [
-          "Multiple looks (up to 3)",
-          "HD camera-ready makeup",
+          "Camera-ready makeup",
           "On-set touchups",
-          "Half-day coverage"
+          "Long lasting coverage"
         ]
       }
     ]
