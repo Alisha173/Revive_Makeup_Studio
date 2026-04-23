@@ -22,7 +22,7 @@ const loadPackages=(data)=>{
     <div class="topPart">
       <div class="textContent">
         <h3>${item.name}</h3>
-        <p style="font-size:12px;color:gray;">${item.target}</p>
+        <p style="font-size:12px;color:black;">${item.target}</p>
       </div>
       
       <div ><button class="dropDownBtn"><i class="fa-solid fa-angle-down"></i></button></div>

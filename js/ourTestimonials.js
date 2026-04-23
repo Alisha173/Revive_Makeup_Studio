@@ -65,8 +65,7 @@ function loadOurTestimonials(data){
             <div class="client-name">${item.name}</div>
             <div class="client-meta">
               <span class="meta-item">${item.subtitle}</span>
-              <span class="meta-item">${item.location}</span>
-              <span class="meta-item">${item.date}</span>
+              <span class="meta-item">${item.location}, ${item.date}</span>
             </div>
           </footer>
         </div>

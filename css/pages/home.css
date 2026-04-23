@@ -131,6 +131,7 @@
 #freeTrial{
   display: flex;
   flex-direction: column;
+  min-height: 75vh;
   align-items: center;
   justify-content: start;
   padding: 30px 10px;
@@ -206,11 +207,13 @@
   font-family: var(--font-footer-heading);
   font-size: 14px;
   font-weight: 100;
+  text-wrap: balance;
 }
 .pBd{
   font-family: var(--font-primary);
   font-size: 12px;
   color: rgba(128, 128, 128, 0.944);
+  text-wrap: balance;
 }
 .noRush{
   grid-column: 1/-1;
@@ -228,15 +231,15 @@
 
 #ourWork{
   width: 100%;
-  height: 100vh;
+  min-height: fit-content;
   background-color: #F7F4F0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   gap:30px;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
   border-bottom: 1px solid #c5a26062;
 }
 #ourWork p{
@@ -260,7 +263,7 @@
 .viewPage{
   background:linear-gradient(90deg,#eec784,#CEAA6C);
   color: var(--color-light);
-  padding: 0.3rem 0.6rem;
+  padding: 10px;
   font-size: 1rem;
   border: 0px;
   display: flex;
@@ -316,15 +319,15 @@
 
 #ourTestimonials{
   width: 100%;
-  min-height: 100vh;
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   text-align: center;
   background-color: #FCF9F5;
   gap: 20px;
-  padding: 40px 20px;
+  padding: 30px 20px;
   border-bottom: 1px solid #c5a26062;
 
 }
@@ -370,7 +373,6 @@
   flex: 0 0 100%;
   align-items: flex-start;
   gap: 10px;
-  padding: 20px;
 }
 #ourTestimonials .testTrack .OTslide.active{
   display: flex;
@@ -378,8 +380,7 @@
   align-items: flex-start;
 }
 #ourTestimonials .testimonial-image-container {
-  /* flex: 0 0 350px; */
-  /* height: 200px; */
+  flex: 0 0 350px;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
@@ -390,7 +391,10 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
-
+#ourTestimonials .client-meta{
+  display: flex;
+  flex-wrap: wrap;
+}
 #ourTestimonials .client-name{
     color: var(--color-primary);
 }
@@ -465,7 +469,13 @@
   #ourTestimonials .testContainer{
     font-size: 0.8rem;
   }
-
+  #ourTestimonials .testimonial-image-container{
+    flex: 0 0 100%;
+  }
+  #ourTestimonials .client-meta{
+    display: flex;
+    flex-direction: column;
+  }
   .hero-content {
     text-align: center;
     max-width: 100%;

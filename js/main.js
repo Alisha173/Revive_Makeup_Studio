@@ -110,7 +110,7 @@ export function initHero() {
 carousel.innerHTML= `<div class="container">
             
                 <div class="hero-content">
-                    <span class="hero-badge">Preimum Bridal Artistry</span>
+                    <span class="hero-badge">Premium Bridal Artistry</span>
                     <h1 class="heroHead">Where every bride shines</h1>
                     <p>Serving all brides of South India</p>
                     <div class="hero-actions">

@@ -242,7 +242,7 @@
   align-items: baseline;
 }
 
-.client-meta .meta-item + .meta-item::before {
+.client-meta .meta-item::before {
   content: "•";
   color: var(--color-primary);
 

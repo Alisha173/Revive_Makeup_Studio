@@ -20,7 +20,7 @@
     height: 3px;
     background-color: var(--color-primary);
     border: none;
-    margin: 15px auto 0px auto;
+    margin: 0px auto 0px auto;
 }
 
 .callback-header h2 {
@@ -182,7 +182,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btn-submit {
     width: 100%;
     padding: 16px;
-    background-color: var(--color-primary);
+    background: var(--btn-gradient);
     color: var(--color-light);
     border: none;
     border-radius: 8px;
@@ -190,11 +190,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 500;
     font-family: var(--font-primary);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s ease;
+    transition: transform 0.1s ease;
 }
 
 .btn-submit:hover {
-    background: var(--accent-color);
+    background: var(--color-primary);
 }
 
 .btn-submit:active {

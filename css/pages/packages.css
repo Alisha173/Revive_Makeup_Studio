@@ -64,7 +64,7 @@ Packages Content Box (The Gold Border)
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  /* gap: .5rem; */
   transform-origin: center;
   will-change: transform;
   background-color: white;
@@ -185,11 +185,11 @@ Packages Content Box (The Gold Border)
   font-size: 0.8rem; 
   color: #666;
   margin-top: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .package-price-info {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: start;
   align-items: start;
@@ -209,7 +209,7 @@ Packages Content Box (The Gold Border)
 .package-features {
   list-style: none; 
   padding: 0; 
-  margin: 0 0 24px 0;
+  margin: 0 0 12px 0;
   display: flex;
   flex-direction: column;
   gap: 12px; 
@@ -248,7 +248,7 @@ Packages Content Box (The Gold Border)
 .btn-book-now {
   width: 100%; 
   background-color: #ffffff;
-  color: #d4af6d;
+  color: #ffffff;
   border: 1px solid #d4af6d;
   padding: 7px 12px; 
   border-radius: 4px;
@@ -395,8 +395,8 @@ Packages Content Box (The Gold Border)
   .package-card.is-expanded .package-features {
     max-height: 500px; /* Adjust this to be taller than your longest list */
     opacity: 1;
-    margin-top: 15px;
-    margin-bottom: 24px;
+    margin-top: 0px;
+    margin-bottom: 12px;
   }
 
   /* Flip the icon 180 degrees when expanded */
