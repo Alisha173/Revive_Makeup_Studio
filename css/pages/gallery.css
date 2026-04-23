@@ -119,11 +119,11 @@
   z-index: 10;
   cursor: pointer;
 
-  .nav-hitbox {
+
   -webkit-tap-highlight-color: transparent;
   /* Optional: removes standard outline for keyboard navigation if it's also bothering you */
   outline: none; 
-}
+
 }
 
 .nav-hitbox.left {
