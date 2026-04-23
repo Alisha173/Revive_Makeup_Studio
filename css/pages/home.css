@@ -214,7 +214,7 @@
 }
 .noRush{
   grid-column: 1/-1;
-  background-color: #F8EDDA;
+  background-color: var(--color-background-2);
   border: 1px solid #C09C5A;
   border-radius: 10px;
   font-size: 12px;
@@ -222,7 +222,8 @@
   color: rgb(77, 76, 76);
 }
 .noRush span{
-  color :#C09C5A;
+  color :var(--color-primary-dark);
+  font-weight: 470;
 }
 
 #ourWork{
@@ -441,7 +442,7 @@
 #ourTestimonials .testBtn:hover{
   cursor: pointer;
   /* color: rgb(176, 135, 0); */
-  color: #a2763c;
+  color: var(--color-primary-dark);
   background-color: #F5EAD7;
 
 }

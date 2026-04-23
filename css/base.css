@@ -24,6 +24,7 @@
 :root {
     /* Colors */
     --color-primary: #b38b59;   /* gold */
+    --color-primary-dark: #a2763c; /*dark gold*/ 
     --color-dark: #1a1a1a;
     --color-light: #ffffff;
     --color-muted: #777777;
@@ -33,6 +34,7 @@
     
     /* Gradients */
     --accent-color: linear-gradient(to right, #D4AF73 70%, #bb9a66 90%);
+    --btn-gradient: linear-gradient(90deg, #eec784, #CEAA6C);
     
     /* Backgrounds */
     --bg-dark: #0f0f0f;
