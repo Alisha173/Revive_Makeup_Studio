@@ -251,7 +251,7 @@
 
 .alt-text-item:hover {
   color: #555;
-  transform: translateX(5px);
+  /* transform: translateX(5px); */
 }
 
 .alt-text-item.active {
