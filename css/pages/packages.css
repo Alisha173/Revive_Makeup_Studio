@@ -263,6 +263,7 @@ Packages Content Box (The Gold Border)
 .btn-book-now:hover {
   background-color: #d4af6d;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .btn-callback {
